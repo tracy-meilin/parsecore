@@ -3,12 +3,18 @@
 
 #include "stdafx.h"
 #include "CustomOperators.h"
+#include "InternalBitConverter.h"
+#include "AbstractIOHandler.h"
+#include "InputHandler.h"
+#include "AbstractHeader.h"
+#include "Header.h"
+#include "StructuredStorageReader.h"
 #include "SimpleBinStream.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	std::vector<Product> vec_src;
+	/*std::vector<Product> vec_src;
 	vec_src.push_back(Product("Book", 10.0f, 50));
 	vec_src.push_back(Product("Phone", 25.0f, 20));
 	vec_src.push_back(Product("Pillow", 8.0f, 10));
@@ -18,7 +24,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	simple::memfile_istream<std::true_type> in("file4.bin");
 	std::vector<Product> vec_dest;
-	in >> vec_dest;
+	in >> vec_dest;*/
+
+	StructuredStorageReader st(_T("D:\\ppt.ppt"));
 
 	return 0;
 }

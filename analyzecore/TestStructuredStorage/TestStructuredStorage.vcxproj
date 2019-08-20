@@ -84,6 +84,7 @@
     <ClInclude Include="AbstractHeader.h" />
     <ClInclude Include="AbstractIOHandler.h" />
     <ClInclude Include="CustomOperators.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
     <ClInclude Include="SimpleBinStream.h" />
@@ -94,6 +95,7 @@
   <ItemGroup>
     <ClCompile Include="AbstractHeader.cpp" />
     <ClCompile Include="AbstractIOHandler.cpp" />
+    <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />
     <ClCompile Include="stdafx.cpp">

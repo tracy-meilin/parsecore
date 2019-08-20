@@ -7,7 +7,7 @@ public:
 	AbstractIOHandler();
 	~AbstractIOHandler();
 
-	unsigned long GetIOStreamSize();
+	virtual unsigned long GetIOStreamSize() = 0;
 
 	void InitBitConverter(bool isLittleEndian);
 
@@ -17,7 +17,8 @@ public:
 
 protected:
 	shared_ptr<simple::file_istream<std::true_type>> _spStream = nullptr;
-	shared_ptr<AbstractHeader> _spHeader;
-	shared_ptr<InternalBitConverter> _spBitConverter;
+	shared_ptr<InternalBitConverter> _spBitConverter = nullptr;
+	
+	weak_ptr<AbstractHeader> _spHeader;
 };
 

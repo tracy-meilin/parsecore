@@ -24,3 +24,17 @@ InputHandler::InputHandler(shared_ptr<simple::file_istream<std::true_type>>& spS
 InputHandler::~InputHandler()
 {
 }
+
+unsigned long InputHandler::GetIOStreamSize()
+{
+	return _spStream->file_length();
+}
+
+void InputHandler::ReadPosition(char* p, size_t size, long position)
+{
+	if (position < 0)
+		return;
+
+	_spStream->seekg(position, 0);
+	_spStream->read(p, size);
+}
