@@ -18,16 +18,22 @@ public:
 	/// </summary>
 	void ReadPosition(char* p, size_t size, long position);
 
-	void Read(unsigned char* p, size_t size);
-
-	void Read(unsigned char* p, int offset, size_t size);
-
 	/// <summary>
 	/// Reads bytes at the given position of the file stream into a byte array.
 	/// The array size determines the number of bytes to read.
 	/// Advances the stream pointer accordingly.
 	/// </summary>
 	void ReadPosition(unsigned char* p, size_t size, long position);
+
+	void ReadChar(char& r);
+
+	void ReadChar(unsigned char& r);
+
+	void Read(unsigned char* p, size_t size);
+
+	void Read(unsigned char* p, int offset, size_t size);
+
+	void Read(char* p, size_t size);
 
 	unsigned __int64 ReadUInt64(long position);
 
@@ -39,6 +45,8 @@ public:
 
 	unsigned long ReadUInt32();
 
+	wstring ReadString(int size);
+
 	long SeekToSector(long sector);
 
 	/// <summary>
@@ -46,7 +54,7 @@ public:
 	/// May only be used after SetHeaderReference() is called.
 	/// </summary>
 	/// <returns>The new position in the stream.</returns>
-	long SeekToPositionInSector(long sector, long position);
+	long SeekToPositionInSector(__int64 sector, __int64 position);
 
 private:
 	//simple::memfile_istream<std::true_type> _stream("file4.bin");

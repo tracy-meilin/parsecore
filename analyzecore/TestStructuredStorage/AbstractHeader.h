@@ -9,14 +9,15 @@ public:
 
 	virtual void GetVirtual() = 0;
 
+	void SetSectorShift(unsigned short value);
+	unsigned short GetSectorShift(){ return _sectorShift; }
+
 protected:
 	unsigned __int64 MAGIC_NUMBER = 0xE11AB1A1E011CFD0;
 
 	shared_ptr<AbstractIOHandler> _spIoHandler;
 
 public:
-	// Sector shift and sector size
-	unsigned short _sectorShift;
 	//
 	unsigned short _sectorSize;
 	// Minisector shift and Minisector size
@@ -39,5 +40,9 @@ public:
 	unsigned long _diFatStartSector;
 	// CSectDif
 	unsigned long _noSectorsInDiFatChain;
+
+private:
+	// Sector shift and sector size
+	unsigned short _sectorShift;
 };
 

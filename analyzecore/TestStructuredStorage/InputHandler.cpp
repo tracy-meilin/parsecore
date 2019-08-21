@@ -53,6 +53,17 @@ void InputHandler::ReadPosition(unsigned char* p, size_t size, long position)
 }
 
 
+void InputHandler::ReadChar(char& r)
+{
+	_spStream->read(&r, 1);
+}
+
+
+void InputHandler::ReadChar(unsigned char& r)
+{
+	_spStream->read(&r, 1);
+}
+
 void InputHandler::Read(unsigned char* p, size_t size)
 {
 	_spStream->read(p, size);
@@ -60,6 +71,12 @@ void InputHandler::Read(unsigned char* p, size_t size)
 
 // 未知offset的具体意义
 void InputHandler::Read(unsigned char* p, int offset, size_t size)
+{
+	_spStream->read(p, size);
+}
+
+
+void InputHandler::Read(char* p, size_t size)
 {
 	_spStream->read(p, size);
 }
@@ -109,6 +126,23 @@ unsigned long InputHandler::ReadUInt32()
 }
 
 
+std::wstring InputHandler::ReadString(int size)
+{
+	if (size < 1)
+		return _T("");
+
+	char* byteArray = new char[size];
+	memset(byteArray, 0, size);
+	Read(byteArray, size);
+
+	string str;
+	str.assign(byteArray, size);
+
+	delete[] byteArray;
+
+	return Common::Utf8ToUnicode(str);
+}
+
 long InputHandler::SeekToSector(long sector)
 {
 	shared_ptr<Header> spHeader = dynamic_pointer_cast<Header>(_spHeader.lock());
@@ -124,11 +158,11 @@ long InputHandler::SeekToSector(long sector)
 		return -1;
 	}
 
-	_spStream->seekg((sector << spHeader->_sectorShift) + Common::Measures::HeaderSize, SEEK_SET);
+	_spStream->seekg((sector << spHeader->GetSectorShift()) + Common::Measures::HeaderSize, SEEK_SET);
 	return -1;
 }
 
-long InputHandler::SeekToPositionInSector(long sector, long position)
+long InputHandler::SeekToPositionInSector(__int64 sector, __int64 position)
 {
 	shared_ptr<Header> spHeader = dynamic_pointer_cast<Header>(_spHeader.lock());
 	if (spHeader == nullptr)
@@ -139,10 +173,11 @@ long InputHandler::SeekToPositionInSector(long sector, long position)
 
 	if (sector == -1)
 	{
-		_spStream->seekg(position, SEEK_SET);
+		_spStream->seekg((__int64)position, SEEK_SET);
 		return -1;
 	}
 
-	_spStream->seekg((sector << spHeader->_sectorShift) + Common::Measures::HeaderSize + position, SEEK_SET);
+	__int64 tmp = (sector << spHeader->GetSectorShift()) + Common::Measures::HeaderSize + position;
+	_spStream->seekg((sector << spHeader->GetSectorShift()) + Common::Measures::HeaderSize + position, SEEK_SET);
 	return -1;
 }

@@ -63,7 +63,7 @@ std::vector<unsigned long> AbstractFat::GetSectorChain(unsigned long startSector
 		// Chain too long
 		if (result.size() > maxCount)
 		{
-			return result;
+			//throw new ChainSizeMismatchException(name);
 		}
 	}
 

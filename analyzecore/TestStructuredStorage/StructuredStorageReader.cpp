@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "Common.h"
+#include "GlobalDefines.h"
 #include "SimpleBinStream.h"
 #include "InternalBitConverter.h"
 #include "AbstractIOHandler.h"
@@ -7,6 +9,9 @@
 #include "Header.h"
 #include "AbstractFat.h"
 #include "Fat.h"
+#include "AbstractDirectoryEntry.h"
+#include "DirectoryEntry.h"
+#include "DirectoryTree.h"
 #include "StructuredStorageReader.h"
 
 
@@ -27,6 +32,7 @@ StructuredStorageReader::StructuredStorageReader(const wstring& fileName)
 	//////////////////////////////////////////////////////////////////////////
 
 	_spFat = make_shared<Fat>(_spHeader, _spFileHandler);
+	_spDirectory = make_shared<DirectoryTree>(_spFat, _spHeader, _spFileHandler);
 }
 
 StructuredStorageReader::~StructuredStorageReader()

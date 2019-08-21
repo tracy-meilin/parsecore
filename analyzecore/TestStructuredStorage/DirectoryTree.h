@@ -21,5 +21,6 @@ private:
 	shared_ptr<Header> _spHeader = nullptr;
 	shared_ptr<InputHandler> _spFileHandler = nullptr;
 	vector<unsigned long> _sectorsUsedByDirectory;
+	vector<shared_ptr<DirectoryEntry>> _directoryEntries;
 };
 

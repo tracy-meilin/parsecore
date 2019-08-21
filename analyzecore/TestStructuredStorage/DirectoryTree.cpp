@@ -23,6 +23,8 @@ DirectoryTree::DirectoryTree(shared_ptr<Fat> spFat, shared_ptr<Header> spHeader,
 	_spFat = spFat;
 	_spHeader = spHeader;
 	_spFileHandler = spFileHandler;
+
+	Init(_spHeader->_directoryStartSector);
 }
 
 DirectoryTree::~DirectoryTree()
@@ -38,7 +40,7 @@ void DirectoryTree::Init(unsigned long startSector)
 	else
 	{
 		_sectorsUsedByDirectory = _spFat->GetSectorChain(startSector, 
-			(unsigned long)ceil((double)_spFileHandler->GetIOStreamSize() / _spHeader->_sectorSize), 
+			(unsigned __int64)ceil((double)_spFileHandler->GetIOStreamSize() / _spHeader->_sectorSize), 
 			_T("Dictory"), 
 			true);
 	}
@@ -56,7 +58,35 @@ void DirectoryTree::GetAllDirectoryEntriesRecursive(unsigned long sid, wstring p
 	if (spEntry == nullptr)
 		return;
 
-	//unsigned long = spEntry->
+	unsigned long left = spEntry->_leftSiblingSid;
+	unsigned long right = spEntry->_rightSiblingSid;
+	unsigned long child = spEntry->_childSiblingSid;
+
+	for (auto ele : _directoryEntries)
+	{
+		if (ele->_sid == spEntry->_sid)
+			return;
+	}
+
+	_directoryEntries.push_back(spEntry);
+
+	// Left sibling
+	if (left != Common::SectorId::NOSTREAM)
+	{
+		GetAllDirectoryEntriesRecursive(left, path);
+	}
+
+	// Right sibling
+	if (right != Common::SectorId::NOSTREAM)
+	{
+		GetAllDirectoryEntriesRecursive(right, path);
+	}
+
+	// Child
+	if (child != Common::SectorId::NOSTREAM)
+	{
+		GetAllDirectoryEntriesRecursive(child, path + ((sid == 0) ? _T("") : spEntry->_name) + _T("\\"));
+	}
 }
 
 /// <summary>

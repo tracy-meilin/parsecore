@@ -20,7 +20,7 @@ public:
 	unsigned long _startSector;
 	unsigned __int64 _sizeOfStream;
 
-protected:
+//protected:
 	wstring _path;
 	wstring _name;
 	

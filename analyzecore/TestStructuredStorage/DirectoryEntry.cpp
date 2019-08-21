@@ -30,5 +30,11 @@ DirectoryEntry::~DirectoryEntry()
 
 void DirectoryEntry::ReadDirectoryEntry()
 {
+	_name = _spFileHandler->ReadString(64);
 
+	// Name length check: lengthOfName = length of the element in bytes including Unicode NULL
+	unsigned short lengthOfName = _spFileHandler->ReadUInt16();
+	char tmp;
+	_spFileHandler->ReadChar(tmp);
+	_type = (Common::DirectoryEntryType)tmp;
 }

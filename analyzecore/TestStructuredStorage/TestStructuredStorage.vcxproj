@@ -104,6 +104,7 @@
     <ClCompile Include="AbstractFat.cpp" />
     <ClCompile Include="AbstractHeader.cpp" />
     <ClCompile Include="AbstractIOHandler.cpp" />
+    <ClCompile Include="Common.cpp" />
     <ClCompile Include="DirectoryEntry.cpp" />
     <ClCompile Include="DirectoryTree.cpp" />
     <ClCompile Include="Fat.cpp" />

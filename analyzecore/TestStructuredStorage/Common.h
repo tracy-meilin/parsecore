@@ -18,4 +18,12 @@ namespace Common{
 		memcpy(b, &u, n);
 		return b;
 	}
+
+	wstring Utf8ToUnicode(const string& strUtf8);
+
+	wstring Utf8ToUnicode(const char* pszUtf8);
+
+	string UnicodeToUtf8(const wstring& strUnicode);
+
+	string UnicodeToUtf8(const wchar_t* pszUnicode);
 }
