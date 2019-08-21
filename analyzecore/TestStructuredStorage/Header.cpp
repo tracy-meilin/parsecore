@@ -15,8 +15,8 @@ Header::Header()
 Header::Header(shared_ptr<InputHandler> spfileHandler)
 {
 	_spIoHandler = spfileHandler;
-	_spIoHandler->SetHeaderReference(shared_ptr<AbstractHeader>(this));
-	ReadHeader();
+	/*_spIoHandler->SetHeaderReference(shared_ptr<AbstractHeader>(this));
+	ReadHeader();*/
 }
 
 Header::~Header()
@@ -40,4 +40,24 @@ void Header::ReadHeader()
 	{
 		spInputHandler->InitBitConverter(false);
 	}
+
+	unsigned __int64 lmagic = spInputHandler->ReadUInt64(0x0);
+	if (lmagic != MAGIC_NUMBER)
+	{
+		return;
+	}
+
+	_sectorShift = spInputHandler->ReadUInt16(0x1E);
+	_miniSectorShift = spInputHandler->ReadUInt16();
+
+	_noSectorsInDirectoryChain4KB = spInputHandler->ReadUInt32(0x28);
+	_noSectorsInFatChain = spInputHandler->ReadUInt32();
+	_directoryStartSector = spInputHandler->ReadUInt32();
+
+	_miniSectorCutoff = spInputHandler->ReadUInt32(0x38);
+	_miniFatStartSector = spInputHandler->ReadUInt32();
+	_noSectorsInMiniFatChain = spInputHandler->ReadUInt32();
+	_diFatStartSector = spInputHandler->ReadUInt32();
+	_noSectorsInDiFatChain = spInputHandler->ReadUInt32();
+
 }

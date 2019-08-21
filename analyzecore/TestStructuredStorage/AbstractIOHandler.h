@@ -11,7 +11,7 @@ public:
 
 	void InitBitConverter(bool isLittleEndian);
 
-	void SetHeaderReference(shared_ptr<AbstractHeader> spHeader);
+	void SetHeaderReference(weak_ptr<AbstractHeader> spHeader);
 
 	void CloseStream();
 

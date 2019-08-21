@@ -8,6 +8,8 @@
 #include "InputHandler.h"
 #include "AbstractHeader.h"
 #include "Header.h"
+#include "AbstractFat.h"
+#include "Fat.h"
 #include "StructuredStorageReader.h"
 #include "SimpleBinStream.h"
 
@@ -26,7 +28,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::vector<Product> vec_dest;
 	in >> vec_dest;*/
 
-	StructuredStorageReader st(_T("D:\\ppt.ppt"));
+	StructuredStorageReader st(_T("F:\\ppttest\\1.ppt"));
 
 	return 0;
 }

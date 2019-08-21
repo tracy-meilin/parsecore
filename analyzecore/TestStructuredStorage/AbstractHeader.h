@@ -7,20 +7,22 @@ public:
 	AbstractHeader();
 	~AbstractHeader();
 
+	virtual void GetVirtual() = 0;
+
 protected:
 	unsigned __int64 MAGIC_NUMBER = 0xE11AB1A1E011CFD0;
 
 	shared_ptr<AbstractIOHandler> _spIoHandler;
 
-private:
+public:
 	// Sector shift and sector size
-	unsigned long _sectorShift;
+	unsigned short _sectorShift;
 	//
-	unsigned long _sectorSize;
+	unsigned short _sectorSize;
 	// Minisector shift and Minisector size
-	unsigned long _miniSectorShift;
+	unsigned short _miniSectorShift;
 	//
-	unsigned long _miniSectorSize;
+	unsigned short _miniSectorSize;
 	// CSectDir
 	unsigned long _noSectorsInDirectoryChain4KB;
 	// CSectFat

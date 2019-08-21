@@ -19,7 +19,7 @@ void AbstractIOHandler::InitBitConverter(bool isLittleEndian)
 	_spBitConverter = make_shared<InternalBitConverter>(isLittleEndian);
 }
 
-void AbstractIOHandler::SetHeaderReference(shared_ptr<AbstractHeader> spHeader)
+void AbstractIOHandler::SetHeaderReference(weak_ptr<AbstractHeader> spHeader)
 {
 	_spHeader = spHeader;
 }

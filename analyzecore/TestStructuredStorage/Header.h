@@ -8,7 +8,8 @@ public:
 	Header(shared_ptr<InputHandler> spfileHandler);
 	~Header();
 
-private:
+	virtual void GetVirtual() override{};
+
 	void ReadHeader();
 };
 

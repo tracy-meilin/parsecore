@@ -81,9 +81,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractDirectoryEntry.h" />
+    <ClInclude Include="AbstractFat.h" />
     <ClInclude Include="AbstractHeader.h" />
     <ClInclude Include="AbstractIOHandler.h" />
+    <ClInclude Include="Common.h" />
     <ClInclude Include="CustomOperators.h" />
+    <ClInclude Include="DirectoryEntry.h" />
+    <ClInclude Include="DirectoryTree.h" />
+    <ClInclude Include="Fat.h" />
+    <ClInclude Include="GlobalDefines.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
@@ -93,8 +100,13 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractDirectoryEntry.cpp" />
+    <ClCompile Include="AbstractFat.cpp" />
     <ClCompile Include="AbstractHeader.cpp" />
     <ClCompile Include="AbstractIOHandler.cpp" />
+    <ClCompile Include="DirectoryEntry.cpp" />
+    <ClCompile Include="DirectoryTree.cpp" />
+    <ClCompile Include="Fat.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />

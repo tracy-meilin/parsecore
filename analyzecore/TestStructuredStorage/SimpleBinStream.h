@@ -259,6 +259,14 @@ public:
 		}
 		read_length += size;
 	}
+	void read(unsigned char* p, size_t size)
+	{
+		if (std::fread(reinterpret_cast<void*>(p), size, 1, input_file_ptr) != 1)
+		{
+			throw std::runtime_error("Read Error!");
+		}
+		read_length += size;
+	}
 private:
 	void compute_length()
 	{
