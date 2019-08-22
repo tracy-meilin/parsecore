@@ -12,6 +12,8 @@
 #include <iostream>
 #include <memory>
 #include <list>
+#include <vector>
+#include <string>
 #include <windows.h>
 
 using namespace std;

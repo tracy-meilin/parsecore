@@ -111,3 +111,32 @@ void DirectoryTree::SeekToDirectoryEntry(unsigned long sid)
 	_spFileHandler->SeekToPositionInSector(_sectorsUsedByDirectory[sectorInDirectoryChain], 
 		(sid * Common::Measures::DirectoryEntrySize) % _spHeader->_sectorSize);
 }
+
+unsigned long DirectoryTree::GetMiniStreamStart()
+{
+	shared_ptr<DirectoryEntry> spRoot = GetDirectoryEntry(0);
+	if (spRoot == nullptr)
+		return 0;
+
+	return spRoot->_startSector;
+}
+
+unsigned __int64 DirectoryTree::GetSizeOfMiniStream()
+{
+	shared_ptr<DirectoryEntry> spRoot = GetDirectoryEntry(0);
+	if (spRoot == nullptr)
+		return 0;
+
+	return spRoot->_sizeOfStream;
+}
+
+std::shared_ptr<DirectoryEntry> DirectoryTree::GetDirectoryEntry(unsigned long sid)
+{
+	for (auto ele : _directoryEntries)
+	{
+		if (ele->_sid == sid)
+			return ele;
+	}
+
+	return nullptr;
+}

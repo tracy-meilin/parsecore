@@ -91,6 +91,13 @@ unsigned __int64 InputHandler::ReadUInt64(long position)
 	return Common::bytes2T<unsigned __int64>(byteArray);
 }
 
+unsigned __int64 InputHandler::ReadUInt64()
+{
+	unsigned char byteArray[8] = { 0 };
+	Read(byteArray, 8);
+	return Common::bytes2T<unsigned __int64>(byteArray);
+}
+
 unsigned short InputHandler::ReadUInt16(long position)
 {
 	if (position < 0)
@@ -126,21 +133,28 @@ unsigned long InputHandler::ReadUInt32()
 }
 
 
-std::wstring InputHandler::ReadString(int size)
+std::wstring InputHandler::ReadUnicodeString(int size)
 {
 	if (size < 1)
 		return _T("");
 
-	char* byteArray = new char[size];
-	memset(byteArray, 0, size);
+	wchar_t* byteArray = new wchar_t[size];
+	for (int i = 0; i < size; ++i)
+	{
+		byteArray[i] = ReadUInt16();
+	}
+	/*memset(byteArray, 0, size);
 	Read(byteArray, size);
 
 	string str;
-	str.assign(byteArray, size);
+	str.assign(byteArray, size);*/
+
+	wstring str(byteArray);
 
 	delete[] byteArray;
+	return str;
 
-	return Common::Utf8ToUnicode(str);
+	//return Common::Utf8ToUnicode(str);
 }
 
 long InputHandler::SeekToSector(long sector)

@@ -37,6 +37,8 @@ public:
 
 	unsigned __int64 ReadUInt64(long position);
 
+	unsigned __int64 ReadUInt64();
+
 	unsigned short ReadUInt16(long position);
 
 	unsigned short ReadUInt16();
@@ -45,7 +47,7 @@ public:
 
 	unsigned long ReadUInt32();
 
-	wstring ReadString(int size);
+	wstring ReadUnicodeString(int size);
 
 	long SeekToSector(long sector);
 

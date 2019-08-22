@@ -12,6 +12,7 @@
 #include "AbstractDirectoryEntry.h"
 #include "DirectoryEntry.h"
 #include "DirectoryTree.h"
+#include "MiniFat.h"
 #include "StructuredStorageReader.h"
 
 
@@ -33,8 +34,10 @@ StructuredStorageReader::StructuredStorageReader(const wstring& fileName)
 
 	_spFat = make_shared<Fat>(_spHeader, _spFileHandler);
 	_spDirectory = make_shared<DirectoryTree>(_spFat, _spHeader, _spFileHandler);
+	_spMiniFat = make_shared<MiniFat>(_spFat, _spHeader, _spFileHandler, _spDirectory->GetMiniStreamStart(), _spDirectory->GetSizeOfMiniStream());
 }
 
 StructuredStorageReader::~StructuredStorageReader()
 {
+
 }

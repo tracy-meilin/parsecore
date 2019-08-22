@@ -94,10 +94,13 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
+    <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="PowerPointDocument.h" />
     <ClInclude Include="SimpleBinStream.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StructuredStorageReader.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="VirtualStream.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractDirectoryEntry.cpp" />
@@ -111,12 +114,15 @@
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />
+    <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="PowerPointDocument.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="StructuredStorageReader.cpp" />
     <ClCompile Include="TestStructuredStorage.cpp" />
+    <ClCompile Include="VirtualStream.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

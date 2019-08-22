@@ -69,6 +69,15 @@
     <ClInclude Include="AbstractDirectoryEntry.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MiniFat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerPointDocument.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualStream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -111,6 +120,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniFat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerPointDocument.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualStream.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

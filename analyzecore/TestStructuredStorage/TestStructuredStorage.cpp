@@ -14,7 +14,9 @@
 #include "AbstractDirectoryEntry.h"
 #include "DirectoryEntry.h"
 #include "DirectoryTree.h"
+#include "MiniFat.h"
 #include "StructuredStorageReader.h"
+#include "PowerPointDocument.h"
 #include "SimpleBinStream.h"
 
 
@@ -52,8 +54,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << s.size() << '\n' << s << '\n';
 
 
-
-	StructuredStorageReader st(_T("F:\\ppttest\\1.ppt"));
+	shared_ptr<StructuredStorageReader> st = make_shared<StructuredStorageReader>(_T("F:\\ppttest\\1.ppt"));
+	shared_ptr<PowerPointDocument> spPPT = make_shared<PowerPointDocument>(st);
+	//StructuredStorageReader st(_T("F:\\ppttest\\1.ppt"));
 
 	return 0;
 }

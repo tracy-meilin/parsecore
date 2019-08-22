@@ -12,9 +12,9 @@ public:
 	Fat(shared_ptr<Header> spHeader, shared_ptr<InputHandler> spFileHandler);
 	~Fat();
 
-	virtual unsigned long GetNextSectorInChain(unsigned long currentSector);
+	virtual unsigned long GetNextSectorInChain(unsigned long currentSector) override;
 
-	unsigned short GetSectorSize(){ return _spHeader->_sectorSize; }
+	virtual unsigned short GetSectorSize() override { return _spHeader->_sectorSize; }
 
 private:
 	void Init();

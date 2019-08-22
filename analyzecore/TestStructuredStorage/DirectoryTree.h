@@ -7,6 +7,10 @@ public:
 	DirectoryTree(shared_ptr<Fat> spFat, shared_ptr<Header> spHeader, shared_ptr<InputHandler> spFileHandler);
 	~DirectoryTree();
 
+	unsigned long GetMiniStreamStart();
+
+	unsigned __int64 GetSizeOfMiniStream();
+
 private:
 	void Init(unsigned long startSector);
 
@@ -15,6 +19,8 @@ private:
 	shared_ptr<DirectoryEntry> ReadDirectoryEntry(unsigned long sid, wstring path);
 
 	void SeekToDirectoryEntry(unsigned long sid);
+
+	shared_ptr<DirectoryEntry> GetDirectoryEntry(unsigned long sid);
 
 private:
 	shared_ptr<Fat> _spFat = nullptr;

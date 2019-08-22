@@ -14,6 +14,8 @@ public:
 	/// <returns>The next sector in the chain</returns>
 	virtual unsigned long GetNextSectorInChain(unsigned long currentSector) = 0;
 
+	virtual unsigned short GetSectorSize() = 0;
+
 	vector<unsigned long> GetSectorChain(unsigned long startSector, unsigned __int64 maxCount, wstring name);
 
 	vector<unsigned long> GetSectorChain(unsigned long startSector, unsigned __int64 maxCount, wstring name, bool immediateCycleCheck);

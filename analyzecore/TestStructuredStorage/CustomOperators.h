@@ -1,6 +1,4 @@
-
-#include <vector>
-#include <string>
+#include "stdafx.h"
 #include "SimpleBinStream.h"
 
 struct Product
