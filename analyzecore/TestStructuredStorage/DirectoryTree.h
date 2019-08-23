@@ -15,6 +15,8 @@ public:
 
 	shared_ptr<DirectoryEntry> GetDirectoryEntry(wstring path);
 
+	vector<wstring> GetPathsOfAllStreamEntries();
+
 private:
 	void Init(unsigned long startSector);
 

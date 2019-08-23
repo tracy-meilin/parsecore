@@ -324,7 +324,7 @@ class mem_istream
 {
 public:
 	mem_istream() : m_index(0) {}
-	mem_istream(const char * mem, size_t size) 
+	mem_istream(const unsigned char * mem, size_t size)
 	{
 		open(mem, size);
 	}
@@ -334,7 +334,7 @@ public:
 		m_vec.reserve(vec.size());
 		m_vec.assign(vec.begin(), vec.end());
 	}
-	void open(const char * mem, size_t size)
+	void open(const unsigned char * mem, size_t size)
 	{
 		m_index = 0;
 		m_vec.clear();
@@ -382,62 +382,115 @@ public:
 	}
 
 	template<typename T>
-	void read(T& t)
+	size_t read(T& t)
 	{
-		if(eof())
-			throw std::runtime_error("Premature end of array!");
-
-		if((m_index + sizeof(T)) > m_vec.size())
-			throw std::runtime_error("Premature end of array!");
+		if (eof())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
+			
+		if ((m_index + sizeof(T)) > m_vec.size())
+		{
+			return 0;
+			//throw std::runtime_error("Premature end of array!");
+		}
 
 		std::memcpy(reinterpret_cast<void*>(&t), &m_vec[m_index], sizeof(T));
 
 		simple::swap_endian_if_same_endian_is_false(t, m_same_type);
 
 		m_index += sizeof(T);
+
+		return sizeof(T);
 	}
 
-	void read(typename std::vector<char>& vec)
+	size_t read(typename std::vector<char>& vec)
 	{
 		if (eof())
-			throw std::runtime_error("Premature end of array!");
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
 
 		if ((m_index + vec.size()) > m_vec.size())
-			throw std::runtime_error("Premature end of array!");
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
 
 		std::memcpy(reinterpret_cast<void*>(&vec[0]), &m_vec[m_index], vec.size());
 
 		m_index += vec.size();
+
+		return vec.size();
 	}
 
-	void read(char* p, size_t size)
+	size_t read(char* p, size_t size)
 	{
-		if(eof())
-			throw std::runtime_error("Premature end of array!");
+		if (eof())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
 
-		if((m_index + size) > m_vec.size())
-			throw std::runtime_error("Premature end of array!");
+		if ((m_index + size) > m_vec.size())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
 
 		std::memcpy(reinterpret_cast<void*>(p), &m_vec[m_index], size);
 
 		m_index += size;
+
+		return size;
 	}
 
-	void read(std::string& str, const unsigned int size)
+	size_t read(unsigned char* p, size_t size)
 	{
 		if (eof())
-			throw std::runtime_error("Premature end of array!");
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
 
 		if ((m_index + size) > m_vec.size())
-			throw std::runtime_error("Premature end of array!");
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
+
+		std::memcpy(reinterpret_cast<void*>(p), &m_vec[m_index], size);
+
+		m_index += size;
+
+		return size;
+	}
+
+	size_t read(std::string& str, const unsigned int size)
+	{
+		if (eof())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
+			
+		if ((m_index + size) > m_vec.size())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
 
 		str.assign(&m_vec[m_index], size);
 
 		m_index += str.size();
+
+		return size;
 	}
 
 private:
-	std::vector<char> m_vec;
+	std::vector<unsigned char> m_vec;
 	size_t m_index;
 	same_endian_type m_same_type;
 };

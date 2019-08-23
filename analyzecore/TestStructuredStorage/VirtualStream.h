@@ -1,11 +1,16 @@
 #pragma once
 
 class VirtualStream
+	: public BaseStream
 {
 public:
 	VirtualStream();
 	VirtualStream(shared_ptr<AbstractFat> spFat, unsigned long startSector, __int64 sizeOfStream, wstring name);
-	~VirtualStream();
+	virtual ~VirtualStream();
+
+	virtual int Read(unsigned char* p, int offset, size_t size) override;
+
+	virtual int Read(char* p, int offset, size_t size) override;
 
 	unsigned short ReadUInt16();
 
@@ -13,15 +18,13 @@ public:
 
 	int Read(unsigned char* p, size_t size);
 
-	int Read(unsigned char* p, int offset, size_t size);
-
 	int Read(unsigned char* p, int offset, size_t size, __int64 position);
 
 	// get/set
-	__int64 GetPosition(){ return _position; }
-	void SetPosition(__int64 position){ _position = position; }
+	virtual __int64 GetPosition() override{ return _position; }
+	virtual void SetPosition(__int64 position) override{ _position = position; }
 
-	__int64 GetLength(){ return _length; }
+	virtual __int64 GetLength() override{ return _length; }
 
 private:
 	void Init(unsigned long startSector);

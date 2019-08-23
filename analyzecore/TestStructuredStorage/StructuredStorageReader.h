@@ -10,6 +10,8 @@ public:
 
 	shared_ptr<VirtualStream> GetStream(wstring path);
 
+	vector<wstring> GetFullNameOfAllStreamEntries();
+
 private:
 	shared_ptr<InputHandler> _spFileHandler = nullptr;
 	shared_ptr<Header> _spHeader = nullptr;

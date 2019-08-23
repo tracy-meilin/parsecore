@@ -8,6 +8,7 @@
 #include "AbstractHeader.h"
 #include "Header.h"
 #include "AbstractFat.h"
+#include "BaseStream.h"
 #include "VirtualStream.h"
 #include <math.h>
 
@@ -56,6 +57,11 @@ int VirtualStream::Read(unsigned char* p, size_t size)
 int VirtualStream::Read(unsigned char* p, int offset, size_t size)
 {
 	return Read(p, offset, size, _position);
+}
+
+int VirtualStream::Read(char* p, int offset, size_t size)
+{
+	return Read((unsigned char*)p, offset, size, _position);
 }
 
 /// <summary>

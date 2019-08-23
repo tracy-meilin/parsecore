@@ -3,7 +3,7 @@ class Record
 {
 public:
 	Record();
-	Record(shared_ptr<VirtualStream> spVirtualStream,
+	Record(shared_ptr<BinaryReader> spVirtualStream,
 		unsigned long bodySize,
 		unsigned long typeCode,
 		unsigned int version,
@@ -19,5 +19,8 @@ public:
 	unsigned long Instance;
 
 	unsigned char* RawData;
+
+protected:
+	shared_ptr<BinaryReader> _spBinaryReader = nullptr;
 };
 

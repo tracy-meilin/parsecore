@@ -85,6 +85,8 @@
     <ClInclude Include="AbstractFat.h" />
     <ClInclude Include="AbstractHeader.h" />
     <ClInclude Include="AbstractIOHandler.h" />
+    <ClInclude Include="BaseStream.h" />
+    <ClInclude Include="BinaryReader.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CurrentUserAtom.h" />
     <ClInclude Include="CustomOperators.h" />
@@ -95,10 +97,13 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
+    <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="Pictures.h" />
     <ClInclude Include="PowerPointDocument.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="RecordFactory.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SimpleBinStream.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="stdafx.h" />
@@ -111,6 +116,8 @@
     <ClCompile Include="AbstractFat.cpp" />
     <ClCompile Include="AbstractHeader.cpp" />
     <ClCompile Include="AbstractIOHandler.cpp" />
+    <ClCompile Include="BaseStream.cpp" />
+    <ClCompile Include="BinaryReader.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="CurrentUserAtom.cpp" />
     <ClCompile Include="DirectoryEntry.cpp" />
@@ -119,7 +126,9 @@
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />
+    <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="Pictures.cpp" />
     <ClCompile Include="PowerPointDocument.cpp" />
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordFactory.cpp" />
@@ -130,6 +139,9 @@
     <ClCompile Include="StructuredStorageReader.cpp" />
     <ClCompile Include="TestStructuredStorage.cpp" />
     <ClCompile Include="VirtualStream.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TestStructuredStorage.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

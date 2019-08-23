@@ -13,6 +13,7 @@
 #include "DirectoryEntry.h"
 #include "DirectoryTree.h"
 #include "MiniFat.h"
+#include "BaseStream.h"
 #include "VirtualStream.h"
 #include "StructuredStorageReader.h"
 
@@ -74,4 +75,9 @@ std::shared_ptr<VirtualStream> StructuredStorageReader::GetStream(wstring path)
 	{
 		return make_shared<VirtualStream>(_spFat, spEntry->_startSector, spEntry->_sizeOfStream, path);
 	}
+}
+
+std::vector<std::wstring> StructuredStorageReader::GetFullNameOfAllStreamEntries()
+{
+	return _spDirectory->GetPathsOfAllStreamEntries();
 }

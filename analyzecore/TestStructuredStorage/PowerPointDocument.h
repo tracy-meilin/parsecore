@@ -10,6 +10,10 @@ public:
 	
 	
 public:
-	shared_ptr<VirtualStream> spCurrentUserStream = nullptr;
+	shared_ptr<VirtualStream> _spCurrentUserStream = nullptr;
+
+	shared_ptr<VirtualStream> _spPicturesStream = nullptr;
+
+	shared_ptr<CurrentUserAtom> _spCurrentUserAtom = nullptr;
 };
 

@@ -13,6 +13,7 @@
 #include <memory>
 #include <list>
 #include <vector>
+#include <map>
 #include <string>
 #include <windows.h>
 

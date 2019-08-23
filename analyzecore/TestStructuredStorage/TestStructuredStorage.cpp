@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include "Common.h"
 #include "GlobalDefines.h"
 #include "CustomOperators.h"
 #include "InternalBitConverter.h"
@@ -15,8 +16,12 @@
 #include "DirectoryEntry.h"
 #include "DirectoryTree.h"
 #include "MiniFat.h"
+#include "BaseStream.h"
 #include "VirtualStream.h"
 #include "StructuredStorageReader.h"
+#include "BinaryReader.h"
+#include "Record.h"
+#include "CurrentUserAtom.h"
 #include "PowerPointDocument.h"
 #include "SimpleBinStream.h"
 

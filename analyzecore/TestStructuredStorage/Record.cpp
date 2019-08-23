@@ -6,6 +6,9 @@
 #include "AbstractHeader.h"
 #include "Header.h"
 #include "AbstractFat.h"
+#include "BaseStream.h"
+#include "BinaryReader.h"
+#include "MemoryStream.h"
 #include "VirtualStream.h"
 
 #include "Record.h"
@@ -16,24 +19,28 @@ Record::Record()
 }
 
 
-Record::Record(shared_ptr<VirtualStream> spVirtualStream, unsigned long bodySize, unsigned long typeCode, unsigned int version, unsigned int instance)
+Record::Record(shared_ptr<BinaryReader> spBinaryReader, unsigned long bodySize, unsigned long typeCode, unsigned int version, unsigned int instance)
 {
 	this->BodySize = bodySize;
 	this->TypeCode = typeCode;
 	this->Version = version;
 	this->Instance = instance;
+	int nRawDataSize = 0;
 
-	if (this->BodySize <= spVirtualStream->GetLength())
+	if (this->BodySize <= spBinaryReader->GetLength())
 	{
 		RawData = new unsigned char[this->BodySize];
-		spVirtualStream->Read(RawData, this->BodySize);
+		spBinaryReader->Read(RawData, this->BodySize);
+		nRawDataSize = this->BodySize;
 	}
 	else
 	{
-		int nSize = (int)(spVirtualStream->GetLength() - spVirtualStream->GetPosition());
-		RawData = new unsigned char[nSize];
-		spVirtualStream->Read(RawData, nSize);
+		nRawDataSize = (int)(spBinaryReader->GetLength() - spBinaryReader->GetPosition());
+		RawData = new unsigned char[nRawDataSize];
+		spBinaryReader->Read(RawData, nRawDataSize);
 	}
+
+	_spBinaryReader = make_shared<BinaryReader>(make_shared<MemoryStream>(RawData, nRawDataSize));
 }
 
 Record::~Record()

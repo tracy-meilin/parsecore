@@ -7,6 +7,8 @@ public:
 	RecordFactory();
 	~RecordFactory();
 
-	shared_ptr<Record> CreateRecord(shared_ptr<VirtualStream> spVirtualStream);
+	shared_ptr<Record> CreateRecord(shared_ptr<BaseStream> spVirtualStream);
+
+	shared_ptr<Record> CreateRecord(shared_ptr<BinaryReader> spBinaryReader);
 };
 

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Record">
+      <UniqueIdentifier>{8eef1e4d-a963-475b-9d4a-783ac7d09997}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -78,17 +81,32 @@
     <ClInclude Include="VirtualStream.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Record.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="RecordFactory.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Record.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordFactory.h">
+      <Filter>Record</Filter>
+    </ClInclude>
     <ClInclude Include="CurrentUserAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryReader.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryStream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Pictures.h">
+      <Filter>Record</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -143,14 +161,31 @@
     <ClCompile Include="VirtualStream.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CurrentUserAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
     <ClCompile Include="Record.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Record</Filter>
     </ClCompile>
     <ClCompile Include="RecordFactory.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryReader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CurrentUserAtom.cpp">
+    <ClCompile Include="BaseStream.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MemoryStream.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Pictures.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TestStructuredStorage.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

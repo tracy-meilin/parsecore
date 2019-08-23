@@ -163,3 +163,20 @@ std::shared_ptr<DirectoryEntry> DirectoryTree::GetDirectoryEntry(wstring path)
 
 	return nullptr;
 }
+
+/// <summary>
+/// Returns all stream entry paths contained in a compound file
+/// </summary>
+std::vector<std::wstring> DirectoryTree::GetPathsOfAllStreamEntries()
+{
+	vector<wstring> result;
+	for (auto ele : _directoryEntries)
+	{
+		if (ele->_type == Common::DirectoryEntryType::STGTY_STREAM)
+		{
+			result.push_back(ele->GetPath());
+		}
+	}
+
+	return result;
+}

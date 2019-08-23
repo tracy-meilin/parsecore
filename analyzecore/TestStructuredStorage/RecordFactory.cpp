@@ -8,9 +8,12 @@
 #include "InputHandler.h"
 #include "Header.h"
 #include "AbstractFat.h"
+#include "BaseStream.h"
 #include "VirtualStream.h"
+#include "BinaryReader.h"
 #include "Record.h"
 #include "CurrentUserAtom.h"
+
 #include "RecordFactory.h"
 
 
@@ -23,16 +26,21 @@ RecordFactory::~RecordFactory()
 {
 }
 
-std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<VirtualStream> spVirtualStream)
+std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BaseStream> spBaseStream)
 {
-	unsigned short verAndInstance = spVirtualStream->ReadUInt16();
+	return CreateRecord(make_shared<BinaryReader>(spBaseStream));
+}
+
+std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spBinaryReader)
+{
+	unsigned short verAndInstance = spBinaryReader->ReadUInt16();
 	// first 4 bit of field verAndInstance
 	unsigned long version = verAndInstance & 0x000FU;
 	// last 12 bit of field verAndInstance
 	unsigned long instance = (verAndInstance & 0x000FU) >> 4;
 
-	unsigned short typeCode = spVirtualStream->ReadUInt16();
-	unsigned long size = spVirtualStream->ReadUInt32();
+	unsigned short typeCode = spBinaryReader->ReadUInt16();
+	unsigned long size = spBinaryReader->ReadUInt32();
 
 	bool isContainer = (version == 0xF);
 
@@ -40,9 +48,9 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<VirtualStream> sp
 	{
 	case PPT_PST_CurrentUserAtom:
 	{
-		shared_ptr<CurrentUserAtom> spCurrUserAtom = make_shared<CurrentUserAtom>(spVirtualStream, size, typeCode, version, instance);
+		shared_ptr<CurrentUserAtom> spCurrUserAtom = make_shared<CurrentUserAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
-		break;
+	break;
 	default:
 		break;
 	}
