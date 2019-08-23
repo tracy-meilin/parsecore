@@ -13,6 +13,7 @@
 #include "BinaryReader.h"
 #include "Record.h"
 #include "CurrentUserAtom.h"
+#include "BitmapBlip.h"
 
 #include "RecordFactory.h"
 
@@ -50,6 +51,15 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	{
 		shared_ptr<CurrentUserAtom> spCurrUserAtom = make_shared<CurrentUserAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
+	break;
+	case DFF_msofbtBitmapBlip_1E:
+	case DFF_msofbtBitmapBlip_1D:
+	case DFF_msofbtBitmapBlip_1F:
+	case DFF_msofbtBitmapBlip_20:
+	{
+		shared_ptr<BitmapBlip> spBitmapBlip = make_shared<BitmapBlip>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	break;
 	default:
 		break;

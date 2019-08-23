@@ -108,6 +108,9 @@
     <ClInclude Include="Pictures.h">
       <Filter>Record</Filter>
     </ClInclude>
+    <ClInclude Include="BitmapBlip.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -181,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="Pictures.cpp">
       <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapBlip.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

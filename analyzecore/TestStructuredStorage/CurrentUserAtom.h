@@ -10,7 +10,7 @@ public:
 		unsigned long typeCode,
 		unsigned int version,
 		unsigned int instance);
-	~CurrentUserAtom();
+	virtual ~CurrentUserAtom();
 
 	virtual wstring ToString(unsigned long depth) override;
 

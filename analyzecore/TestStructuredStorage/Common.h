@@ -101,6 +101,53 @@
 #define PPT_PST_SlideTime10Atom                 12011
 #define PPT_PST_DocToolbarStates10Atom          14001
 
+#define DFF_PST_TextHeaderAtom              3999
+#define DFF_PST_TextCharsAtom               4000
+#define DFF_PST_TextBytesAtom               4008
+#define DFF_PST_ExOleObjStg                 4113
+
+//      Record Name                 FBT-Value Instance                  Contents                                                          Wrd Exl Ppt Ver
+
+#define DFF_msofbtDggContainer      0xF000 //                           per-document data                                                  X   X   X
+#define   DFF_msofbtDgg             0xF006 //                           an FDGG and several FIDCLs                                         X   X   X   0
+#define   DFF_msofbtCLSID           0xF016 //                           the CLSID of the application that put the data on the clipboard    C   C   C   0
+#define   DFF_msofbtOPT             0xF00B // count of properties       the document-wide default shape properties                         X   X   X   3
+#define   DFF_msofbtColorMRU        0xF11A // count of colors           the colors in the MRU swatch                                       X   X   X   0
+#define   DFF_msofbtSplitMenuColors 0xF11E // count of colors           the colors in the top-level split menus                            X   X   X   0
+#define   DFF_msofbtBstoreContainer 0xF001 // count of BLIPs            all images in the document (JPEGs, metafiles, etc.)                X   X   X
+#define     DFF_msofbtBSE           0xF007 // BLIP type                 an FBSE (one per BLIP)                                             X   X   X   2
+#define     DFF_msofbtBlipFirst     0xF018 //                           range of fbts reserved for various kinds of BLIPs                  X   X   X
+#define     DFF_msofbtBlipLast      0xF117 //                           range of fbts reserved for various kinds of BLIPs                  X   X   X
+
+#define DFF_msofbtDgContainer       0xF002 //                           per-sheet/page/slide data                                          X   X   X
+#define   DFF_msofbtDg              0xF008 // drawing ID                an FDG                                                             X   X   X   0
+#define   DFF_msofbtRegroupItems    0xF118 // count of regroup entries  several FRITs                                                      X   X   X   0
+#define   DFF_msofbtColorScheme     0xF120 // count of colors           the colors of the source host's color scheme                           C   C   0
+#define   DFF_msofbtSpgrContainer   0xF003 //                           several SpContainers, the first of which is the group shape itself X   X   X
+#define   DFF_msofbtSpContainer     0xF004 //                           a shape                                                            X   X   X
+#define     DFF_msofbtSpgr          0xF009 //                           an FSPGR; only present if the shape is a group shape               X   X   X   1
+#define     DFF_msofbtSp            0xF00A // shape type                an FSP                                                             X   X   X   2
+#define     DFF_msofbtTextbox       0xF00C //                           RTF text                                                           C   C   C   0
+#define     DFF_msofbtClientTextbox 0xF00D // host-defined              the text in the textbox, in host-defined format                    X   X   X
+#define     DFF_msofbtAnchor        0xF00E //                           a RECT, in 100000ths of an inch                                    C   C   C   0
+#define     DFF_msofbtChildAnchor   0xF00F //                           a RECT, in units relative to the parent group                      X   X   X   0
+#define     DFF_msofbtClientAnchor  0xF010 // host-defined              the location of the shape, in a host-defined format                X   X   X
+#define     DFF_msofbtClientData    0xF011 // host-defined              host-specific data                                                 X   X   X
+#define     DFF_msofbtOleObject     0xF11F //                           a serialized IStorage for an OLE object                            C   C   C   0
+#define     DFF_msofbtDeletedPspl   0xF11D //                           an FPSPL; only present in top-level deleted shapes                 X           0
+#define     DFF_msofbtUDefProp      0xF122 //                           range of fbts reserved for various kinds of BLIPs                  X   X   X
+#define   DFF_msofbtSolverContainer 0xF005 // count of rules            the rules governing shapes                                         X   X   X
+#define     DFF_msofbtConnectorRule 0xF012 //                           an FConnectorRule                                                      X   X   1
+#define     DFF_msofbtAlignRule     0xF013 //                           an FAlignRule                                                      X   X   X   0
+#define     DFF_msofbtArcRule       0xF014 //                           an FARCRU                                                          X   X   X   0
+#define     DFF_msofbtClientRule    0xF015 // host-defined              host-defined
+#define     DFF_msofbtCalloutRule   0xF017 //                           an FCORU      
+#define DFF_msofbtBitmapBlip_1D						0xF01D
+#define DFF_msofbtBitmapBlip_1E						0xF01E
+#define DFF_msofbtBitmapBlip_1F						0xF01F
+#define DFF_msofbtBitmapBlip_20						0xF020
+#define DFF_msofbtBitmapBlip_21						0xF021
+
 namespace Common{
 	template<typename T>
 	static T bytes2T(unsigned char *bytes)

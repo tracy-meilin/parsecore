@@ -87,6 +87,7 @@
     <ClInclude Include="AbstractIOHandler.h" />
     <ClInclude Include="BaseStream.h" />
     <ClInclude Include="BinaryReader.h" />
+    <ClInclude Include="BitmapBlip.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CurrentUserAtom.h" />
     <ClInclude Include="CustomOperators.h" />
@@ -118,6 +119,7 @@
     <ClCompile Include="AbstractIOHandler.cpp" />
     <ClCompile Include="BaseStream.cpp" />
     <ClCompile Include="BinaryReader.cpp" />
+    <ClCompile Include="BitmapBlip.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="CurrentUserAtom.cpp" />
     <ClCompile Include="DirectoryEntry.cpp" />

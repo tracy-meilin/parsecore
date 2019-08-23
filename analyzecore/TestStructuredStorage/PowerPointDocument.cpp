@@ -21,6 +21,7 @@
 #include "RecordFactory.h"
 #include "StructuredStorageReader.h"
 #include "CurrentUserAtom.h"
+#include "Pictures.h"
 #include "PowerPointDocument.h"
 
 
@@ -31,11 +32,11 @@ PowerPointDocument::PowerPointDocument()
 
 PowerPointDocument::PowerPointDocument(shared_ptr<StructuredStorageReader> spReader)
 {
-	_spCurrentUserStream = spReader->GetStream(_T("Current User"));
+	this->_spCurrentUserStream = spReader->GetStream(_T("Current User"));
 	shared_ptr<Record> spRecord = RecordFactory::GetInstance()->CreateRecord(_spCurrentUserStream);
 
-	_spCurrentUserAtom = dynamic_pointer_cast<CurrentUserAtom>(spRecord);
-	if (_spCurrentUserAtom == nullptr)
+	this->_spCurrentUserAtom = dynamic_pointer_cast<CurrentUserAtom>(spRecord);
+	if (this->_spCurrentUserAtom == nullptr)
 	{
 		//TODO:
 		OutputDebugString(_T("_spCurrentUserAtom is null"));
@@ -47,10 +48,15 @@ PowerPointDocument::PowerPointDocument(shared_ptr<StructuredStorageReader> spRea
 	{
 		if (ele == _T("\\Pictures"))
 		{
-			_spPicturesStream = spReader->GetStream(_T("Pictures"));
-
+			this->_spPicturesStream = spReader->GetStream(_T("Pictures"));
+			this->_spPictures = make_shared<Pictures>(make_shared<BinaryReader>(this->_spPicturesStream),
+				(unsigned long)this->_spPicturesStream->GetLength(), 0, 0, 0);
 		}
 	}
+
+	this->_spPowerpointDocumentStream = spReader->GetStream(_T("PowerPoint Document"));
+
+
 }
 
 PowerPointDocument::~PowerPointDocument()

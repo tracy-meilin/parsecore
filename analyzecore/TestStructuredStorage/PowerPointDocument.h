@@ -14,6 +14,10 @@ public:
 
 	shared_ptr<VirtualStream> _spPicturesStream = nullptr;
 
+	shared_ptr<VirtualStream> _spPowerpointDocumentStream = nullptr;
+
 	shared_ptr<CurrentUserAtom> _spCurrentUserAtom = nullptr;
+
+	shared_ptr<Pictures> _spPictures = nullptr;
 };
 

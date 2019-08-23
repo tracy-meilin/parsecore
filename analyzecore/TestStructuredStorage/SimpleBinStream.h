@@ -488,6 +488,9 @@ public:
 
 		return size;
 	}
+	size_t getIndex(){ return m_index; }
+	void setIndex(size_t index){ m_index = index; }
+	size_t getLength(){ return m_vec.size(); }
 
 private:
 	std::vector<unsigned char> m_vec;
