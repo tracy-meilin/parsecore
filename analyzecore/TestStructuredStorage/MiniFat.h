@@ -15,6 +15,8 @@ public:
 
 	virtual unsigned long GetNextSectorInChain(unsigned long currentSector) override;
 
+	virtual long SeekToPositionInSector(__int64 sector, __int64 position) override;
+
 	virtual unsigned short GetSectorSize() override { return _spHeader->_miniSectorSize; }
 
 private:

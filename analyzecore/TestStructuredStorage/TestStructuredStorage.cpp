@@ -15,6 +15,7 @@
 #include "DirectoryEntry.h"
 #include "DirectoryTree.h"
 #include "MiniFat.h"
+#include "VirtualStream.h"
 #include "StructuredStorageReader.h"
 #include "PowerPointDocument.h"
 #include "SimpleBinStream.h"

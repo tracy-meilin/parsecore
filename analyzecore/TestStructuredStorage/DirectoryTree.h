@@ -11,6 +11,10 @@ public:
 
 	unsigned __int64 GetSizeOfMiniStream();
 
+	shared_ptr<DirectoryEntry> GetDirectoryEntry(unsigned long sid);
+
+	shared_ptr<DirectoryEntry> GetDirectoryEntry(wstring path);
+
 private:
 	void Init(unsigned long startSector);
 
@@ -19,8 +23,6 @@ private:
 	shared_ptr<DirectoryEntry> ReadDirectoryEntry(unsigned long sid, wstring path);
 
 	void SeekToDirectoryEntry(unsigned long sid);
-
-	shared_ptr<DirectoryEntry> GetDirectoryEntry(unsigned long sid);
 
 private:
 	shared_ptr<Fat> _spFat = nullptr;

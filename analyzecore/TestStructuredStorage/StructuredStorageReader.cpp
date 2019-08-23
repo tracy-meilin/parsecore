@@ -13,6 +13,7 @@
 #include "DirectoryEntry.h"
 #include "DirectoryTree.h"
 #include "MiniFat.h"
+#include "VirtualStream.h"
 #include "StructuredStorageReader.h"
 
 
@@ -40,4 +41,37 @@ StructuredStorageReader::StructuredStorageReader(const wstring& fileName)
 StructuredStorageReader::~StructuredStorageReader()
 {
 
+}
+
+std::shared_ptr<VirtualStream> StructuredStorageReader::GetStream(wstring path)
+{
+	shared_ptr<DirectoryEntry> spEntry = _spDirectory->GetDirectoryEntry(path);
+	if (spEntry == nullptr)
+	{
+		//throw new StreamNotFoundException(path);
+		return nullptr;
+	}
+
+	if (spEntry->_type != Common::DirectoryEntryType::STGTY_STREAM)
+	{
+		//throw new WrongDirectoryEntryTypeException();
+		return nullptr;
+	}
+
+	// only streams up to long.MaxValue are supported
+	if (spEntry->_sizeOfStream > 9223372036854775807)		//TODO:
+	{
+		//throw new UnsupportedSizeException(entry.SizeOfStream.ToString());
+		return nullptr;
+	}
+
+	// Determine whether this stream is a "normal stream" or a stream in the mini stream
+	if (spEntry->_sizeOfStream < _spHeader->_miniSectorCutoff)
+	{
+		return make_shared<VirtualStream>(_spMiniFat, spEntry->_startSector, spEntry->_sizeOfStream, path);
+	}
+	else
+	{
+		return make_shared<VirtualStream>(_spFat, spEntry->_startSector, spEntry->_sizeOfStream, path);
+	}
 }

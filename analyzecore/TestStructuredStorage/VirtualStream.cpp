@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Common.h"
 #include "GlobalDefines.h"
 #include "SimpleBinStream.h"
 #include "InternalBitConverter.h"
@@ -31,6 +32,114 @@ VirtualStream::VirtualStream(shared_ptr<AbstractFat> spFat, unsigned long startS
 
 VirtualStream::~VirtualStream()
 {
+}
+
+unsigned short VirtualStream::ReadUInt16()
+{
+	unsigned char byteArray[2] = { 0 };
+	Read(byteArray, 2);
+	return Common::bytes2T<unsigned short>(byteArray);
+}
+
+unsigned long VirtualStream::ReadUInt32()
+{
+	unsigned char byteArray[4] = { 0 };
+	Read(byteArray, 4);
+	return Common::bytes2T<unsigned long>(byteArray);
+}
+
+int VirtualStream::Read(unsigned char* p, size_t size)
+{
+	return Read(p, 0, size);
+}
+
+int VirtualStream::Read(unsigned char* p, int offset, size_t size)
+{
+	return Read(p, offset, size, _position);
+}
+
+/// <summary>
+/// Reads bytes from the virtual stream.
+/// </summary>
+/// <param name="array">Array which will contain the read bytes after successful execution.</param>
+/// <param name="offset">Offset in the array.</param>
+/// <param name="count">Number of bytes to read.</param>
+/// <param name="position">Start position in the stream.</param>
+/// <returns>The total number of bytes read into the buffer. 
+/// This might be less than the number of bytes requested if that number 
+/// of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+int VirtualStream::Read(unsigned char* p, int offset, size_t size, __int64 position)
+{
+	if (size < 1 || position < 0 || offset < 0)
+	{
+		return 0;
+	}
+
+	if (position + size > _length)
+	{
+		size = _length - position;
+		if (size < 1)
+			return 0;
+	}
+
+	_position = position;
+
+	int sectorInChain = (int)(position / _spFat->GetSectorSize());
+	int bytesRead = 0;
+	int totalBytesRead = 0;
+	int positionInArray = offset;
+
+	// Read part in first relevant sector
+	int positionInSector = (int)(position % _spFat->GetSectorSize());
+	_spFat->SeekToPositionInSector(_sectors[sectorInChain], position);
+	int bytesToReadInFirstSector = (size > _spFat->GetSectorSize() - positionInSector) 
+		? (_spFat->GetSectorSize() - positionInSector) : size;
+
+	bytesRead = _spFat->UncheckedRead(p, positionInArray, bytesToReadInFirstSector);
+	// Update variables
+	_position += bytesRead;
+	positionInArray += bytesRead;
+	totalBytesRead += bytesRead;
+	sectorInChain++;
+	if (bytesRead != bytesToReadInFirstSector)
+	{
+		return totalBytesRead;
+	}
+
+	// Read full sectors
+	while (totalBytesRead + _spFat->GetSectorSize() < size)
+	{
+		_spFat->SeekToPositionInSector(_sectors[sectorInChain], 0);
+		bytesRead = _spFat->UncheckedRead(p, positionInArray, _spFat->GetSectorSize());
+
+		// Update variables
+		_position += bytesRead;
+		positionInArray += bytesRead;
+		totalBytesRead += bytesRead;
+		sectorInChain++;
+		if (bytesRead != _spFat->GetSectorSize())
+		{
+			return totalBytesRead;
+		}
+	}
+
+	// Finished reading
+	if (totalBytesRead >= size)
+	{
+		return totalBytesRead;
+	}
+
+	// Read remaining part in last relevant sector
+	_spFat->SeekToPositionInSector(_sectors[sectorInChain], 0);
+
+	bytesRead = _spFat->UncheckedRead(p, positionInArray, size - totalBytesRead);
+
+	// Update variables
+	_position += bytesRead;
+	positionInArray += bytesRead;
+	totalBytesRead += bytesRead;
+
+	return totalBytesRead;
 }
 
 void VirtualStream::Init(unsigned long startSector)

@@ -37,6 +37,17 @@ unsigned long Fat::GetNextSectorInChain(unsigned long currentSector)
 	return _spFileHandler->ReadUInt32();
 }
 
+/// <summary>
+/// Seeks to a given position in a sector
+/// </summary>
+/// <param name="sector">The sector to seek to</param>
+/// <param name="position">The position in the sector to seek to</param>
+/// <returns>The new position in the stream.</returns>
+long Fat::SeekToPositionInSector(__int64 sector, __int64 position)
+{
+	return _spFileHandler->SeekToPositionInSector(sector, position);
+}
+
 void Fat::Init()
 {
 	ReadFirst109SectorsUsedByFAT();

@@ -69,3 +69,13 @@ std::vector<unsigned long> AbstractFat::GetSectorChain(unsigned long startSector
 
 	return result;
 }
+
+int AbstractFat::UncheckedRead(unsigned char* array, int offset, int count)
+{
+	return _spFileHandler->UncheckedRead(array, offset, count);
+}
+
+int AbstractFat::UncheckedReadByte()
+{
+	return _spFileHandler->UncheckedReadByte();
+}

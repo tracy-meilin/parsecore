@@ -85,7 +85,7 @@ void DirectoryTree::GetAllDirectoryEntriesRecursive(unsigned long sid, wstring p
 	// Child
 	if (child != Common::SectorId::NOSTREAM)
 	{
-		GetAllDirectoryEntriesRecursive(child, path + ((sid == 0) ? _T("") : spEntry->_name) + _T("\\"));
+		GetAllDirectoryEntriesRecursive(child, path + ((sid == 0) ? _T("") : spEntry->GetName()) + _T("\\"));
 	}
 }
 
@@ -136,6 +136,29 @@ std::shared_ptr<DirectoryEntry> DirectoryTree::GetDirectoryEntry(unsigned long s
 	{
 		if (ele->_sid == sid)
 			return ele;
+	}
+
+	return nullptr;
+}
+
+std::shared_ptr<DirectoryEntry> DirectoryTree::GetDirectoryEntry(wstring path)
+{
+	if (path.length() < 1)
+		return nullptr;
+
+	for (auto ele : _directoryEntries)
+	{
+		if (path[0] == '\\')
+		{
+			if (ele->GetPath() == path)
+				return ele;
+		}
+		else
+		{
+			if (ele->GetName() == path)
+				return ele;
+		}
+		
 	}
 
 	return nullptr;

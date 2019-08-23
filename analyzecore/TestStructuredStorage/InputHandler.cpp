@@ -34,7 +34,7 @@ unsigned long InputHandler::GetIOStreamSize()
 	return _spStream->file_length();
 }
 
-void InputHandler::ReadPosition(char* p, size_t size, long position)
+void InputHandler::ReadPosition(char* p, size_t size, __int64 position)
 {
 	if (position < 0)
 		return;
@@ -43,7 +43,7 @@ void InputHandler::ReadPosition(char* p, size_t size, long position)
 	_spStream->read(p, size);
 }
 
-void InputHandler::ReadPosition(unsigned char* p, size_t size, long position)
+void InputHandler::ReadPosition(unsigned char* p, size_t size, __int64 position)
 {
 	if (position < 0)
 		return;
@@ -70,6 +70,7 @@ void InputHandler::Read(unsigned char* p, size_t size)
 }
 
 // 未知offset的具体意义
+// <param name="offset">The offset in the array to read to</param>
 void InputHandler::Read(unsigned char* p, int offset, size_t size)
 {
 	_spStream->read(p, size);
@@ -81,7 +82,7 @@ void InputHandler::Read(char* p, size_t size)
 	_spStream->read(p, size);
 }
 
-unsigned __int64 InputHandler::ReadUInt64(long position)
+unsigned __int64 InputHandler::ReadUInt64(__int64 position)
 {
 	if (position < 0)
 		return 0;
@@ -98,7 +99,7 @@ unsigned __int64 InputHandler::ReadUInt64()
 	return Common::bytes2T<unsigned __int64>(byteArray);
 }
 
-unsigned short InputHandler::ReadUInt16(long position)
+unsigned short InputHandler::ReadUInt16(__int64 position)
 {
 	if (position < 0)
 		return 0;
@@ -115,7 +116,7 @@ unsigned short InputHandler::ReadUInt16()
 	return Common::bytes2T<unsigned short>(byteArray);
 }
 
-unsigned long InputHandler::ReadUInt32(long position)
+unsigned long InputHandler::ReadUInt32(__int64 position)
 {
 	if (position < 0)
 		return 0;
@@ -157,7 +158,7 @@ std::wstring InputHandler::ReadUnicodeString(int size)
 	//return Common::Utf8ToUnicode(str);
 }
 
-long InputHandler::SeekToSector(long sector)
+long InputHandler::SeekToSector(__int64 sector)
 {
 	shared_ptr<Header> spHeader = dynamic_pointer_cast<Header>(_spHeader.lock());
 	if (spHeader == nullptr)
@@ -176,6 +177,7 @@ long InputHandler::SeekToSector(long sector)
 	return -1;
 }
 
+//TODO: seek后，文件指针位置未告诉
 long InputHandler::SeekToPositionInSector(__int64 sector, __int64 position)
 {
 	shared_ptr<Header> spHeader = dynamic_pointer_cast<Header>(_spHeader.lock());
@@ -194,4 +196,15 @@ long InputHandler::SeekToPositionInSector(__int64 sector, __int64 position)
 	__int64 tmp = (sector << spHeader->GetSectorShift()) + Common::Measures::HeaderSize + position;
 	_spStream->seekg((sector << spHeader->GetSectorShift()) + Common::Measures::HeaderSize + position, SEEK_SET);
 	return -1;
+}
+
+int InputHandler::UncheckedReadByte()
+{
+	char r;
+	return _spStream->read(&r, 1);
+}
+
+int InputHandler::UncheckedRead(unsigned char* byteArray, int offset, int count)
+{
+	return _spStream->read(byteArray, count);
 }

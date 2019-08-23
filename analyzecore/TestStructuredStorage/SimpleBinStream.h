@@ -234,38 +234,50 @@ public:
 	}
 
 	template<typename T>
-	void read(T& t)
+	size_t read(T& t)
 	{
 		if(std::fread(reinterpret_cast<void*>(&t), sizeof(T), 1, input_file_ptr) != 1)
 		{
-			throw std::runtime_error("Read Error!");
+			//throw std::runtime_error("Read Error!");
+			return 0;
 		}
 		read_length += sizeof(T);
 		simple::swap_endian_if_same_endian_is_false(t, m_same_type);
+
+		return sizeof(T);
 	}
-	void read(typename std::vector<char>& vec)
+	size_t read(typename std::vector<char>& vec)
 	{
 		if (std::fread(reinterpret_cast<void*>(&vec[0]), vec.size(), 1, input_file_ptr) != 1)
 		{
-			throw std::runtime_error("Read Error!");
+			//throw std::runtime_error("Read Error!");
+			return 0;
 		}
 		read_length += vec.size();
+
+		return vec.size();
 	}
-	void read(char* p, size_t size)
+	size_t read(char* p, size_t size)
 	{
 		if (std::fread(reinterpret_cast<void*>(p), size, 1, input_file_ptr) != 1)
 		{
-			throw std::runtime_error("Read Error!");
+			//throw std::runtime_error("Read Error!");
+			return 0;
 		}
 		read_length += size;
+
+		return size;
 	}
-	void read(unsigned char* p, size_t size)
+	size_t read(unsigned char* p, size_t size)
 	{
 		if (std::fread(reinterpret_cast<void*>(p), size, 1, input_file_ptr) != 1)
 		{
-			throw std::runtime_error("Read Error!");
+			//throw std::runtime_error("Read Error!");
+			return 0;
 		}
 		read_length += size;
+
+		return size;
 	}
 private:
 	void compute_length()

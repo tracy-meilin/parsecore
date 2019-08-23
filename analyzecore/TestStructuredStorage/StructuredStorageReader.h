@@ -8,6 +8,8 @@ public:
 	StructuredStorageReader(const wstring& fileName);
 	~StructuredStorageReader();
 
+	shared_ptr<VirtualStream> GetStream(wstring path);
+
 private:
 	shared_ptr<InputHandler> _spFileHandler = nullptr;
 	shared_ptr<Header> _spHeader = nullptr;

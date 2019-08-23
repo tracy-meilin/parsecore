@@ -7,6 +7,9 @@ public:
 	PowerPointDocument(shared_ptr<StructuredStorageReader> spReader);
 	~PowerPointDocument();
 
-
+	
+	
+public:
+	shared_ptr<VirtualStream> spCurrentUserStream = nullptr;
 };
 
