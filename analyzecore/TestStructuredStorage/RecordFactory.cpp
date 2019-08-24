@@ -44,12 +44,13 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	unsigned long size = spBinaryReader->ReadUInt32();
 
 	bool isContainer = (version == 0xF);
+	shared_ptr<Record> spRecord = nullptr;
 
 	switch (typeCode)
 	{
 	case PPT_PST_CurrentUserAtom:
 	{
-		shared_ptr<CurrentUserAtom> spCurrUserAtom = make_shared<CurrentUserAtom>(spBinaryReader, size, typeCode, version, instance);
+		spRecord = make_shared<CurrentUserAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
 	case DFF_msofbtBitmapBlip_1E:
@@ -57,7 +58,7 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case DFF_msofbtBitmapBlip_1F:
 	case DFF_msofbtBitmapBlip_20:
 	{
-		shared_ptr<BitmapBlip> spBitmapBlip = make_shared<BitmapBlip>(spBinaryReader, size, typeCode, version, instance);
+		spRecord = make_shared<BitmapBlip>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	break;
@@ -65,5 +66,5 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		break;
 	}
 
-	return nullptr;
+	return spRecord;
 }

@@ -27,13 +27,14 @@ BitmapBlip::BitmapBlip(shared_ptr<BinaryReader> spBinaryReader,
 		_spBinaryReader->Read(this->m_rgbUid, 16);
 		_spBinaryReader->Read(&this->m_bTag, 1);
 		this->m_pvBits = new unsigned char[size - 33];
+		_spBinaryReader->Read(this->m_pvBits, size - 33);
 	}
 	else
 	{
 		this->m_rgbUidPrimary = new unsigned char[16];
-		_spBinaryReader->Read(this->m_rgbUid, 16);
 		_spBinaryReader->Read(&this->m_bTag, 1);
 		this->m_pvBits = new unsigned char[size - 17];
+		_spBinaryReader->Read(this->m_pvBits, size - 17);
 	}
 }
 

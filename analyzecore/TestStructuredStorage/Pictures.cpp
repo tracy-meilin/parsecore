@@ -27,9 +27,10 @@ Pictures::Pictures(shared_ptr<BinaryReader> spBinaryReader,
 	{
 		pos = _spBinaryReader->GetPosition();
 		shared_ptr<Record> spRecord = RecordFactory::GetInstance()->CreateRecord(_spBinaryReader);
+		if (spRecord == nullptr)
+			break;
 
-		switch (spRecord 
-			&& spRecord->TypeCode)
+		switch (spRecord->TypeCode)
 		{
 		case 0:
 			_spBinaryReader->SetPosition(_spBinaryReader->GetLength());

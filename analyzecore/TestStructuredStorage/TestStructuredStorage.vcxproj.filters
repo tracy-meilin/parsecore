@@ -16,6 +16,9 @@
     <Filter Include="Record">
       <UniqueIdentifier>{8eef1e4d-a963-475b-9d4a-783ac7d09997}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Stream">
+      <UniqueIdentifier>{0d0f90b1-2ba3-4f8a-8f4f-54e4071fbbcb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -25,9 +28,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleBinStream.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CustomOperators.h">
@@ -78,9 +78,6 @@
     <ClInclude Include="PowerPointDocument.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="VirtualStream.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Singleton.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -93,16 +90,7 @@
     <ClInclude Include="CurrentUserAtom.h">
       <Filter>Record</Filter>
     </ClInclude>
-    <ClInclude Include="BinaryReader.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseStream.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="MemoryStream.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Pictures.h">
@@ -110,6 +98,21 @@
     </ClInclude>
     <ClInclude Include="BitmapBlip.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleBinStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryReader.h">
+      <Filter>Stream</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +164,6 @@
     <ClCompile Include="PowerPointDocument.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="VirtualStream.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="CurrentUserAtom.cpp">
       <Filter>Record</Filter>
     </ClCompile>
@@ -173,20 +173,23 @@
     <ClCompile Include="RecordFactory.cpp">
       <Filter>Record</Filter>
     </ClCompile>
-    <ClCompile Include="BinaryReader.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseStream.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MemoryStream.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Pictures.cpp">
       <Filter>Record</Filter>
     </ClCompile>
     <ClCompile Include="BitmapBlip.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryReader.cpp">
+      <Filter>Stream</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

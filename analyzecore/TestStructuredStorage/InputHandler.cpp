@@ -73,7 +73,7 @@ void InputHandler::Read(unsigned char* p, size_t size)
 // <param name="offset">The offset in the array to read to</param>
 void InputHandler::Read(unsigned char* p, int offset, size_t size)
 {
-	_spStream->read(p, size);
+	_spStream->read(p, offset, size);
 }
 
 
@@ -206,5 +206,6 @@ int InputHandler::UncheckedReadByte()
 
 int InputHandler::UncheckedRead(unsigned char* byteArray, int offset, int count)
 {
-	return _spStream->read(byteArray, count);
+	//return _spStream->read(byteArray, count);
+	return _spStream->read(byteArray, offset, count);
 }

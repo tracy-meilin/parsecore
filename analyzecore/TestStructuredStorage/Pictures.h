@@ -12,6 +12,6 @@ public:
 	virtual ~Pictures();
 
 public:
-	map<long, shared_ptr<Record>> _pictures;
+	map<__int64, shared_ptr<Record>> _pictures;
 };
 

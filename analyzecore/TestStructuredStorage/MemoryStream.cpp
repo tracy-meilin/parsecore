@@ -20,10 +20,10 @@ MemoryStream::~MemoryStream()
 
 int MemoryStream::Read(unsigned char* p, int offset, size_t size)
 {
-	return _spStream->read(p, size);
+	return _spStream->read(p, offset, size);
 }
 
 int MemoryStream::Read(char* p, int offset, size_t size)
 {
-	return _spStream->read(p, size);
+	return _spStream->read(p, offset, size);
 }

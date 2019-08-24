@@ -279,6 +279,19 @@ public:
 
 		return size;
 	}
+
+	size_t read(unsigned char* p, int offset, size_t size)
+	{
+		unsigned char* tmp = p + offset;	//TODO:指针判断，是否越界访问
+		if (std::fread(reinterpret_cast<void*>(tmp), size, 1, input_file_ptr) != 1)
+		{
+			//throw std::runtime_error("Read Error!");
+			return 0;
+		}
+		read_length += size;
+
+		return size;
+	}
 private:
 	void compute_length()
 	{
@@ -447,6 +460,28 @@ public:
 		return size;
 	}
 
+	size_t read(char* p, int offset, size_t size)
+	{
+		if (eof())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
+
+		if ((m_index + size) > m_vec.size())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
+
+		char* tmp = p + offset;	//TODO:指针判断，是否越界访问
+		std::memcpy(reinterpret_cast<void*>(tmp), &m_vec[m_index], size);
+
+		m_index += size;
+
+		return size;
+	}
+
 	size_t read(unsigned char* p, size_t size)
 	{
 		if (eof())
@@ -462,6 +497,28 @@ public:
 		}
 
 		std::memcpy(reinterpret_cast<void*>(p), &m_vec[m_index], size);
+
+		m_index += size;
+
+		return size;
+	}
+
+	size_t read(unsigned char* p, int offset, size_t size)
+	{
+		if (eof())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
+
+		if ((m_index + size) > m_vec.size())
+		{
+			//throw std::runtime_error("Premature end of array!");
+			return 0;
+		}
+
+		unsigned char* tmp = p + offset;	//TODO:指针判断，是否越界访问
+		std::memcpy(reinterpret_cast<void*>(tmp), &m_vec[m_index], size);
 
 		m_index += size;
 
@@ -494,7 +551,7 @@ public:
 
 private:
 	std::vector<unsigned char> m_vec;
-	size_t m_index;
+	size_t m_index = 0;
 	same_endian_type m_same_type;
 };
 
