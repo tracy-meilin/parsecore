@@ -13,5 +13,7 @@ public:
 	virtual void SetPosition(__int64 position) = 0;
 
 	virtual __int64 GetLength() = 0;
+
+	virtual __int64 Seek(__int64 offset, int way) = 0;
 };
 

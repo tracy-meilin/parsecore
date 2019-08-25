@@ -27,3 +27,8 @@ int MemoryStream::Read(char* p, int offset, size_t size)
 {
 	return _spStream->read(p, offset, size);
 }
+
+__int64 MemoryStream::Seek(__int64 offset, int way)
+{
+	return _spStream->seekg(offset, way);
+}

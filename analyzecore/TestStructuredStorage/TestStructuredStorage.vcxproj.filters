@@ -114,6 +114,9 @@
     <ClInclude Include="BinaryReader.h">
       <Filter>Stream</Filter>
     </ClInclude>
+    <ClInclude Include="UserEditAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -190,6 +193,9 @@
     </ClCompile>
     <ClCompile Include="BinaryReader.cpp">
       <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="UserEditAtom.cpp">
+      <Filter>Record</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

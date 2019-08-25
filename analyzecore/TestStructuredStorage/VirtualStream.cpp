@@ -148,6 +148,35 @@ int VirtualStream::Read(unsigned char* p, int offset, size_t size, __int64 posit
 	return totalBytesRead;
 }
 
+__int64 VirtualStream::Seek(__int64 offset, int way)
+{
+	switch (way)
+	{
+	case SEEK_SET:
+		_position = offset;
+		break;
+	case SEEK_CUR:
+		_position += offset;
+		break;
+	case SEEK_END:
+		_position = _length - offset;
+		break;
+	default:
+		break;
+	}
+
+	if (_position < 0)
+	{
+		_position = 0;
+	}
+	else if (_position > _length)
+	{
+		_position = _length;
+	}
+
+	return _position;
+}
+
 void VirtualStream::Init(unsigned long startSector)
 {
 	_sectors = _spFat->GetSectorChain(startSector, (unsigned __int64)ceil((double)_length / _spFat->GetSectorSize()), _name);

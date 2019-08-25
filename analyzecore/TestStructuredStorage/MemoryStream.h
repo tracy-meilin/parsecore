@@ -11,6 +11,8 @@ public:
 
 	virtual int Read(char* p, int offset, size_t size) override;
 
+	virtual __int64 Seek(__int64 offset, int way) override;
+
 	// get/set
 	__int64 GetPosition() override{ return _spStream->getIndex(); }
 	void SetPosition(__int64 position) override{ _spStream->setIndex(position); }

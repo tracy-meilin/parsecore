@@ -12,6 +12,8 @@ public:
 
 	virtual int Read(char* p, int offset, size_t size) override;
 
+	virtual __int64 Seek(__int64 offset, int way) override;
+
 	unsigned short ReadUInt16();
 
 	unsigned long ReadUInt32();

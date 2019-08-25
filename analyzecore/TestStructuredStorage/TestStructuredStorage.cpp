@@ -22,6 +22,7 @@
 #include "BinaryReader.h"
 #include "Record.h"
 #include "CurrentUserAtom.h"
+#include "UserEditAtom.h"
 #include "Pictures.h"
 #include "PowerPointDocument.h"
 #include "SimpleBinStream.h"

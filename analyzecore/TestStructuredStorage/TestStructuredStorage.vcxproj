@@ -110,6 +110,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StructuredStorageReader.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UserEditAtom.h" />
     <ClInclude Include="VirtualStream.h" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     </ClCompile>
     <ClCompile Include="StructuredStorageReader.cpp" />
     <ClCompile Include="TestStructuredStorage.cpp" />
+    <ClCompile Include="UserEditAtom.cpp" />
     <ClCompile Include="VirtualStream.cpp" />
   </ItemGroup>
   <ItemGroup>

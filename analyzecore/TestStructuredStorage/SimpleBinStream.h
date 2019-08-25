@@ -375,7 +375,7 @@ public:
 
 		return true;
 	}
-	bool seekg (std::streamoff offset, std::ios_base::seekdir way)
+	size_t seekg (std::streamoff offset, std::ios_base::seekdir way)
 	{
 		if(way==std::ios_base::beg && offset < m_vec.size())
 			m_index = offset;
@@ -383,10 +383,8 @@ public:
 			m_index += offset;
 		else if(way==std::ios_base::end && (m_vec.size() + offset) < m_vec.size())
 			m_index = m_vec.size() + offset;
-		else
-			return false;
 
-		return true;
+		return m_index;
 	}
 
 	const std::vector<char>& get_internal_vec()
