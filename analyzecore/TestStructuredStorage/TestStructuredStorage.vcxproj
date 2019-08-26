@@ -100,6 +100,8 @@
     <ClInclude Include="InternalBitConverter.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="PersistDirectoryAtom.h" />
+    <ClInclude Include="PersistDirectoryEntry.h" />
     <ClInclude Include="Pictures.h" />
     <ClInclude Include="PowerPointDocument.h" />
     <ClInclude Include="Record.h" />
@@ -131,6 +133,8 @@
     <ClCompile Include="InternalBitConverter.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="PersistDirectoryAtom.cpp" />
+    <ClCompile Include="PersistDirectoryEntry.cpp" />
     <ClCompile Include="Pictures.cpp" />
     <ClCompile Include="PowerPointDocument.cpp" />
     <ClCompile Include="Record.cpp" />

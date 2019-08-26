@@ -24,8 +24,28 @@
 #include "CurrentUserAtom.h"
 #include "UserEditAtom.h"
 #include "Pictures.h"
+#include "PersistDirectoryEntry.h"
+#include "PersistDirectoryAtom.h"
 #include "PowerPointDocument.h"
 #include "SimpleBinStream.h"
+
+class MyClass
+{
+public:
+	MyClass();
+	~MyClass();
+
+private:
+
+};
+
+MyClass::MyClass()
+{
+}
+
+MyClass::~MyClass()
+{
+}
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -41,6 +61,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	simple::memfile_istream<std::true_type> in("file4.bin");
 	std::vector<Product> vec_dest;
 	in >> vec_dest;*/
+
+	shared_ptr<MyClass> spTmp = make_shared<MyClass>();
+	spTmp = nullptr;
 
 	int n = sizeof(char);
 	n = sizeof(unsigned char);

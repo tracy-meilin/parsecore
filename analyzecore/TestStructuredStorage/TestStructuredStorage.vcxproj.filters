@@ -117,6 +117,12 @@
     <ClInclude Include="UserEditAtom.h">
       <Filter>Record</Filter>
     </ClInclude>
+    <ClInclude Include="PersistDirectoryAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistDirectoryEntry.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -196,6 +202,12 @@
     </ClCompile>
     <ClCompile Include="UserEditAtom.cpp">
       <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistDirectoryAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistDirectoryEntry.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

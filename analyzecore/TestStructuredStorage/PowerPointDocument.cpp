@@ -22,6 +22,8 @@
 #include "StructuredStorageReader.h"
 #include "CurrentUserAtom.h"
 #include "UserEditAtom.h"
+#include "PersistDirectoryEntry.h"
+#include "PersistDirectoryAtom.h"
 #include "Pictures.h"
 #include "PowerPointDocument.h"
 
@@ -237,5 +239,44 @@ void PowerPointDocument::ScanDocumentSummaryInformation()
 			break;
 		}
 	}
+}
+
+/// <summary>
+/// Construct the complete persist object directory by traversing all PersistDirectoryAtoms
+/// from all UserEditAtoms from the last edit to the first one and adding all _entries of
+/// all encountered persist directories to the resulting persist object directory.
+/// 
+/// When the same persist id occurs multiple times with different offsets the one from the
+/// last user edit will end up in the persist object directory, overwriting earlier edits.
+/// </summary>
+void PowerPointDocument::ConstructPersistObjectDirectory()
+{
+	//vector<std::shared_ptr<PersistDirectoryAtom>>
+}
+
+std::vector<std::shared_ptr<PersistDirectoryAtom>> PowerPointDocument::FindLivePersistDirectoryAtoms()
+{
+	vector<shared_ptr<PersistDirectoryAtom>> result;
+	shared_ptr<UserEditAtom> spUserEditAtom = this->_spLastUserEdit;
+
+	while (spUserEditAtom != nullptr)
+	{
+		this->_spPowerpointDocumentStream->Seek(spUserEditAtom->OffsetPersistDirectory, SEEK_SET);
+		shared_ptr<Record> spRecord = RecordFactory::GetInstance()->CreateRecord(_spPowerpointDocumentStream);
+		shared_ptr<PersistDirectoryAtom> spPersistDirectoryAtom = dynamic_pointer_cast<PersistDirectoryAtom>(spRecord);
+		if (spPersistDirectoryAtom)
+		{
+			result.insert(result.begin(), spPersistDirectoryAtom);
+		}
+
+		this->_spPowerpointDocumentStream->Seek(spUserEditAtom->OffsetLastEdit, SEEK_SET);
+
+		/*if (spUserEditAtom->OffsetLastEdit != 0)
+			spUserEditAtom = RecordFactory::GetInstance()->CreateRecord(_spPowerpointDocumentStream);
+		else
+			spUserEditAtom = nullptr;*/
+	}
+
+	return result;
 }
 

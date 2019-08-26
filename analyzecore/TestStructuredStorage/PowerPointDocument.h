@@ -9,6 +9,10 @@ public:
 
 private:
 	void ScanDocumentSummaryInformation();
+
+	void ConstructPersistObjectDirectory();
+
+	vector<shared_ptr<PersistDirectoryAtom>> FindLivePersistDirectoryAtoms();
 	
 public:
 	shared_ptr<VirtualStream> _spCurrentUserStream = nullptr;
@@ -22,6 +26,8 @@ public:
 	shared_ptr<CurrentUserAtom> _spCurrentUserAtom = nullptr;
 
 	shared_ptr<UserEditAtom> _spUserEditAtom = nullptr;
+
+	shared_ptr<UserEditAtom> _spLastUserEdit = nullptr;
 
 	shared_ptr<Pictures> _spPictures = nullptr;
 };
