@@ -26,6 +26,11 @@
 #include "Pictures.h"
 #include "PersistDirectoryEntry.h"
 #include "PersistDirectoryAtom.h"
+#include "SlidePersisAtom.h"
+#include "RegularContainer.h"
+#include "List.h"
+#include "SlideListWithText.h"
+#include "DocumentContainer.h"
 #include "PowerPointDocument.h"
 #include "SimpleBinStream.h"
 

@@ -93,11 +93,13 @@
     <ClInclude Include="CustomOperators.h" />
     <ClInclude Include="DirectoryEntry.h" />
     <ClInclude Include="DirectoryTree.h" />
+    <ClInclude Include="DocumentContainer.h" />
     <ClInclude Include="Fat.h" />
     <ClInclude Include="GlobalDefines.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
     <ClInclude Include="PersistDirectoryAtom.h" />
@@ -106,9 +108,12 @@
     <ClInclude Include="PowerPointDocument.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="RecordFactory.h" />
+    <ClInclude Include="RegularContainer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SimpleBinStream.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SlideListWithText.h" />
+    <ClInclude Include="SlidePersisAtom.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StructuredStorageReader.h" />
     <ClInclude Include="targetver.h" />
@@ -127,10 +132,12 @@
     <ClCompile Include="CurrentUserAtom.cpp" />
     <ClCompile Include="DirectoryEntry.cpp" />
     <ClCompile Include="DirectoryTree.cpp" />
+    <ClCompile Include="DocumentContainer.cpp" />
     <ClCompile Include="Fat.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
     <ClCompile Include="PersistDirectoryAtom.cpp" />
@@ -139,6 +146,9 @@
     <ClCompile Include="PowerPointDocument.cpp" />
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordFactory.cpp" />
+    <ClCompile Include="RegularContainer.cpp" />
+    <ClCompile Include="SlideListWithText.cpp" />
+    <ClCompile Include="SlidePersisAtom.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>

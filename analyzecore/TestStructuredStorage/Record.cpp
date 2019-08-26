@@ -51,3 +51,14 @@ std::wstring Record::ToString(unsigned long depth)
 {
 	return _T("");
 }
+
+void Record::VerifyReadToEnd()
+{
+	__int64 streamPos = this->_spBinaryReader->GetPosition();
+	__int64 streamLen = this->_spBinaryReader->GetLength();
+
+	if (streamPos != streamLen)
+	{
+		//TODO:判断是否读取到结束
+	}
+}

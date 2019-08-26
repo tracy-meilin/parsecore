@@ -24,7 +24,12 @@
 #include "UserEditAtom.h"
 #include "PersistDirectoryEntry.h"
 #include "PersistDirectoryAtom.h"
+#include "SlidePersisAtom.h"
 #include "Pictures.h"
+#include "RegularContainer.h"
+#include "List.h"
+#include "SlideListWithText.h"
+#include "DocumentContainer.h"
 #include "PowerPointDocument.h"
 
 
@@ -63,18 +68,22 @@ PowerPointDocument::PowerPointDocument(shared_ptr<StructuredStorageReader> spRea
 	this->_spDocumentSummaryInformationStream = spReader->GetStream(strDocSum);
 	ScanDocumentSummaryInformation();
 
-	if (this->_spPowerpointDocumentStream != nullptr)
+	if (this->_spPowerpointDocumentStream != nullptr 
+		&& this->_spCurrentUserAtom != nullptr)
 	{
 		this->_spPowerpointDocumentStream->Seek(this->_spCurrentUserAtom->OffsetToCurrentEdit, 0);
 		shared_ptr<Record> spRecord = RecordFactory::GetInstance()->CreateRecord(_spPowerpointDocumentStream);
 
-		this->_spUserEditAtom = dynamic_pointer_cast<UserEditAtom>(spRecord);
-		if (this->_spUserEditAtom == nullptr)
+		this->_spLastUserEdit = dynamic_pointer_cast<UserEditAtom>(spRecord);
+		if (this->_spLastUserEdit == nullptr)
 		{
 			//TODO:
 			OutputDebugString(_T("_spUserEditAtom is null"));
 		}
 	}
+
+	this->ConstructPersistObjectDirectory();
+	this->IdentifyDocumentPersistObject();
 }
 
 PowerPointDocument::~PowerPointDocument()
@@ -251,7 +260,19 @@ void PowerPointDocument::ScanDocumentSummaryInformation()
 /// </summary>
 void PowerPointDocument::ConstructPersistObjectDirectory()
 {
-	//vector<std::shared_ptr<PersistDirectoryAtom>>
+	vector<std::shared_ptr<PersistDirectoryAtom>> pdAtom = FindLivePersistDirectoryAtoms();
+	for (auto& ele : pdAtom)
+	{
+		for (auto& eleDirEntry : ele->PersistDirEntries)
+		{
+			unsigned long pid = eleDirEntry->StartPersistId;
+
+			for (auto& eleOffsetEntry : eleDirEntry->PersistOffsetEntries )
+			{
+				this->_mapPersistObjectDirectory[pid] = eleOffsetEntry;
+			}
+		}
+	}
 }
 
 std::vector<std::shared_ptr<PersistDirectoryAtom>> PowerPointDocument::FindLivePersistDirectoryAtoms()
@@ -271,12 +292,17 @@ std::vector<std::shared_ptr<PersistDirectoryAtom>> PowerPointDocument::FindLiveP
 
 		this->_spPowerpointDocumentStream->Seek(spUserEditAtom->OffsetLastEdit, SEEK_SET);
 
-		/*if (spUserEditAtom->OffsetLastEdit != 0)
-			spUserEditAtom = RecordFactory::GetInstance()->CreateRecord(_spPowerpointDocumentStream);
+		if (spUserEditAtom->OffsetLastEdit != 0)
+			spUserEditAtom = dynamic_pointer_cast<UserEditAtom>(RecordFactory::GetInstance()->CreateRecord(_spPowerpointDocumentStream));
 		else
-			spUserEditAtom = nullptr;*/
+			spUserEditAtom = nullptr;
 	}
 
 	return result;
+}
+
+void PowerPointDocument::IdentifyDocumentPersistObject()
+{
+	this->_spDocumentRecord = this->GetPersistObject<DocumentContainer>(this->_spLastUserEdit->DocPersistIdRef);
 }
 

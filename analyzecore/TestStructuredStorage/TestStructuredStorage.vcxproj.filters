@@ -123,6 +123,21 @@
     <ClInclude Include="PersistDirectoryEntry.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="RegularContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SlidePersisAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideListWithText.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -207,6 +222,21 @@
       <Filter>Record</Filter>
     </ClCompile>
     <ClCompile Include="PersistDirectoryEntry.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SlidePersisAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideListWithText.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
