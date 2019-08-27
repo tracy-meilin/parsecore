@@ -112,8 +112,9 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="SimpleBinStream.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Slide.h" />
     <ClInclude Include="SlideListWithText.h" />
-    <ClInclude Include="SlidePersisAtom.h" />
+    <ClInclude Include="SlidePersistAtom.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StructuredStorageReader.h" />
     <ClInclude Include="targetver.h" />
@@ -147,8 +148,9 @@
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordFactory.cpp" />
     <ClCompile Include="RegularContainer.cpp" />
+    <ClCompile Include="Slide.cpp" />
     <ClCompile Include="SlideListWithText.cpp" />
-    <ClCompile Include="SlidePersisAtom.cpp" />
+    <ClCompile Include="SlidePersistAtom.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>

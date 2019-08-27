@@ -18,6 +18,8 @@ private:
 	shared_ptr<T> GetPersistObject(unsigned long persistId);
 
 	void IdentifyDocumentPersistObject();
+
+	void IdentifyMasterPersistObjects();
 	
 public:
 	shared_ptr<VirtualStream> _spCurrentUserStream = nullptr;

@@ -24,12 +24,13 @@
 #include "UserEditAtom.h"
 #include "PersistDirectoryEntry.h"
 #include "PersistDirectoryAtom.h"
-#include "SlidePersisAtom.h"
+#include "SlidePersistAtom.h"
 #include "Pictures.h"
 #include "RegularContainer.h"
 #include "List.h"
 #include "SlideListWithText.h"
 #include "DocumentContainer.h"
+#include "Slide.h"
 #include "PowerPointDocument.h"
 
 
@@ -83,7 +84,9 @@ PowerPointDocument::PowerPointDocument(shared_ptr<StructuredStorageReader> spRea
 	}
 
 	this->ConstructPersistObjectDirectory();
+
 	this->IdentifyDocumentPersistObject();
+	this->IdentifyMasterPersistObjects();
 }
 
 PowerPointDocument::~PowerPointDocument()
@@ -199,7 +202,7 @@ void PowerPointDocument::ScanDocumentSummaryInformation()
 			char scale;
 			spBinaryReader->Read(&scale, 1);
 			char sign;
-			spBinaryReader->Read(&scale, 1);
+			spBinaryReader->Read(&sign, 1);
 
 			signed long Hi32 = spBinaryReader->ReadInt32();
 			__int64 Lo64 = spBinaryReader->ReadInt64();
@@ -304,5 +307,16 @@ std::vector<std::shared_ptr<PersistDirectoryAtom>> PowerPointDocument::FindLiveP
 void PowerPointDocument::IdentifyDocumentPersistObject()
 {
 	this->_spDocumentRecord = this->GetPersistObject<DocumentContainer>(this->_spLastUserEdit->DocPersistIdRef);
+}
+
+void PowerPointDocument::IdentifyMasterPersistObjects()
+{
+	for (auto& ele : this->_spDocumentRecord->MasterPersistList)
+	{
+		shared_ptr<Slide> spMaster = this->GetPersistObject<Slide>(ele->PersistIdRef);
+		spMaster->spPersistAtom = ele;
+
+	
+	}
 }
 

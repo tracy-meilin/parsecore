@@ -222,20 +222,28 @@ public:
 	}
 	long tellg() const
 	{
-		return std::ftell(input_file_ptr);
+		if (input_file_ptr)
+			return std::ftell(input_file_ptr);
+
+		return 0;
 	}
 	void seekg (long pos)
 	{
-		std::fseek(input_file_ptr, pos, SEEK_SET);
+		if (input_file_ptr)
+			std::fseek(input_file_ptr, pos, SEEK_SET);
 	}
 	void seekg (long offset, int way)
 	{
-		std::fseek(input_file_ptr, offset, way);
+		if (input_file_ptr)
+			std::fseek(input_file_ptr, offset, way);
 	}
 
 	template<typename T>
 	size_t read(T& t)
 	{
+		if (input_file_ptr == nullptr)
+			return 0;
+
 		if(std::fread(reinterpret_cast<void*>(&t), sizeof(T), 1, input_file_ptr) != 1)
 		{
 			//throw std::runtime_error("Read Error!");
@@ -248,6 +256,9 @@ public:
 	}
 	size_t read(typename std::vector<char>& vec)
 	{
+		if (input_file_ptr == nullptr)
+			return 0;
+
 		if (std::fread(reinterpret_cast<void*>(&vec[0]), vec.size(), 1, input_file_ptr) != 1)
 		{
 			//throw std::runtime_error("Read Error!");
@@ -259,6 +270,9 @@ public:
 	}
 	size_t read(char* p, size_t size)
 	{
+		if (input_file_ptr == nullptr)
+			return 0;
+
 		if (std::fread(reinterpret_cast<void*>(p), size, 1, input_file_ptr) != 1)
 		{
 			//throw std::runtime_error("Read Error!");
@@ -270,6 +284,9 @@ public:
 	}
 	size_t read(unsigned char* p, size_t size)
 	{
+		if (input_file_ptr == nullptr)
+			return 0;
+
 		if (std::fread(reinterpret_cast<void*>(p), size, 1, input_file_ptr) != 1)
 		{
 			//throw std::runtime_error("Read Error!");
@@ -282,6 +299,9 @@ public:
 
 	size_t read(unsigned char* p, int offset, size_t size)
 	{
+		if (input_file_ptr == nullptr)
+			return 0;
+
 		unsigned char* tmp = p + offset;	//TODO:指针判断，是否越界访问
 		if (std::fread(reinterpret_cast<void*>(tmp), size, 1, input_file_ptr) != 1)
 		{

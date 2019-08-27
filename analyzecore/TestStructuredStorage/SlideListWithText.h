@@ -10,5 +10,14 @@ public:
 		unsigned int version,
 		unsigned int instance);
 	~SlideListWithText();
+
+	enum TextInstance
+	{
+		CollectionOfSlides = 0,
+		CollectionOfMasterSlides = 1,
+		CollectionOfNotesSlides = 2
+	};
+
+
 };
 

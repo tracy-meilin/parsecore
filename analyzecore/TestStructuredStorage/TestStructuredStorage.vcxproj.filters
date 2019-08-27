@@ -123,19 +123,22 @@
     <ClInclude Include="PersistDirectoryEntry.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="RegularContainer.h">
+    <ClInclude Include="List.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularContainer.h">
+      <Filter>Record</Filter>
     </ClInclude>
     <ClInclude Include="DocumentContainer.h">
-      <Filter>头文件</Filter>
+      <Filter>Record</Filter>
     </ClInclude>
-    <ClInclude Include="SlidePersisAtom.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="SlidePersistAtom.h">
+      <Filter>Record</Filter>
     </ClInclude>
     <ClInclude Include="SlideListWithText.h">
-      <Filter>头文件</Filter>
+      <Filter>Record</Filter>
     </ClInclude>
-    <ClInclude Include="List.h">
+    <ClInclude Include="Slide.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -224,19 +227,22 @@
     <ClCompile Include="PersistDirectoryEntry.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="RegularContainer.cpp">
+    <ClCompile Include="List.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DocumentContainer.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Record</Filter>
     </ClCompile>
-    <ClCompile Include="SlidePersisAtom.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="RegularContainer.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="SlidePersistAtom.cpp">
+      <Filter>Record</Filter>
     </ClCompile>
     <ClCompile Include="SlideListWithText.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Record</Filter>
     </ClCompile>
-    <ClCompile Include="List.cpp">
+    <ClCompile Include="Slide.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

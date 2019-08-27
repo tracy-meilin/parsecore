@@ -16,7 +16,48 @@ public:
 		unsigned int instance);
 	~RegularContainer();
 
+	template<typename T>
+	vector<shared_ptr<T>> AllChildrenWithType();
+
+	template<typename T>
+	shared_ptr<T> FirstChildWithType();
+
 public:
 	vector<shared_ptr<Record>> _Child;
 };
+
+template<typename T>
+vector<shared_ptr<T>>
+RegularContainer::AllChildrenWithType()
+{
+	vector<shared_ptr<T>> vecResult;
+	for (auto& ele : _Child)
+	{
+		shared_ptr<T> spT = dynamic_pointer_cast<T>(ele);
+		if (spT)
+		{
+			vecResult.push_back(spT);
+		}
+	}
+
+	return vecResult;
+}
+
+template<typename T>
+shared_ptr<T>
+RegularContainer::FirstChildWithType()
+{
+	shared_ptr<T> spT = nullptr;
+	for (auto& ele : _Child)
+	{
+		spT = dynamic_pointer_cast<T>(ele);
+		if (spT)
+		{
+			return spT;
+		}
+	}
+
+	return spT;
+}
+
 
