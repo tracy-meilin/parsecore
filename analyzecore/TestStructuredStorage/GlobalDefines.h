@@ -46,4 +46,15 @@ namespace Common
 		DE_RED = 0,
 		DE_BLACK = 1
 	};
+
+	enum SlideSizeType
+	{
+		OnScreen,
+		LetterSizedPaper,
+		A4Paper,
+		Size35mm,
+		Overhead,
+		Banner,
+		Custom
+	};
 }

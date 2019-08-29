@@ -93,9 +93,12 @@
     <ClInclude Include="CustomOperators.h" />
     <ClInclude Include="DirectoryEntry.h" />
     <ClInclude Include="DirectoryTree.h" />
+    <ClInclude Include="DocumentAtom.h" />
     <ClInclude Include="DocumentContainer.h" />
     <ClInclude Include="Fat.h" />
     <ClInclude Include="GlobalDefines.h" />
+    <ClInclude Include="GPointAtom.h" />
+    <ClInclude Include="GRatioAtom.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
@@ -133,8 +136,11 @@
     <ClCompile Include="CurrentUserAtom.cpp" />
     <ClCompile Include="DirectoryEntry.cpp" />
     <ClCompile Include="DirectoryTree.cpp" />
+    <ClCompile Include="DocumentAtom.cpp" />
     <ClCompile Include="DocumentContainer.cpp" />
     <ClCompile Include="Fat.cpp" />
+    <ClCompile Include="GPointAtom.cpp" />
+    <ClCompile Include="GRatioAtom.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />

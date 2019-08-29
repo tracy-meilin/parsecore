@@ -141,6 +141,15 @@
     <ClInclude Include="Slide.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="DocumentAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="GPointAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="GRatioAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -244,6 +253,15 @@
     </ClCompile>
     <ClCompile Include="Slide.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="GRatioAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="GPointAtom.cpp">
+      <Filter>Record</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -273,6 +273,7 @@ void PowerPointDocument::ConstructPersistObjectDirectory()
 			for (auto& eleOffsetEntry : eleDirEntry->PersistOffsetEntries )
 			{
 				this->_mapPersistObjectDirectory[pid] = eleOffsetEntry;
+				pid++;
 			}
 		}
 	}

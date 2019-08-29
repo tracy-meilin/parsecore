@@ -97,7 +97,7 @@ int VirtualStream::Read(unsigned char* p, int offset, size_t size, __int64 posit
 
 	// Read part in first relevant sector
 	int positionInSector = (int)(position % _spFat->GetSectorSize());
-	_spFat->SeekToPositionInSector(_sectors[sectorInChain], position);
+	_spFat->SeekToPositionInSector(_sectors[sectorInChain], positionInSector);
 	int bytesToReadInFirstSector = (size > _spFat->GetSectorSize() - positionInSector) 
 		? (_spFat->GetSectorSize() - positionInSector) : size;
 
