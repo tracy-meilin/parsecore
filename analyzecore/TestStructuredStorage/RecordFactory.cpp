@@ -70,6 +70,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<DocumentAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case PPT_PST_Environment:
+	{
+
+	}
+		break;
 	case PPT_PST_UserEditAtom:
 	{
 		spRecord = make_shared<UserEditAtom>(spBinaryReader, size, typeCode, version, instance);

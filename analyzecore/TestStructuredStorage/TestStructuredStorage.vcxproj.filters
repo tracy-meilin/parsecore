@@ -19,6 +19,9 @@
     <Filter Include="Stream">
       <UniqueIdentifier>{0d0f90b1-2ba3-4f8a-8f4f-54e4071fbbcb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Record\Text">
+      <UniqueIdentifier>{273bd17e-b169-4e9f-984d-917d118694e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -150,6 +153,36 @@
     <ClInclude Include="GRatioAtom.h">
       <Filter>Record</Filter>
     </ClInclude>
+    <ClInclude Include="TextStyleAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextMasterStyleAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextHeaderAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextDataRecord.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="ParagraphRun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TabStop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterRun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GrColorAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>Record</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -261,6 +294,36 @@
       <Filter>Record</Filter>
     </ClCompile>
     <ClCompile Include="GPointAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="TextStyleAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextMasterStyleAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextHeaderAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="ITextDataRecord.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="ParagraphRun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TabStop.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterRun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GrColorAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
       <Filter>Record</Filter>
     </ClCompile>
   </ItemGroup>

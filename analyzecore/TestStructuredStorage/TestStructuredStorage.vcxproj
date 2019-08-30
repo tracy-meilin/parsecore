@@ -88,6 +88,7 @@
     <ClInclude Include="BaseStream.h" />
     <ClInclude Include="BinaryReader.h" />
     <ClInclude Include="BitmapBlip.h" />
+    <ClInclude Include="CharacterRun.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CurrentUserAtom.h" />
     <ClInclude Include="CustomOperators.h" />
@@ -95,16 +96,20 @@
     <ClInclude Include="DirectoryTree.h" />
     <ClInclude Include="DocumentAtom.h" />
     <ClInclude Include="DocumentContainer.h" />
+    <ClInclude Include="Environment.h" />
     <ClInclude Include="Fat.h" />
     <ClInclude Include="GlobalDefines.h" />
     <ClInclude Include="GPointAtom.h" />
     <ClInclude Include="GRatioAtom.h" />
+    <ClInclude Include="GrColorAtom.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
+    <ClInclude Include="ITextDataRecord.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="ParagraphRun.h" />
     <ClInclude Include="PersistDirectoryAtom.h" />
     <ClInclude Include="PersistDirectoryEntry.h" />
     <ClInclude Include="Pictures.h" />
@@ -120,7 +125,12 @@
     <ClInclude Include="SlidePersistAtom.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StructuredStorageReader.h" />
+    <ClInclude Include="TabStop.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextAtom.h" />
+    <ClInclude Include="TextHeaderAtom.h" />
+    <ClInclude Include="TextMasterStyleAtom.h" />
+    <ClInclude Include="TextStyleAtom.h" />
     <ClInclude Include="UserEditAtom.h" />
     <ClInclude Include="VirtualStream.h" />
   </ItemGroup>
@@ -132,21 +142,26 @@
     <ClCompile Include="BaseStream.cpp" />
     <ClCompile Include="BinaryReader.cpp" />
     <ClCompile Include="BitmapBlip.cpp" />
+    <ClCompile Include="CharacterRun.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="CurrentUserAtom.cpp" />
     <ClCompile Include="DirectoryEntry.cpp" />
     <ClCompile Include="DirectoryTree.cpp" />
     <ClCompile Include="DocumentAtom.cpp" />
     <ClCompile Include="DocumentContainer.cpp" />
+    <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Fat.cpp" />
     <ClCompile Include="GPointAtom.cpp" />
     <ClCompile Include="GRatioAtom.cpp" />
+    <ClCompile Include="GrColorAtom.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />
+    <ClCompile Include="ITextDataRecord.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="ParagraphRun.cpp" />
     <ClCompile Include="PersistDirectoryAtom.cpp" />
     <ClCompile Include="PersistDirectoryEntry.cpp" />
     <ClCompile Include="Pictures.cpp" />
@@ -162,7 +177,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="StructuredStorageReader.cpp" />
+    <ClCompile Include="TabStop.cpp" />
     <ClCompile Include="TestStructuredStorage.cpp" />
+    <ClCompile Include="TextAtom.cpp" />
+    <ClCompile Include="TextHeaderAtom.cpp" />
+    <ClCompile Include="TextMasterStyleAtom.cpp" />
+    <ClCompile Include="TextStyleAtom.cpp" />
     <ClCompile Include="UserEditAtom.cpp" />
     <ClCompile Include="VirtualStream.cpp" />
   </ItemGroup>
