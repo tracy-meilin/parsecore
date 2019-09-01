@@ -111,7 +111,7 @@ public:
 	Common::ParagraphMask mask;
 
 	unsigned short BulletFlags;
-	unsigned char BulletChar;
+	wchar_t BulletChar;
 	unsigned short BulletTypefaceIdx;
 	signed short BulletSize;
 	shared_ptr<GrColorAtom> _spBulletColor = nullptr;

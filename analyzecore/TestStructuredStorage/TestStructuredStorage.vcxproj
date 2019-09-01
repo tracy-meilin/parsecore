@@ -96,8 +96,13 @@
     <ClInclude Include="DirectoryTree.h" />
     <ClInclude Include="DocumentAtom.h" />
     <ClInclude Include="DocumentContainer.h" />
+    <ClInclude Include="DrawingGroup.h" />
+    <ClInclude Include="DrawingGroupRecord.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Fat.h" />
+    <ClInclude Include="FileIdCluster.h" />
+    <ClInclude Include="FontCollection.h" />
+    <ClInclude Include="FontEntityAtom.h" />
     <ClInclude Include="GlobalDefines.h" />
     <ClInclude Include="GPointAtom.h" />
     <ClInclude Include="GRatioAtom.h" />
@@ -114,6 +119,7 @@
     <ClInclude Include="PersistDirectoryEntry.h" />
     <ClInclude Include="Pictures.h" />
     <ClInclude Include="PowerPointDocument.h" />
+    <ClInclude Include="PPDrawingGroup.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="RecordFactory.h" />
     <ClInclude Include="RegularContainer.h" />
@@ -128,9 +134,12 @@
     <ClInclude Include="TabStop.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextAtom.h" />
+    <ClInclude Include="TextCFExceptionAtom.h" />
     <ClInclude Include="TextHeaderAtom.h" />
     <ClInclude Include="TextMasterStyleAtom.h" />
+    <ClInclude Include="TextPFExceptionAtom.h" />
     <ClInclude Include="TextStyleAtom.h" />
+    <ClInclude Include="UnknownRecord.h" />
     <ClInclude Include="UserEditAtom.h" />
     <ClInclude Include="VirtualStream.h" />
   </ItemGroup>
@@ -149,8 +158,13 @@
     <ClCompile Include="DirectoryTree.cpp" />
     <ClCompile Include="DocumentAtom.cpp" />
     <ClCompile Include="DocumentContainer.cpp" />
+    <ClCompile Include="DrawingGroup.cpp" />
+    <ClCompile Include="DrawingGroupRecord.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Fat.cpp" />
+    <ClCompile Include="FileIdCluster.cpp" />
+    <ClCompile Include="FontCollection.cpp" />
+    <ClCompile Include="FontEntityAtom.cpp" />
     <ClCompile Include="GPointAtom.cpp" />
     <ClCompile Include="GRatioAtom.cpp" />
     <ClCompile Include="GrColorAtom.cpp" />
@@ -166,6 +180,7 @@
     <ClCompile Include="PersistDirectoryEntry.cpp" />
     <ClCompile Include="Pictures.cpp" />
     <ClCompile Include="PowerPointDocument.cpp" />
+    <ClCompile Include="PPDrawingGroup.cpp" />
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordFactory.cpp" />
     <ClCompile Include="RegularContainer.cpp" />
@@ -180,9 +195,12 @@
     <ClCompile Include="TabStop.cpp" />
     <ClCompile Include="TestStructuredStorage.cpp" />
     <ClCompile Include="TextAtom.cpp" />
+    <ClCompile Include="TextCFExceptionAtom.cpp" />
     <ClCompile Include="TextHeaderAtom.cpp" />
     <ClCompile Include="TextMasterStyleAtom.cpp" />
+    <ClCompile Include="TextPFExceptionAtom.cpp" />
     <ClCompile Include="TextStyleAtom.cpp" />
+    <ClCompile Include="UnknownRecord.cpp" />
     <ClCompile Include="UserEditAtom.cpp" />
     <ClCompile Include="VirtualStream.cpp" />
   </ItemGroup>

@@ -22,6 +22,9 @@
     <Filter Include="Record\Text">
       <UniqueIdentifier>{273bd17e-b169-4e9f-984d-917d118694e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Record\Drawing">
+      <UniqueIdentifier>{659c9ae0-9faa-44c4-978a-20fb549e2d5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -183,6 +186,33 @@
     <ClInclude Include="Environment.h">
       <Filter>Record</Filter>
     </ClInclude>
+    <ClInclude Include="TextPFExceptionAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextCFExceptionAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="UnknownRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FontCollection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FontEntityAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PPDrawingGroup.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingGroup.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingGroupRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIdCluster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -325,6 +355,33 @@
     </ClCompile>
     <ClCompile Include="Environment.cpp">
       <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="TextPFExceptionAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextCFExceptionAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="UnknownRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FontCollection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FontEntityAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingGroup.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="PPDrawingGroup.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingGroupRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIdCluster.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

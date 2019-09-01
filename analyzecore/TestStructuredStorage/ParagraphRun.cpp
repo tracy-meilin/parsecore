@@ -27,7 +27,7 @@ ParagraphRun::ParagraphRun(shared_ptr<BinaryReader> spBinaryReader, bool noInden
 		this->BulletFlags = spBinaryReader->ReadUInt16();
 
 	if (this->GetBulletCharPresent())
-		spBinaryReader->Read(&this->BulletChar, 1);
+		this->BulletChar = (wchar_t)spBinaryReader->ReadUInt16();
 
 	if (this->GetBulletFontPresent())
 		this->BulletTypefaceIdx = spBinaryReader->ReadUInt16();
