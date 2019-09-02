@@ -1,11 +1,19 @@
 #include "stdafx.h"
+#include "GlobalDefines.h"
 #include "Singleton.h"
+#include "GlobalDefines.h"
 #include "BaseStream.h"
 #include "BinaryReader.h"
 #include "Record.h"
 #include "RecordFactory.h"
 #include "RegularContainer.h"
 #include "SlidePersistAtom.h"
+#include "GrColorAtom.h"
+#include "TabStop.h"
+#include "CharacterRun.h"
+#include "ParagraphRun.h"
+#include "OutlineTextRefAtom.h"
+#include "TextHeaderAtom.h"
 #include "SlideListWithText.h"
 #include "List.h"
 #include "DocumentContainer.h"
@@ -27,15 +35,15 @@ DocumentContainer::DocumentContainer(shared_ptr<BinaryReader> spBinaryReader,
 	for (auto& ele : vec)
 	{
 		vector<shared_ptr<SlidePersistAtom>> target;
-		switch ((SlideListWithText::TextInstance)ele->Instance)
+		switch ((SlideListWidthTextSpace::TextInstance)ele->Instance)
 		{
-		case SlideListWithText::CollectionOfMasterSlides:
+		case SlideListWidthTextSpace::CollectionOfMasterSlides:
 			target = this->MasterPersistList;
 			break;
-		case SlideListWithText::CollectionOfNotesSlides:
+		case SlideListWidthTextSpace::CollectionOfNotesSlides:
 			target = this->NotesPersistList;
 			break;
-		case SlideListWithText::CollectionOfSlides:
+		case SlideListWidthTextSpace::CollectionOfSlides:
 			target = this->SlidePersistList;
 			break;
 		default:

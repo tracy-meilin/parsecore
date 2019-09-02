@@ -27,3 +27,11 @@ SlidePersistAtom::SlidePersistAtom(shared_ptr<BinaryReader> spBinaryReader,
 SlidePersistAtom::~SlidePersistAtom()
 {
 }
+
+bool SlidePersistAtom::operator<(const shared_ptr<SlidePersistAtom>& b) const
+{
+	if (SlideId < b->SlideId)
+		return true;
+	else
+		return false;
+}

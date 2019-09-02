@@ -11,6 +11,8 @@ public:
 		unsigned int instance);
 	~SlidePersistAtom();
 
+	bool operator<(const shared_ptr<SlidePersistAtom>& b) const;
+
 public:
 	/// <summary>
 	/// logical reference to the slide persist object

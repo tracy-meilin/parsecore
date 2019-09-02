@@ -12,7 +12,7 @@ FileIdCluster::FileIdCluster()
 FileIdCluster::FileIdCluster(shared_ptr<BinaryReader> spBinaryReader)
 {
 	this->DrawingGroupId = spBinaryReader->ReadUInt32();
-	this->DrawingGroupId = spBinaryReader->ReadUInt32();
+	this->CSpIdCur = spBinaryReader->ReadUInt32();
 }
 
 FileIdCluster::~FileIdCluster()

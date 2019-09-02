@@ -124,6 +124,8 @@
 #define   DFF_msofbtDg              0xF008 // drawing ID                an FDG                                                             X   X   X   0
 #define   DFF_msofbtRegroupItems    0xF118 // count of regroup entries  several FRITs                                                      X   X   X   0
 #define   DFF_msofbtColorScheme     0xF120 // count of colors           the colors of the source host's color scheme                           C   C   0
+#define   DFF_msofbtOPT_121         0xF121 // count of properties       the document-wide default shape properties                         X   X   X   3
+#define   DFF_msofbtOPT_122         0xF122 // count of properties       the document-wide default shape properties                         X   X   X   3
 #define   DFF_msofbtSpgrContainer   0xF003 //                           several SpContainers, the first of which is the group shape itself X   X   X
 #define   DFF_msofbtSpContainer     0xF004 //                           a shape                                                            X   X   X
 #define     DFF_msofbtSpgr          0xF009 //                           an FSPGR; only present if the shape is a group shape               X   X   X   1

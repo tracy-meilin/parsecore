@@ -36,7 +36,7 @@ RegularContainer::RegularContainer(shared_ptr<BinaryReader> spBinaryReader,
 
 		this->_Child.push_back(spChild);
 		//TODO: 是否会引起奔溃
-		spChild->SetParentRecord(shared_ptr<Record>(this));
+		spChild->SetParentRecord(this);
 		
 		if (spChild->DoAutomaticVerifyReadToEnd())
 		{

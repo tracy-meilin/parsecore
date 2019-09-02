@@ -88,6 +88,8 @@
     <ClInclude Include="BaseStream.h" />
     <ClInclude Include="BinaryReader.h" />
     <ClInclude Include="BitmapBlip.h" />
+    <ClInclude Include="BlipStoreContainer.h" />
+    <ClInclude Include="BlipStoreEntry.h" />
     <ClInclude Include="CharacterRun.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CurrentUserAtom.h" />
@@ -114,6 +116,7 @@
     <ClInclude Include="List.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="OutlineTextRefAtom.h" />
     <ClInclude Include="ParagraphRun.h" />
     <ClInclude Include="PersistDirectoryAtom.h" />
     <ClInclude Include="PersistDirectoryEntry.h" />
@@ -124,6 +127,7 @@
     <ClInclude Include="RecordFactory.h" />
     <ClInclude Include="RegularContainer.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ShapeOptions.h" />
     <ClInclude Include="SimpleBinStream.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Slide.h" />
@@ -151,6 +155,8 @@
     <ClCompile Include="BaseStream.cpp" />
     <ClCompile Include="BinaryReader.cpp" />
     <ClCompile Include="BitmapBlip.cpp" />
+    <ClCompile Include="BlipStoreContainer.cpp" />
+    <ClCompile Include="BlipStoreEntry.cpp" />
     <ClCompile Include="CharacterRun.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="CurrentUserAtom.cpp" />
@@ -175,6 +181,7 @@
     <ClCompile Include="List.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="OutlineTextRefAtom.cpp" />
     <ClCompile Include="ParagraphRun.cpp" />
     <ClCompile Include="PersistDirectoryAtom.cpp" />
     <ClCompile Include="PersistDirectoryEntry.cpp" />
@@ -184,6 +191,7 @@
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordFactory.cpp" />
     <ClCompile Include="RegularContainer.cpp" />
+    <ClCompile Include="ShapeOptions.cpp" />
     <ClCompile Include="Slide.cpp" />
     <ClCompile Include="SlideListWithText.cpp" />
     <ClCompile Include="SlidePersistAtom.cpp" />

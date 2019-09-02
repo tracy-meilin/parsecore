@@ -10,7 +10,9 @@ public:
 		unsigned long typeCode,
 		unsigned int version,
 		unsigned int instance);
-	~Slide();
+	virtual ~Slide();
+
+	virtual wstring ToString(unsigned long depth) override{ return _T(""); };
 
 public:
 	shared_ptr<SlidePersistAtom> spPersistAtom = nullptr;

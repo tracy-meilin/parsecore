@@ -14,7 +14,9 @@ public:
 		unsigned long typeCode,
 		unsigned int version,
 		unsigned int instance);
-	~RegularContainer();
+	virtual ~RegularContainer();
+
+	virtual wstring ToString(unsigned long depth){ return _T(""); };
 
 	template<typename T>
 	vector<shared_ptr<T>> AllChildrenWithType();

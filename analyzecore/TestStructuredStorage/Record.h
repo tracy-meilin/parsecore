@@ -20,9 +20,12 @@ public:
 
 	unsigned long GetTotalSize(){ return HeaderSize + BodySize; }
 
+	template<typename T>
+	shared_ptr<T> FirstAncestorWithType();
+
 	//get/set
-	shared_ptr<Record> GetParentRecord(){ return _spParentRecord; }
-	void SetParentRecord(shared_ptr<Record> spRecord){ _spParentRecord = spRecord; }
+	Record* GetParentRecord(){ return _pParentRecord; }
+	void SetParentRecord(Record* pRecord){ _pParentRecord = pRecord; }
 
 public:
 	unsigned long HeaderSize = HEADER_SIZE_IN_BYTES;
@@ -40,6 +43,22 @@ public:
 
 protected:
 	shared_ptr<BinaryReader> _spBinaryReader = nullptr;
-	shared_ptr<Record> _spParentRecord = nullptr;
+	Record* _pParentRecord = nullptr;
 };
+
+template<typename T>
+shared_ptr<T> Record::FirstAncestorWithType()
+{
+	shared_ptr<Record> spCurAncestor = make_shared<Record>(*(this->_pParentRecord));
+	while (spCurAncestor)
+	{
+		shared_ptr<T> t = dynamic_pointer_cast<T>(spCurAncestor);
+		if (t)
+			return t;
+
+		spCurAncestor = make_shared<Record>(*(spCurAncestor->GetParentRecord()));
+	}
+
+	return nullptr;
+}
 

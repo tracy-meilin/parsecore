@@ -19,6 +19,12 @@
 #include "PersistDirectoryAtom.h"
 #include "RegularContainer.h"
 #include "SlidePersistAtom.h"
+#include "TabStop.h"
+#include "GrColorAtom.h"
+#include "CharacterRun.h"
+#include "ParagraphRun.h"
+#include "OutlineTextRefAtom.h"
+#include "TextHeaderAtom.h"
 #include "SlideListWithText.h"
 #include "List.h"
 #include "DocumentContainer.h"
@@ -29,10 +35,7 @@
 #include "UnknownRecord.h"
 #include "FontEntityAtom.h"
 #include "FontCollection.h"
-#include "TabStop.h"
-#include "GrColorAtom.h"
-#include "CharacterRun.h"
-#include "ParagraphRun.h"
+
 #include "TextCFExceptionAtom.h"
 #include "TextPFExceptionAtom.h"
 #include "TextStyleAtom.h"
@@ -42,6 +45,10 @@
 #include "FileIdCluster.h"
 #include "DrawingGroupRecord.h"
 #include "BitmapBlip.h"
+#include "BlipStoreContainer.h"
+#include "BlipStoreEntry.h"
+#include "ShapeOptions.h"
+
 
 #include "RecordFactory.h"
 
@@ -66,7 +73,7 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	// first 4 bit of field verAndInstance
 	unsigned long version = verAndInstance & 0x000FU;
 	// last 12 bit of field verAndInstance
-	unsigned long instance = (verAndInstance & 0x000FU) >> 4;
+	unsigned long instance = (verAndInstance & 0xFFF0U) >> 4;
 
 	unsigned short typeCode = spBinaryReader->ReadUInt16();
 	unsigned long size = spBinaryReader->ReadUInt32();
@@ -121,6 +128,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<FontEntityAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_SlideListWithText:
+	{
+		spRecord = make_shared<SlideListWithText>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_UserEditAtom:
 	{
 		spRecord = make_shared<UserEditAtom>(spBinaryReader, size, typeCode, version, instance);
@@ -141,9 +153,26 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<DrawingGroup>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case DFF_msofbtBstoreContainer:
+	{
+		spRecord = make_shared<BlipStoreContainer>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case DFF_msofbtDgg:
 	{
 		spRecord = make_shared<DrawingGroupRecord>(spBinaryReader, size, typeCode, version, instance);
+	}
+	break;
+	case DFF_msofbtBSE:
+	{
+		spRecord = make_shared<BlipStoreEntry>(spBinaryReader, size, typeCode, version, instance);
+	}
+	break;
+	case DFF_msofbtOPT:
+	case DFF_msofbtOPT_121:
+	case DFF_msofbtOPT_122:
+	{
+		spRecord = make_shared<ShapeOptions>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
 	case DFF_msofbtBitmapBlip_1E:
