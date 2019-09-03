@@ -228,6 +228,24 @@
     <ClInclude Include="OutlineTextRefAtom.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ProgTags.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgBinaryTag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StringAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgBinaryTagDataBlob.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideHeadersFootersContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EndDocument.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -408,6 +426,24 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="OutlineTextRefAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgTags.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgBinaryTag.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StringAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgBinaryTagDataBlob.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideHeadersFootersContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EndDocument.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

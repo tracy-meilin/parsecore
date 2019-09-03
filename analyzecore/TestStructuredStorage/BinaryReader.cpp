@@ -120,11 +120,13 @@ std::wstring BinaryReader::ReadUnicodeString(size_t size)
 	if (size < 1)
 		return _T("");
 
-	wchar_t* byteArray = new wchar_t[size];
+	wchar_t* byteArray = new wchar_t[size +1];
+	memset(byteArray, 0, size);
 	for (int i = 0; i < size; ++i)
 	{
 		byteArray[i] = ReadUInt16();
 	}
+	byteArray[size] = '\0';
 	wstring str(byteArray);
 
 	delete[] byteArray;

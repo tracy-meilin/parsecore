@@ -3,6 +3,7 @@
 // PowerPoint record types
 #define PPT_PST_Document                        1000
 #define PPT_PST_DocumentAtom                    1001
+#define PPT_PST_EndDocument						1002
 #define PPT_PST_SlideAtom                       1007
 #define PPT_PST_NotesAtom                       1009
 #define PPT_PST_Environment                     1010

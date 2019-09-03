@@ -31,6 +31,7 @@
 #include "GPointAtom.h"
 #include "GRatioAtom.h"
 #include "DocumentAtom.h"
+#include "EndDocument.h"
 #include "Environment.h"
 #include "UnknownRecord.h"
 #include "FontEntityAtom.h"
@@ -48,6 +49,11 @@
 #include "BlipStoreContainer.h"
 #include "BlipStoreEntry.h"
 #include "ShapeOptions.h"
+#include "ProgTags.h"
+#include "ProgBinaryTag.h"
+#include "StringAtom.h"
+#include "ProgBinaryTagDataBlob.h"
+#include "SlideHeadersFootersContainer.h"
 
 
 #include "RecordFactory.h"
@@ -93,9 +99,19 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<DocumentAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case PPT_PST_EndDocument:
+	{
+		spRecord = make_shared<EndDocument>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_Environment:
 	{
 		spRecord = make_shared<Environment>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_SlidePersistAtom:
+	{
+		spRecord = make_shared<SlidePersistAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case PPT_PST_PPDrawingGroup:
@@ -103,6 +119,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<PPDrawingGroup>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_List:
+	{
+		spRecord = make_shared<List>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_FontCollection:
 	{
 		spRecord = make_shared<FontCollection>(spBinaryReader, size, typeCode, version, instance);
@@ -128,6 +149,21 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<FontEntityAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_CString:
+	{
+		spRecord = make_shared<CStringAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_HeadersFooters:
+	{
+		spRecord = make_shared<SlideHeadersFootersContainer>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_HeadersFootersAtom:
+	{
+		spRecord = make_shared<HeadersFootersAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_SlideListWithText:
 	{
 		spRecord = make_shared<SlideListWithText>(spBinaryReader, size, typeCode, version, instance);
@@ -143,6 +179,21 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<CurrentUserAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_ProgTags:
+	{
+		spRecord = make_shared<ProgTags>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_ProgBinaryTag:
+	{
+		spRecord = make_shared<ProgBinaryTag>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_BinaryTagData:
+	{
+		spRecord = make_shared<ProgBinaryTagDataBlob>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_PersistPtrIncrementalBlock:
 	{
 		spRecord = make_shared<PersistDirectoryAtom>(spBinaryReader, size, typeCode, version, instance);

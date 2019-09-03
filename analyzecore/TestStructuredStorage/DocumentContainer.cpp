@@ -50,23 +50,23 @@ DocumentContainer::DocumentContainer(shared_ptr<BinaryReader> spBinaryReader,
 			break;
 		}
 
-		if (!target.empty())
+		//if (target)
 		{
 			for (auto& atom : ele->AllChildrenWithType<SlidePersistAtom>())
 			{
 				target.push_back(atom);
 			}
 		}
-
-		//定义升序比较lambda函数
-		auto LessSort = [](shared_ptr<SlidePersistAtom> a, shared_ptr<SlidePersistAtom> b){return a->PersistIdRef < b->PersistIdRef; };
-
-		std::sort(MasterPersistList.begin(), MasterPersistList.end(), LessSort);
-		std::sort(NotesPersistList.begin(), MasterPersistList.end(), LessSort);
-		std::sort(SlidePersistList.begin(), MasterPersistList.end(), LessSort);
-
-		this->_spDocInfoListContainer = FirstChildWithType<List>();
 	}
+
+	//定义升序比较lambda函数
+	auto LessSort = [](shared_ptr<SlidePersistAtom> a, shared_ptr<SlidePersistAtom> b){return a->PersistIdRef < b->PersistIdRef; };
+
+	std::sort(MasterPersistList.begin(), MasterPersistList.end(), LessSort);
+	std::sort(NotesPersistList.begin(), NotesPersistList.end(), LessSort);
+	std::sort(SlidePersistList.begin(), SlidePersistList.end(), LessSort);
+
+	this->_spDocInfoListContainer = FirstChildWithType<List>();
 }
 
 
