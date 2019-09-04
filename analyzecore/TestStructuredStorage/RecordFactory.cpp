@@ -12,6 +12,7 @@
 #include "BaseStream.h"
 #include "VirtualStream.h"
 #include "BinaryReader.h"
+#include "BinaryWriter.h"
 #include "Record.h"
 #include "CurrentUserAtom.h"
 #include "UserEditAtom.h"
@@ -54,7 +55,15 @@
 #include "StringAtom.h"
 #include "ProgBinaryTagDataBlob.h"
 #include "SlideHeadersFootersContainer.h"
-
+#include "XmlRecord.h"
+#include "XmlContainer.h"
+#include "RoundTripContentMasterInfo12.h"
+#include "RoundTripOArtTextStyles12.h"
+#include "Slide.h"
+#include "MainMaster.h"
+#include "SSlideLayoutAtom.h"
+#include "SlideAtom.h"
+#include "ColorSchemeAtom.h"
 
 #include "RecordFactory.h"
 
@@ -104,6 +113,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<EndDocument>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case PPT_PST_SlideAtom:
+	{
+		spRecord = make_shared<SlideAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_Environment:
 	{
 		spRecord = make_shared<Environment>(spBinaryReader, size, typeCode, version, instance);
@@ -114,11 +128,27 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<SlidePersistAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case PPT_PST_MainMaster:
+	{
+		spRecord = make_shared<MainMaster>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_PPDrawingGroup:
 	{
 		spRecord = make_shared<PPDrawingGroup>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_RoundTripContentMasterInfo12:
+	{
+		//TODO:LO内核没有解析
+		spRecord = make_shared<RoundTripContentMasterInfo12>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_RoundTripOArtTextStyles12:
+	{
+		spRecord = make_shared<RoundTripOArtTextStyles12>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_List:
 	{
 		spRecord = make_shared<List>(spBinaryReader, size, typeCode, version, instance);
@@ -127,6 +157,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case PPT_PST_FontCollection:
 	{
 		spRecord = make_shared<FontCollection>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_ColorSchemeAtom:
+	{
+		spRecord = make_shared<ColorSchemeAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case PPT_PST_TxMasterStyleAtom:

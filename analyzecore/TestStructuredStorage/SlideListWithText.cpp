@@ -70,6 +70,6 @@ std::shared_ptr<TextHeaderAtom> SlideListWithText::FindTextHeaderForOutlineTextR
 		return nullptr;
 	}
 
-	//vector<shared_ptr<TextHeaderAtom>> thAtoms = this->m_mapSlideToPlaceholderTextHeaders[pSlide->spPersistAtom];
-	//return thAtoms[spAtom->Index];
+	vector<shared_ptr<TextHeaderAtom>> thAtoms = this->m_mapSlideToPlaceholderTextHeaders[pSlide->spPersistAtom];
+	return thAtoms[spAtom->Index];
 }

@@ -323,7 +323,7 @@ void PowerPointDocument::IdentifyMasterPersistObjects()
 		shared_ptr<Slide> spMaster = this->GetPersistObject<Slide>(ele->PersistIdRef);
 		spMaster->spPersistAtom = ele;
 
-	
+		//shared_ptr<MainMas>
 	}
 }
 

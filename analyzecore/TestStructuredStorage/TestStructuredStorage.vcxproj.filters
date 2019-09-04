@@ -28,6 +28,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Record\Xml">
+      <UniqueIdentifier>{066836e6-1e60-4b0a-ac70-422222f134e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -246,6 +249,39 @@
     <ClInclude Include="EndDocument.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MainMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTripContentMasterInfo12.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryWriter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRecord.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlContainer.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="SSlideLayoutAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OEPlaceHolderAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorSchemeAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTripOArtTextStyles12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -444,6 +480,39 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="EndDocument.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMaster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTripContentMasterInfo12.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStream.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryWriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlRecord.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlContainer.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="SSlideLayoutAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OEPlaceHolderAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorSchemeAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTripOArtTextStyles12.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,6 +14,19 @@ public:
 
 	virtual __int64 Seek(__int64 offset, int way) override;
 
+	// get/set
+	virtual __int64 GetPosition() override{ return _position; }
+	virtual void SetPosition(__int64 position) override{ _position = position; }
+
+	virtual __int64 GetLength() override{ return _length; }
+
+	//TODO: ‘›Œ¥ µœ÷
+	virtual size_t Write(const unsigned char* p, size_t size) override { return 0; };
+
+	virtual size_t Write(const char* p, size_t size) override { return 0; };
+
+	//////////////////////////////////////////////////////////////////////////
+
 	unsigned short ReadUInt16();
 
 	unsigned long ReadUInt32();
@@ -21,12 +34,6 @@ public:
 	int Read(unsigned char* p, size_t size);
 
 	int Read(unsigned char* p, int offset, size_t size, __int64 position);
-
-	// get/set
-	virtual __int64 GetPosition() override{ return _position; }
-	virtual void SetPosition(__int64 position) override{ _position = position; }
-
-	virtual __int64 GetLength() override{ return _length; }
 
 private:
 	void Init(unsigned long startSector);

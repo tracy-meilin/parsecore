@@ -15,5 +15,9 @@ public:
 	virtual __int64 GetLength() = 0;
 
 	virtual __int64 Seek(__int64 offset, int way) = 0;
+
+	virtual size_t Write(const unsigned char* p, size_t size) = 0;
+
+	virtual size_t Write(const char* p, size_t size) = 0;
 };
 

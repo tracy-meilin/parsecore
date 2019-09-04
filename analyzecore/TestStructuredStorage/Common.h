@@ -8,6 +8,7 @@
 #define PPT_PST_NotesAtom                       1009
 #define PPT_PST_Environment                     1010
 #define PPT_PST_SlidePersistAtom                1011
+#define PPT_PST_MainMaster						1016
 #define PPT_PST_SSSlideInfoAtom                 1017
 #define PPT_PST_VBAInfo                         1023
 #define PPT_PST_VBAInfoAtom                     1024
@@ -20,6 +21,8 @@
 #define PPT_PST_NamedShows                      1040
 #define PPT_PST_NamedShow                       1041
 #define PPT_PST_NamedShowSlides                 1042
+#define PPT_PST_RoundTripContentMasterInfo12	1054
+#define PPT_PST_RoundTripOArtTextStyles12		1059
 #define PPT_PST_List                            2000
 #define PPT_PST_FontCollection                  2005
 #define PPT_PST_SoundCollection                 2020

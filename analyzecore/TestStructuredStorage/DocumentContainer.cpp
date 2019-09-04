@@ -34,28 +34,26 @@ DocumentContainer::DocumentContainer(shared_ptr<BinaryReader> spBinaryReader,
 	vector<shared_ptr<SlideListWithText>> vec = this->AllChildrenWithType<SlideListWithText>();
 	for (auto& ele : vec)
 	{
-		vector<shared_ptr<SlidePersistAtom>> target;
-		switch ((SlideListWidthTextSpace::TextInstance)ele->Instance)
-		{
-		case SlideListWidthTextSpace::CollectionOfMasterSlides:
-			target = this->MasterPersistList;
-			break;
-		case SlideListWidthTextSpace::CollectionOfNotesSlides:
-			target = this->NotesPersistList;
-			break;
-		case SlideListWidthTextSpace::CollectionOfSlides:
-			target = this->SlidePersistList;
-			break;
-		default:
-			break;
-		}
-
-		//if (target)
-		{
-			for (auto& atom : ele->AllChildrenWithType<SlidePersistAtom>())
+		auto innerFunc = [](vector<shared_ptr<SlidePersistAtom>>& target, shared_ptr <SlideListWithText > sp){
+			for (auto& atom : sp->AllChildrenWithType<SlidePersistAtom>())
 			{
 				target.push_back(atom);
 			}
+		};
+
+		switch ((SlideListWidthTextSpace::TextInstance)ele->Instance)
+		{
+		case SlideListWidthTextSpace::CollectionOfMasterSlides:
+			innerFunc(this->MasterPersistList, ele);
+			break;
+		case SlideListWidthTextSpace::CollectionOfNotesSlides:
+			innerFunc(this->NotesPersistList, ele);
+			break;
+		case SlideListWidthTextSpace::CollectionOfSlides:
+			innerFunc(this->SlidePersistList, ele);
+			break;
+		default:
+			break;
 		}
 	}
 

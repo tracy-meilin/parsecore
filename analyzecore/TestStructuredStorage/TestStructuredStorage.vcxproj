@@ -87,10 +87,12 @@
     <ClInclude Include="AbstractIOHandler.h" />
     <ClInclude Include="BaseStream.h" />
     <ClInclude Include="BinaryReader.h" />
+    <ClInclude Include="BinaryWriter.h" />
     <ClInclude Include="BitmapBlip.h" />
     <ClInclude Include="BlipStoreContainer.h" />
     <ClInclude Include="BlipStoreEntry.h" />
     <ClInclude Include="CharacterRun.h" />
+    <ClInclude Include="ColorSchemeAtom.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CurrentUserAtom.h" />
     <ClInclude Include="CustomOperators.h" />
@@ -104,6 +106,7 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Fat.h" />
     <ClInclude Include="FileIdCluster.h" />
+    <ClInclude Include="FileStream.h" />
     <ClInclude Include="FontCollection.h" />
     <ClInclude Include="FontEntityAtom.h" />
     <ClInclude Include="GlobalDefines.h" />
@@ -115,8 +118,10 @@
     <ClInclude Include="InternalBitConverter.h" />
     <ClInclude Include="ITextDataRecord.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MainMaster.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="OEPlaceHolderAtom.h" />
     <ClInclude Include="OutlineTextRefAtom.h" />
     <ClInclude Include="ParagraphRun.h" />
     <ClInclude Include="PersistDirectoryAtom.h" />
@@ -131,13 +136,17 @@
     <ClInclude Include="RecordFactory.h" />
     <ClInclude Include="RegularContainer.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RoundTripContentMasterInfo12.h" />
+    <ClInclude Include="RoundTripOArtTextStyles12.h" />
     <ClInclude Include="ShapeOptions.h" />
     <ClInclude Include="SimpleBinStream.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Slide.h" />
+    <ClInclude Include="SlideAtom.h" />
     <ClInclude Include="SlideHeadersFootersContainer.h" />
     <ClInclude Include="SlideListWithText.h" />
     <ClInclude Include="SlidePersistAtom.h" />
+    <ClInclude Include="SSlideLayoutAtom.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringAtom.h" />
     <ClInclude Include="StructuredStorageReader.h" />
@@ -152,6 +161,8 @@
     <ClInclude Include="UnknownRecord.h" />
     <ClInclude Include="UserEditAtom.h" />
     <ClInclude Include="VirtualStream.h" />
+    <ClInclude Include="XmlContainer.h" />
+    <ClInclude Include="XmlRecord.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractDirectoryEntry.cpp" />
@@ -160,10 +171,12 @@
     <ClCompile Include="AbstractIOHandler.cpp" />
     <ClCompile Include="BaseStream.cpp" />
     <ClCompile Include="BinaryReader.cpp" />
+    <ClCompile Include="BinaryWriter.cpp" />
     <ClCompile Include="BitmapBlip.cpp" />
     <ClCompile Include="BlipStoreContainer.cpp" />
     <ClCompile Include="BlipStoreEntry.cpp" />
     <ClCompile Include="CharacterRun.cpp" />
+    <ClCompile Include="ColorSchemeAtom.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="CurrentUserAtom.cpp" />
     <ClCompile Include="DirectoryEntry.cpp" />
@@ -176,6 +189,7 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Fat.cpp" />
     <ClCompile Include="FileIdCluster.cpp" />
+    <ClCompile Include="FileStream.cpp" />
     <ClCompile Include="FontCollection.cpp" />
     <ClCompile Include="FontEntityAtom.cpp" />
     <ClCompile Include="GPointAtom.cpp" />
@@ -186,8 +200,10 @@
     <ClCompile Include="InternalBitConverter.cpp" />
     <ClCompile Include="ITextDataRecord.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="MainMaster.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="OEPlaceHolderAtom.cpp" />
     <ClCompile Include="OutlineTextRefAtom.cpp" />
     <ClCompile Include="ParagraphRun.cpp" />
     <ClCompile Include="PersistDirectoryAtom.cpp" />
@@ -201,11 +217,15 @@
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordFactory.cpp" />
     <ClCompile Include="RegularContainer.cpp" />
+    <ClCompile Include="RoundTripContentMasterInfo12.cpp" />
+    <ClCompile Include="RoundTripOArtTextStyles12.cpp" />
     <ClCompile Include="ShapeOptions.cpp" />
     <ClCompile Include="Slide.cpp" />
+    <ClCompile Include="SlideAtom.cpp" />
     <ClCompile Include="SlideHeadersFootersContainer.cpp" />
     <ClCompile Include="SlideListWithText.cpp" />
     <ClCompile Include="SlidePersistAtom.cpp" />
+    <ClCompile Include="SSlideLayoutAtom.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>
@@ -223,6 +243,8 @@
     <ClCompile Include="UnknownRecord.cpp" />
     <ClCompile Include="UserEditAtom.cpp" />
     <ClCompile Include="VirtualStream.cpp" />
+    <ClCompile Include="XmlContainer.cpp" />
+    <ClCompile Include="XmlRecord.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TestStructuredStorage.rc" />

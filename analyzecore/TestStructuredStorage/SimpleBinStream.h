@@ -982,17 +982,33 @@ public:
 	template<typename T>
 	void write(const T& t)
 	{
+		if (output_file_ptr == nullptr)
+			return;
+
 		T t2 = t;
 		simple::swap_endian_if_same_endian_is_false(t2, m_same_type);
 		std::fwrite(reinterpret_cast<const void*>(&t2), sizeof(T), 1, output_file_ptr);
 	}
 	void write(const std::vector<char>& vec)
 	{
+		if (output_file_ptr == nullptr)
+			return;
+
 		std::fwrite(reinterpret_cast<const void*>(&vec[0]), vec.size(), 1, output_file_ptr);
 	}
 	void write(const char* p, size_t size)
 	{
+		if (output_file_ptr == nullptr)
+			return;
+
 		std::fwrite(reinterpret_cast<const void*>(p), size, 1, output_file_ptr);
+	}
+	size_t write(const unsigned char* p, size_t size)
+	{
+		if (output_file_ptr == nullptr)
+			return 0;
+
+		return std::fwrite(reinterpret_cast<const void*>(p), size, 1, output_file_ptr);
 	}
 
 private:

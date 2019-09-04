@@ -14,10 +14,15 @@ public:
 	virtual __int64 Seek(__int64 offset, int way) override;
 
 	// get/set
-	__int64 GetPosition() override{ return _spStream->getIndex(); }
-	void SetPosition(__int64 position) override{ _spStream->setIndex(position); }
+	virtual __int64 GetPosition() override{ return _spStream->getIndex(); }
+	virtual void SetPosition(__int64 position) override{ _spStream->setIndex(position); }
 
-	__int64 GetLength() override{ return _spStream->getLength(); }
+	virtual __int64 GetLength() override{ return _spStream->getLength(); }
+
+	//TODO: ‘›Œ¥ µœ÷
+	virtual size_t Write(const unsigned char* p, size_t size) override { return 0; };
+
+	virtual size_t Write(const char* p, size_t size) override { return 0; };
 
 private:
 	shared_ptr<simple::mem_istream<std::true_type>> _spStream = nullptr;
