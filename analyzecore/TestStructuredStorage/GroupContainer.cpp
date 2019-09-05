@@ -18,7 +18,7 @@ GroupContainer::GroupContainer(shared_ptr<BinaryReader> spBinaryReader,
 	unsigned int instance)
 	: RegularContainer(spBinaryReader, size, typeCode, version, instance)
 {
-
+	//TODO: ´ıÍêÉÆ 2019-0906-00:37
 }
 
 GroupContainer::~GroupContainer()

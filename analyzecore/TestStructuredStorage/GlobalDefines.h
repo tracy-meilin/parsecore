@@ -1027,7 +1027,7 @@ namespace OEPlaceHolderAtomSpace
 	};
 }
 
-namespace JoinStyle
+namespace JoinStyleSpace
 {
 	enum JoinStyle
 	{

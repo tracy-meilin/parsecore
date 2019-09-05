@@ -18,6 +18,7 @@
 #define PPT_PST_PPDrawingGroup                  1035
 #define PPT_PST_PPDrawing                       1036
 #define PPT_PST_GridSpacing10Atom               1037
+#define PPT_PST_THEME							1038
 #define PPT_PST_NamedShows                      1040
 #define PPT_PST_NamedShow                       1041
 #define PPT_PST_NamedShowSlides                 1042

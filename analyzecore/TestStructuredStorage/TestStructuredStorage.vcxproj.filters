@@ -228,9 +228,6 @@
     <ClInclude Include="Common.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="ShapeOptions.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="OutlineTextRefAtom.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -297,25 +294,46 @@
     <ClInclude Include="GroupContainer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ShapeContainer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="GroupShapeRecord.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Shape.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeType.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Handle.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ProtectionBooleans.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeType.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeOptions.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeContainer.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Handle.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientAnchor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeTypeFactory.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleType.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientTextbox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Theme.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -494,9 +512,6 @@
     <ClCompile Include="Common.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="ShapeOptions.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="OutlineTextRefAtom.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -563,25 +578,46 @@
     <ClCompile Include="GroupContainer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ShapeContainer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="GroupShapeRecord.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Shape.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeType.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Handle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ProtectionBooleans.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeType.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeOptions.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeContainer.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Handle.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientAnchor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeTypeFactory.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleType.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientData.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientTextbox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Theme.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

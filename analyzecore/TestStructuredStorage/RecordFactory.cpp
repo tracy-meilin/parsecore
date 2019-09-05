@@ -70,6 +70,14 @@
 #include "GroupContainer.h"
 #include "ShapeContainer.h"
 #include "GroupShapeRecord.h"
+#include "ClientAnchor.h"
+#include "ClientData.h"
+#include "ClientTextbox.h"
+#include "Theme.h"
+#include "Handle.h"
+#include "ProtectionBooleans.h"
+#include "ShapeType.h"
+#include "Shape.h"
 
 #include "RecordFactory.h"
 
@@ -147,6 +155,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case PPT_PST_PPDrawing:
 	{
 		spRecord = make_shared<PPDrawing>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_THEME:
+	{
+		spRecord = make_shared<Theme>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case PPT_PST_RoundTripContentMasterInfo12:
@@ -288,6 +301,26 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case DFF_msofbtSpgr:
 	{
 		spRecord = make_shared<GroupShapeRecord>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case DFF_msofbtSp:
+	{
+		spRecord = make_shared<Shape>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case DFF_msofbtClientTextbox:
+	{
+		spRecord = make_shared<ClientTextbox>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case DFF_msofbtClientAnchor:
+	{
+		spRecord = make_shared<ClientAnchor>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case DFF_msofbtClientData:
+	{
+		spRecord = make_shared<ClientData>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case DFF_msofbtOPT:

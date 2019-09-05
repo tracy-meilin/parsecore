@@ -75,5 +75,10 @@ public:
 	/// Shape has a shape type property
 	/// </summary>
 	bool fHaveSpt;
+
+	/// <summary>
+	/// The shape type of the shape
+	/// </summary>
+	shared_ptr<ShapeType> _spShapeType = nullptr;
 };
 

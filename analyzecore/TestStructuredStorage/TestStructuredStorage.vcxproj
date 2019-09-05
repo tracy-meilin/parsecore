@@ -92,6 +92,9 @@
     <ClInclude Include="BlipStoreContainer.h" />
     <ClInclude Include="BlipStoreEntry.h" />
     <ClInclude Include="CharacterRun.h" />
+    <ClInclude Include="ClientAnchor.h" />
+    <ClInclude Include="ClientData.h" />
+    <ClInclude Include="ClientTextbox.h" />
     <ClInclude Include="ColorSchemeAtom.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CurrentUserAtom.h" />
@@ -141,6 +144,7 @@
     <ClInclude Include="ProtectionBooleans.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="RecordFactory.h" />
+    <ClInclude Include="RectangleType.h" />
     <ClInclude Include="RegularContainer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RoundTripContentMasterInfo12.h" />
@@ -149,6 +153,7 @@
     <ClInclude Include="ShapeContainer.h" />
     <ClInclude Include="ShapeOptions.h" />
     <ClInclude Include="ShapeType.h" />
+    <ClInclude Include="ShapeTypeFactory.h" />
     <ClInclude Include="SimpleBinStream.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Slide.h" />
@@ -168,6 +173,7 @@
     <ClInclude Include="TextMasterStyleAtom.h" />
     <ClInclude Include="TextPFExceptionAtom.h" />
     <ClInclude Include="TextStyleAtom.h" />
+    <ClInclude Include="Theme.h" />
     <ClInclude Include="UnknownRecord.h" />
     <ClInclude Include="UserEditAtom.h" />
     <ClInclude Include="Utils.h" />
@@ -187,6 +193,9 @@
     <ClCompile Include="BlipStoreContainer.cpp" />
     <ClCompile Include="BlipStoreEntry.cpp" />
     <ClCompile Include="CharacterRun.cpp" />
+    <ClCompile Include="ClientAnchor.cpp" />
+    <ClCompile Include="ClientData.cpp" />
+    <ClCompile Include="ClientTextbox.cpp" />
     <ClCompile Include="ColorSchemeAtom.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="CurrentUserAtom.cpp" />
@@ -234,6 +243,7 @@
     <ClCompile Include="ProtectionBooleans.cpp" />
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordFactory.cpp" />
+    <ClCompile Include="RectangleType.cpp" />
     <ClCompile Include="RegularContainer.cpp" />
     <ClCompile Include="RoundTripContentMasterInfo12.cpp" />
     <ClCompile Include="RoundTripOArtTextStyles12.cpp" />
@@ -241,6 +251,7 @@
     <ClCompile Include="ShapeContainer.cpp" />
     <ClCompile Include="ShapeOptions.cpp" />
     <ClCompile Include="ShapeType.cpp" />
+    <ClCompile Include="ShapeTypeFactory.cpp" />
     <ClCompile Include="Slide.cpp" />
     <ClCompile Include="SlideAtom.cpp" />
     <ClCompile Include="SlideHeadersFootersContainer.cpp" />
@@ -261,6 +272,7 @@
     <ClCompile Include="TextMasterStyleAtom.cpp" />
     <ClCompile Include="TextPFExceptionAtom.cpp" />
     <ClCompile Include="TextStyleAtom.cpp" />
+    <ClCompile Include="Theme.cpp" />
     <ClCompile Include="UnknownRecord.cpp" />
     <ClCompile Include="UserEditAtom.cpp" />
     <ClCompile Include="Utils.cpp" />
