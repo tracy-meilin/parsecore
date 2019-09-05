@@ -68,6 +68,8 @@
 #include "SlideAtom.h"
 #include "ColorSchemeAtom.h"
 #include "GroupContainer.h"
+#include "ShapeContainer.h"
+#include "GroupShapeRecord.h"
 
 #include "RecordFactory.h"
 
@@ -263,6 +265,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<GroupContainer>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case DFF_msofbtSpContainer:
+	{
+		spRecord = make_shared<ShapeContainer>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case DFF_msofbtDgg:
 	{
 		spRecord = make_shared<DrawingGroupRecord>(spBinaryReader, size, typeCode, version, instance);
@@ -276,6 +283,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case DFF_msofbtDg:
 	{
 		spRecord = make_shared<DrawingRecord>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case DFF_msofbtSpgr:
+	{
+		spRecord = make_shared<GroupShapeRecord>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case DFF_msofbtOPT:

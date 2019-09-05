@@ -1026,3 +1026,14 @@ namespace OEPlaceHolderAtomSpace
 		MediaClip = 24
 	};
 }
+
+namespace JoinStyle
+{
+	enum JoinStyle
+	{
+		miter,
+		round,
+		bevel,
+		none
+	};
+}

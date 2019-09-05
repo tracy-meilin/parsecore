@@ -31,6 +31,9 @@
     <Filter Include="Record\Xml">
       <UniqueIdentifier>{066836e6-1e60-4b0a-ac70-422222f134e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Record\Shape">
+      <UniqueIdentifier>{e7737f2b-11cb-40b6-9585-b83fb3e7fd50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -294,6 +297,27 @@
     <ClInclude Include="GroupContainer.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ShapeContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupShapeRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeType.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Handle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtectionBooleans.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -537,6 +561,27 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="GroupContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupShapeRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeType.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Handle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtectionBooleans.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

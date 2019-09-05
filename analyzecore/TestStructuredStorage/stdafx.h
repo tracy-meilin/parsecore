@@ -16,6 +16,7 @@
 #include <map>
 #include <string>
 #include <windows.h>
+#include <algorithm>
 
 using namespace std;
 
