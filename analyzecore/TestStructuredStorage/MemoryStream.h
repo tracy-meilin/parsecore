@@ -24,6 +24,8 @@ public:
 
 	virtual size_t Write(const char* p, size_t size) override { return 0; };
 
+	virtual bool Close() override{ return true; };
+
 private:
 	shared_ptr<simple::mem_istream<std::true_type>> _spStream = nullptr;
 };

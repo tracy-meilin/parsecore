@@ -34,3 +34,13 @@ size_t FileStream::Write(const char* p, size_t size)
 
 	_spStream->write(p, size);
 }
+
+bool FileStream::Close()
+{
+	if (_spStream == nullptr)
+		return false;
+
+	_spStream->close();
+
+	return true;
+}

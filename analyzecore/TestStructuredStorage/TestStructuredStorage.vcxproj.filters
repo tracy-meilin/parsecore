@@ -255,12 +255,6 @@
     <ClInclude Include="RoundTripContentMasterInfo12.h">
       <Filter>Record\Xml</Filter>
     </ClInclude>
-    <ClInclude Include="FileStream.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="BinaryWriter.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SlideAtom.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -280,6 +274,24 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="RoundTripOArtTextStyles12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryWriter.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="PPDrawing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupContainer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -488,12 +500,6 @@
     <ClCompile Include="RoundTripContentMasterInfo12.cpp">
       <Filter>Record\Xml</Filter>
     </ClCompile>
-    <ClCompile Include="FileStream.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="BinaryWriter.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SlideAtom.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -513,6 +519,24 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="RoundTripOArtTextStyles12.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryWriter.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="PPDrawing.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupContainer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

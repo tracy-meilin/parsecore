@@ -100,8 +100,10 @@
     <ClInclude Include="DirectoryTree.h" />
     <ClInclude Include="DocumentAtom.h" />
     <ClInclude Include="DocumentContainer.h" />
+    <ClInclude Include="DrawingContainer.h" />
     <ClInclude Include="DrawingGroup.h" />
     <ClInclude Include="DrawingGroupRecord.h" />
+    <ClInclude Include="DrawingRecord.h" />
     <ClInclude Include="EndDocument.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Fat.h" />
@@ -113,6 +115,7 @@
     <ClInclude Include="GPointAtom.h" />
     <ClInclude Include="GRatioAtom.h" />
     <ClInclude Include="GrColorAtom.h" />
+    <ClInclude Include="GroupContainer.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
@@ -128,6 +131,7 @@
     <ClInclude Include="PersistDirectoryEntry.h" />
     <ClInclude Include="Pictures.h" />
     <ClInclude Include="PowerPointDocument.h" />
+    <ClInclude Include="PPDrawing.h" />
     <ClInclude Include="PPDrawingGroup.h" />
     <ClInclude Include="ProgBinaryTag.h" />
     <ClInclude Include="ProgBinaryTagDataBlob.h" />
@@ -183,8 +187,10 @@
     <ClCompile Include="DirectoryTree.cpp" />
     <ClCompile Include="DocumentAtom.cpp" />
     <ClCompile Include="DocumentContainer.cpp" />
+    <ClCompile Include="DrawingContainer.cpp" />
     <ClCompile Include="DrawingGroup.cpp" />
     <ClCompile Include="DrawingGroupRecord.cpp" />
+    <ClCompile Include="DrawingRecord.cpp" />
     <ClCompile Include="EndDocument.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Fat.cpp" />
@@ -195,6 +201,7 @@
     <ClCompile Include="GPointAtom.cpp" />
     <ClCompile Include="GRatioAtom.cpp" />
     <ClCompile Include="GrColorAtom.cpp" />
+    <ClCompile Include="GroupContainer.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />
@@ -210,6 +217,7 @@
     <ClCompile Include="PersistDirectoryEntry.cpp" />
     <ClCompile Include="Pictures.cpp" />
     <ClCompile Include="PowerPointDocument.cpp" />
+    <ClCompile Include="PPDrawing.cpp" />
     <ClCompile Include="PPDrawingGroup.cpp" />
     <ClCompile Include="ProgBinaryTag.cpp" />
     <ClCompile Include="ProgBinaryTagDataBlob.cpp" />

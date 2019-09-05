@@ -25,6 +25,8 @@ public:
 
 	virtual size_t Write(const char* p, size_t size) override { return 0; };
 
+	virtual bool Close() override{ return true; };
+
 	//////////////////////////////////////////////////////////////////////////
 
 	unsigned short ReadUInt16();

@@ -30,7 +30,7 @@ size_t BinaryWriter::Write(const char* p, size_t size)
 	return _spBaseStream->Write(p, size);
 }
 
-void BinaryWriter::Close()
+bool BinaryWriter::Close()
 {
-	//return _spBaseStream->clo
+	return _spBaseStream->Close();
 }

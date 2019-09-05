@@ -19,5 +19,7 @@ public:
 	virtual size_t Write(const unsigned char* p, size_t size) = 0;
 
 	virtual size_t Write(const char* p, size_t size) = 0;
+
+	virtual bool Close() = 0;
 };
 

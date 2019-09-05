@@ -43,7 +43,10 @@
 #include "TextStyleAtom.h"
 #include "TextMasterStyleAtom.h"
 #include "PPDrawingGroup.h"
+#include "PPDrawing.h"
+#include "DrawingContainer.h"
 #include "DrawingGroup.h"
+#include "DrawingRecord.h"
 #include "FileIdCluster.h"
 #include "DrawingGroupRecord.h"
 #include "BitmapBlip.h"
@@ -64,6 +67,7 @@
 #include "SSlideLayoutAtom.h"
 #include "SlideAtom.h"
 #include "ColorSchemeAtom.h"
+#include "GroupContainer.h"
 
 #include "RecordFactory.h"
 
@@ -138,6 +142,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<PPDrawingGroup>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_PPDrawing:
+	{
+		spRecord = make_shared<PPDrawing>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_RoundTripContentMasterInfo12:
 	{
 		//TODO:LO内核没有解析
@@ -244,6 +253,16 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<BlipStoreContainer>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case DFF_msofbtDgContainer:
+	{
+		spRecord = make_shared<DrawingContainer>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case DFF_msofbtSpgrContainer:
+	{
+		spRecord = make_shared<GroupContainer>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case DFF_msofbtDgg:
 	{
 		spRecord = make_shared<DrawingGroupRecord>(spBinaryReader, size, typeCode, version, instance);
@@ -254,6 +273,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<BlipStoreEntry>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case DFF_msofbtDg:
+	{
+		spRecord = make_shared<DrawingRecord>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case DFF_msofbtOPT:
 	case DFF_msofbtOPT_121:
 	case DFF_msofbtOPT_122:

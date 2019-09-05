@@ -32,7 +32,7 @@ XmlContainer::XmlContainer(shared_ptr<BinaryReader> spBinaryReader,
 		0,                // create unique name 
 		szTempFileName);  // buffer for name 
 
-	shared_ptr<FileStream> spFileStream = make_shared<FileStream>(lpTempPathBuffer);
+	shared_ptr<FileStream> spFileStream = make_shared<FileStream>(szTempFileName);
 	if (spFileStream)
 	{
 		shared_ptr<BinaryWriter> spBinaryWriter = make_shared<BinaryWriter>(spFileStream);
@@ -43,7 +43,8 @@ XmlContainer::XmlContainer(shared_ptr<BinaryReader> spBinaryReader,
 			_spBinaryReader->Read(bytes, nSize);
 
 			spBinaryWriter->Write(bytes, nSize);
-
+			spBinaryWriter->Close();
+			spFileStream->Close();
 		}
 	}
 }

@@ -10,7 +10,7 @@ public:
 
 	size_t Write(const char* p, size_t size);
 
-	void Close();
+	bool Close();
 
 protected:
 	shared_ptr<BaseStream> _spBaseStream = nullptr;
