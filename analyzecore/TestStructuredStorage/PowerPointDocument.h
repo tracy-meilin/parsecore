@@ -20,6 +20,8 @@ private:
 	void IdentifyDocumentPersistObject();
 
 	void IdentifyMasterPersistObjects();
+
+	void IdentifySlidePersistObjects();
 	
 public:
 	shared_ptr<VirtualStream> _spCurrentUserStream = nullptr;
@@ -41,7 +43,42 @@ public:
 	/// </summary>
 	shared_ptr<DocumentContainer> _spDocumentRecord = nullptr;
 
+	/// <summary>
+	/// List of all main (regular) master records for this document.
+	/// </summary>
+	vector<shared_ptr<MainMaster>> m_vecMainMasterRecords;
+
+	/// <summary>
+	/// List of all notes master records for this document.
+	/// </summary>
+	vector<shared_ptr<Note>> m_vecNotesMasterRecords;
+
+	/// <summary>
+	/// List of all notes master records for this document.
+	/// </summary>
+	vector<shared_ptr<Handout>> m_vecHandoutMasterRecords;
+
+	/// <summary>
+	/// List of title master records for this document.
+	/// </summary>
+	vector<shared_ptr<Slide>> m_vecTitleMasterRecords;
+
+	/// <summary>
+	/// Dictionary used for finding MasterRecords (title / main masters) by master id.
+	/// </summary>
+	map<unsigned long, shared_ptr<Slide>> m_mapMasterRecordsById;
+
 	map<unsigned long, unsigned long> _mapPersistObjectDirectory;
+
+	/// <summary>
+	/// List of all slide records for this document.
+	/// </summary>
+	vector<shared_ptr<Slide>> m_vecSlideRecords;
+
+	/// <summary>
+	/// List of all note records for this document.
+	/// </summary>
+	vector<shared_ptr<Note>> m_vecNoteRecords;
 };
 
 template<typename T>

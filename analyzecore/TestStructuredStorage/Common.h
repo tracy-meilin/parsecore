@@ -4,6 +4,7 @@
 #define PPT_PST_Document                        1000
 #define PPT_PST_DocumentAtom                    1001
 #define PPT_PST_EndDocument						1002
+#define PPT_PST_Slide							1006
 #define PPT_PST_SlideAtom                       1007
 #define PPT_PST_NotesAtom                       1009
 #define PPT_PST_Environment                     1010
@@ -19,9 +20,11 @@
 #define PPT_PST_PPDrawing                       1036
 #define PPT_PST_GridSpacing10Atom               1037
 #define PPT_PST_THEME							1038
+#define PPT_PST_ColorMappingAtom				1039
 #define PPT_PST_NamedShows                      1040
 #define PPT_PST_NamedShow                       1041
 #define PPT_PST_NamedShowSlides                 1042
+#define PPT_PST_OriginalMainMasterId			1052
 #define PPT_PST_RoundTripContentMasterInfo12	1054
 #define PPT_PST_RoundTripOArtTextStyles12		1059
 #define PPT_PST_List                            2000

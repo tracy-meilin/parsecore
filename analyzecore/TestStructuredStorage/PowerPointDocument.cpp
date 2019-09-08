@@ -29,14 +29,21 @@
 #include "RegularContainer.h"
 #include "List.h"
 #include "TabStop.h"
+#include "GPointAtom.h"
+#include "GRatioAtom.h"
 #include "GrColorAtom.h"
 #include "CharacterRun.h"
 #include "ParagraphRun.h"
 #include "TextHeaderAtom.h"
+#include "DocumentAtom.h"
 #include "OutlineTextRefAtom.h"
 #include "SlideListWithText.h"
 #include "DocumentContainer.h"
 #include "Slide.h"
+#include "MainMaster.h"
+#include "Note.h"
+#include "Handout.h"
+
 #include "PowerPointDocument.h"
 
 
@@ -93,6 +100,7 @@ PowerPointDocument::PowerPointDocument(shared_ptr<StructuredStorageReader> spRea
 
 	this->IdentifyDocumentPersistObject();
 	this->IdentifyMasterPersistObjects();
+	this->IdentifySlidePersistObjects();
 }
 
 PowerPointDocument::~PowerPointDocument()
@@ -316,14 +324,81 @@ void PowerPointDocument::IdentifyDocumentPersistObject()
 	this->_spDocumentRecord = this->GetPersistObject<DocumentContainer>(this->_spLastUserEdit->DocPersistIdRef);
 }
 
+/// <summary>
+/// Find all master records for this presentation.
+/// 
+/// This is done by looking up all persist id references of all SlidePersistAtoms of the DocumentRecord's MasterPersistList
+/// in the persist object directory.
+/// </summary>
 void PowerPointDocument::IdentifyMasterPersistObjects()
 {
 	for (auto& ele : this->_spDocumentRecord->MasterPersistList)
 	{
 		shared_ptr<Slide> spMaster = this->GetPersistObject<Slide>(ele->PersistIdRef);
+		if (spMaster == nullptr)
+			continue;
+
 		spMaster->spPersistAtom = ele;
 
-		//shared_ptr<MainMas>
+		shared_ptr<MainMaster> spMainMaster = dynamic_pointer_cast<MainMaster>(spMaster);
+		if (spMainMaster)
+		{
+			this->m_vecMainMasterRecords.push_back(spMainMaster);
+		}
+		else
+		{
+			this->m_vecTitleMasterRecords.push_back(spMaster);
+		}
+
+		this->m_mapMasterRecordsById.insert(make_pair(spMaster->spPersistAtom->SlideId, spMaster));
+
+		//
+	 	shared_ptr<DocumentAtom> spDocumentAtom = this->_spDocumentRecord->FirstChildWithType<DocumentAtom>();
+		if (spDocumentAtom)
+		{
+			shared_ptr<Note> spNoteMaster = this->GetPersistObject<Note>(spDocumentAtom->NotesMasterPersist);
+			if (spNoteMaster)
+			{
+				this->m_vecNotesMasterRecords.push_back(spNoteMaster);
+			}
+
+			shared_ptr<Handout> spHandoutMaster = this->GetPersistObject<Handout>(spDocumentAtom->HandoutMasterPersist);
+			if (spHandoutMaster)
+			{
+				this->m_vecHandoutMasterRecords.push_back(spHandoutMaster);
+			}
+		}
+		
 	}
+}
+
+/// <summary>
+/// Find all Slide records for this presentation.
+/// 
+/// This is done by looking up all persist id references of all SlidePersistAtoms of the DocumentRecord's MasterPersistList
+/// in the persist object directory.
+/// </summary>
+void PowerPointDocument::IdentifySlidePersistObjects()
+{
+	for (auto& ele : this->_spDocumentRecord->SlidePersistList)
+	{
+		shared_ptr<Slide> spSlide = this->GetPersistObject<Slide>(ele->PersistIdRef);
+		if (spSlide)
+		{
+			spSlide->spPersistAtom = ele;
+			this->m_vecSlideRecords.push_back(spSlide);
+		}
+	}
+
+	for (auto& ele : this->_spDocumentRecord->NotesPersistList)
+	{
+		shared_ptr<Note> spNote = this->GetPersistObject<Note>(ele->PersistIdRef);
+		if (spNote)
+		{
+			spNote->_spPersistAtom = ele;
+			this->m_vecNoteRecords.push_back(spNote);
+		}
+	}
+	
 }
 

@@ -38,6 +38,10 @@
 #include "OutlineTextRefAtom.h"
 #include "SlideListWithText.h"
 #include "DocumentContainer.h"
+#include "Slide.h"
+#include "MainMaster.h"
+#include "Note.h"
+#include "Handout.h"
 #include "PowerPointDocument.h"
 #include "SimpleBinStream.h"
 

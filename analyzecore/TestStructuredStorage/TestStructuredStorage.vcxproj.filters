@@ -34,6 +34,12 @@
     <Filter Include="Record\Shape">
       <UniqueIdentifier>{e7737f2b-11cb-40b6-9585-b83fb3e7fd50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Record\Slide">
+      <UniqueIdentifier>{d10dd8d9-e720-4e8d-ac04-a66df3798e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Record\ShapeType">
+      <UniqueIdentifier>{713fa7a2-db65-477c-bf29-fa936f6a4d48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -138,15 +144,6 @@
     <ClInclude Include="DocumentContainer.h">
       <Filter>Record</Filter>
     </ClInclude>
-    <ClInclude Include="SlidePersistAtom.h">
-      <Filter>Record</Filter>
-    </ClInclude>
-    <ClInclude Include="SlideListWithText.h">
-      <Filter>Record</Filter>
-    </ClInclude>
-    <ClInclude Include="Slide.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="DocumentAtom.h">
       <Filter>Record</Filter>
     </ClInclude>
@@ -243,9 +240,6 @@
     <ClInclude Include="ProgBinaryTagDataBlob.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SlideHeadersFootersContainer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="EndDocument.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -255,25 +249,16 @@
     <ClInclude Include="RoundTripContentMasterInfo12.h">
       <Filter>Record\Xml</Filter>
     </ClInclude>
-    <ClInclude Include="SlideAtom.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="XmlRecord.h">
       <Filter>Record\Xml</Filter>
     </ClInclude>
     <ClInclude Include="XmlContainer.h">
       <Filter>Record\Xml</Filter>
     </ClInclude>
-    <ClInclude Include="SSlideLayoutAtom.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="OEPlaceHolderAtom.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ColorSchemeAtom.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="RoundTripOArtTextStyles12.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="FileStream.h">
@@ -303,9 +288,6 @@
     <ClInclude Include="Utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ShapeType.h">
-      <Filter>Record\Shape</Filter>
-    </ClInclude>
     <ClInclude Include="ShapeOptions.h">
       <Filter>Record\Shape</Filter>
     </ClInclude>
@@ -315,17 +297,8 @@
     <ClInclude Include="Shape.h">
       <Filter>Record\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="Handle.h">
-      <Filter>Record\Shape</Filter>
-    </ClInclude>
     <ClInclude Include="ClientAnchor.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapeTypeFactory.h">
-      <Filter>Record\Shape</Filter>
-    </ClInclude>
-    <ClInclude Include="RectangleType.h">
-      <Filter>Record\Shape</Filter>
     </ClInclude>
     <ClInclude Include="ClientData.h">
       <Filter>头文件</Filter>
@@ -333,7 +306,58 @@
     <ClInclude Include="ClientTextbox.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ColorMappingAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OriginalMainMasterId.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Note.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Handout.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="Theme.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTripOArtTextStyles12.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlStringAtom.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="SlidePersistAtom.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideListWithText.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SSlideLayoutAtom.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideHeadersFootersContainer.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideAtom.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="Slide.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleType.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeTypeFactory.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeType.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="Handle.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureFrameType.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -428,15 +452,6 @@
     <ClCompile Include="RegularContainer.cpp">
       <Filter>Record</Filter>
     </ClCompile>
-    <ClCompile Include="SlidePersistAtom.cpp">
-      <Filter>Record</Filter>
-    </ClCompile>
-    <ClCompile Include="SlideListWithText.cpp">
-      <Filter>Record</Filter>
-    </ClCompile>
-    <ClCompile Include="Slide.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="DocumentAtom.cpp">
       <Filter>Record</Filter>
     </ClCompile>
@@ -527,9 +542,6 @@
     <ClCompile Include="ProgBinaryTagDataBlob.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SlideHeadersFootersContainer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="EndDocument.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -539,25 +551,16 @@
     <ClCompile Include="RoundTripContentMasterInfo12.cpp">
       <Filter>Record\Xml</Filter>
     </ClCompile>
-    <ClCompile Include="SlideAtom.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="XmlRecord.cpp">
       <Filter>Record\Xml</Filter>
     </ClCompile>
     <ClCompile Include="XmlContainer.cpp">
       <Filter>Record\Xml</Filter>
     </ClCompile>
-    <ClCompile Include="SSlideLayoutAtom.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="OEPlaceHolderAtom.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ColorSchemeAtom.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="RoundTripOArtTextStyles12.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="FileStream.cpp">
@@ -587,9 +590,6 @@
     <ClCompile Include="Utils.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ShapeType.cpp">
-      <Filter>Record\Shape</Filter>
-    </ClCompile>
     <ClCompile Include="ShapeOptions.cpp">
       <Filter>Record\Shape</Filter>
     </ClCompile>
@@ -599,17 +599,8 @@
     <ClCompile Include="Shape.cpp">
       <Filter>Record\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="Handle.cpp">
-      <Filter>Record\Shape</Filter>
-    </ClCompile>
     <ClCompile Include="ClientAnchor.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapeTypeFactory.cpp">
-      <Filter>Record\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="RectangleType.cpp">
-      <Filter>Record\Shape</Filter>
     </ClCompile>
     <ClCompile Include="ClientData.cpp">
       <Filter>源文件</Filter>
@@ -617,7 +608,58 @@
     <ClCompile Include="ClientTextbox.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ColorMappingAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OriginalMainMasterId.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Note.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Handout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Theme.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTripOArtTextStyles12.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlStringAtom.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="SlidePersistAtom.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideListWithText.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SSlideLayoutAtom.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideHeadersFootersContainer.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideAtom.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="Slide.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleType.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeTypeFactory.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeType.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="Handle.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureFrameType.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

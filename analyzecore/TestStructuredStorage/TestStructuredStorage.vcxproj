@@ -95,6 +95,7 @@
     <ClInclude Include="ClientAnchor.h" />
     <ClInclude Include="ClientData.h" />
     <ClInclude Include="ClientTextbox.h" />
+    <ClInclude Include="ColorMappingAtom.h" />
     <ClInclude Include="ColorSchemeAtom.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CurrentUserAtom.h" />
@@ -121,6 +122,7 @@
     <ClInclude Include="GroupContainer.h" />
     <ClInclude Include="GroupShapeRecord.h" />
     <ClInclude Include="Handle.h" />
+    <ClInclude Include="Handout.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InternalBitConverter.h" />
@@ -129,11 +131,14 @@
     <ClInclude Include="MainMaster.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="Note.h" />
     <ClInclude Include="OEPlaceHolderAtom.h" />
+    <ClInclude Include="OriginalMainMasterId.h" />
     <ClInclude Include="OutlineTextRefAtom.h" />
     <ClInclude Include="ParagraphRun.h" />
     <ClInclude Include="PersistDirectoryAtom.h" />
     <ClInclude Include="PersistDirectoryEntry.h" />
+    <ClInclude Include="PictureFrameType.h" />
     <ClInclude Include="Pictures.h" />
     <ClInclude Include="PowerPointDocument.h" />
     <ClInclude Include="PPDrawing.h" />
@@ -180,6 +185,7 @@
     <ClInclude Include="VirtualStream.h" />
     <ClInclude Include="XmlContainer.h" />
     <ClInclude Include="XmlRecord.h" />
+    <ClInclude Include="XmlStringAtom.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbstractDirectoryEntry.cpp" />
@@ -196,6 +202,7 @@
     <ClCompile Include="ClientAnchor.cpp" />
     <ClCompile Include="ClientData.cpp" />
     <ClCompile Include="ClientTextbox.cpp" />
+    <ClCompile Include="ColorMappingAtom.cpp" />
     <ClCompile Include="ColorSchemeAtom.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="CurrentUserAtom.cpp" />
@@ -220,6 +227,7 @@
     <ClCompile Include="GroupContainer.cpp" />
     <ClCompile Include="GroupShapeRecord.cpp" />
     <ClCompile Include="Handle.cpp" />
+    <ClCompile Include="Handout.cpp" />
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InternalBitConverter.cpp" />
@@ -228,11 +236,14 @@
     <ClCompile Include="MainMaster.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="Note.cpp" />
     <ClCompile Include="OEPlaceHolderAtom.cpp" />
+    <ClCompile Include="OriginalMainMasterId.cpp" />
     <ClCompile Include="OutlineTextRefAtom.cpp" />
     <ClCompile Include="ParagraphRun.cpp" />
     <ClCompile Include="PersistDirectoryAtom.cpp" />
     <ClCompile Include="PersistDirectoryEntry.cpp" />
+    <ClCompile Include="PictureFrameType.cpp" />
     <ClCompile Include="Pictures.cpp" />
     <ClCompile Include="PowerPointDocument.cpp" />
     <ClCompile Include="PPDrawing.cpp" />
@@ -279,6 +290,7 @@
     <ClCompile Include="VirtualStream.cpp" />
     <ClCompile Include="XmlContainer.cpp" />
     <ClCompile Include="XmlRecord.cpp" />
+    <ClCompile Include="XmlStringAtom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TestStructuredStorage.rc" />

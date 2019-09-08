@@ -60,6 +60,7 @@
 #include "SlideHeadersFootersContainer.h"
 #include "XmlRecord.h"
 #include "XmlContainer.h"
+#include "XmlStringAtom.h"
 #include "RoundTripContentMasterInfo12.h"
 #include "RoundTripOArtTextStyles12.h"
 #include "Slide.h"
@@ -74,10 +75,12 @@
 #include "ClientData.h"
 #include "ClientTextbox.h"
 #include "Theme.h"
+#include "ColorMappingAtom.h"
 #include "Handle.h"
 #include "ProtectionBooleans.h"
 #include "ShapeType.h"
 #include "Shape.h"
+#include "OriginalMainMasterId.h"
 
 #include "RecordFactory.h"
 
@@ -127,6 +130,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<EndDocument>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case PPT_PST_Slide:
+	{
+		spRecord = make_shared<Slide>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_SlideAtom:
 	{
 		spRecord = make_shared<SlideAtom>(spBinaryReader, size, typeCode, version, instance);
@@ -160,6 +168,16 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case PPT_PST_THEME:
 	{
 		spRecord = make_shared<Theme>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_ColorMappingAtom:
+	{
+		spRecord = make_shared<ColorMappingAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_OriginalMainMasterId:
+	{
+		spRecord = make_shared<OriginalMainMasterId>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case PPT_PST_RoundTripContentMasterInfo12:

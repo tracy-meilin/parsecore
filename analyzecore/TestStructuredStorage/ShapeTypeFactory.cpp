@@ -5,6 +5,7 @@
 #include "ProtectionBooleans.h"
 #include "ShapeType.h"
 #include "RectangleType.h"
+#include "PictureFrameType.h"
 #include "ShapeTypeFactory.h"
 
 
@@ -26,6 +27,11 @@ std::shared_ptr<ShapeType> ShapeTypeFactory::CreateShapeType(unsigned long typeC
 	case 0x00000001:
 	{
 		spShapeType = make_shared<RectangleType>();
+	}
+		break;
+	case 0x0000004b:
+	{
+		spShapeType = make_shared<PictureFrameType>();
 	}
 		break;
 	default:

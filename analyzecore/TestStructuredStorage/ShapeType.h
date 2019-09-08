@@ -19,7 +19,7 @@ public:
 	/// Each formula is listed on a separate line. Formulas are ordered, with the first formula having index 0. <br/>
 	/// This section can be omitted if the shape doesn’t need any guides.
 	/// </summary>
-	vector<string> m_vecFormulas;
+	vector<wstring> m_vecFormulas;
 
 
 	/// <summary>
