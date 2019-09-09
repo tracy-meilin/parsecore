@@ -1037,3 +1037,38 @@ namespace JoinStyleSpace
 		none
 	};
 }
+
+namespace AnimationInfoContainerSpace
+{
+	enum AnimBuildTypeEnum
+	{
+		FollowMaster = 0xFE,
+
+		NoBuild = 0x00,
+		OneBuild = 0x01,
+		Level1Build = 0x02,
+		Level2Build = 0x03,
+		Level3Build = 0x04,
+		Level4Build = 0x05,
+		Level5Build = 0x06,
+		GraphBySeries = 0x07,
+		GraphByCategory = 0x08,
+		GraphByElementInSeries = 0x09,
+		GraphByElementInCategory = 0x0A
+	};
+
+	enum AnimAfterEffectEnum
+	{
+		NoAfterEffect = 0x00,
+		Dim = 0x01,
+		Hide = 0x02,
+		HideImmediately = 0x03
+	};
+
+	enum TextBuildSubEffectEnum
+	{
+		BuildByNone = 0x00,
+		BuildByWord = 0x01,
+		BuildByCharacter = 0x02
+	};
+}

@@ -360,6 +360,9 @@
     <ClInclude Include="PictureFrameType.h">
       <Filter>Record\ShapeType</Filter>
     </ClInclude>
+    <ClInclude Include="AnimationInfoContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -661,6 +664,9 @@
     </ClCompile>
     <ClCompile Include="PictureFrameType.cpp">
       <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationInfoContainer.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -85,6 +85,7 @@
     <ClInclude Include="AbstractFat.h" />
     <ClInclude Include="AbstractHeader.h" />
     <ClInclude Include="AbstractIOHandler.h" />
+    <ClInclude Include="AnimationInfoContainer.h" />
     <ClInclude Include="BaseStream.h" />
     <ClInclude Include="BinaryReader.h" />
     <ClInclude Include="BinaryWriter.h" />
@@ -192,6 +193,7 @@
     <ClCompile Include="AbstractFat.cpp" />
     <ClCompile Include="AbstractHeader.cpp" />
     <ClCompile Include="AbstractIOHandler.cpp" />
+    <ClCompile Include="AnimationInfoContainer.cpp" />
     <ClCompile Include="BaseStream.cpp" />
     <ClCompile Include="BinaryReader.cpp" />
     <ClCompile Include="BinaryWriter.cpp" />

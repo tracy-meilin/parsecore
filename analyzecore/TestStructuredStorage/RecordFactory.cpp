@@ -72,6 +72,7 @@
 #include "ShapeContainer.h"
 #include "GroupShapeRecord.h"
 #include "ClientAnchor.h"
+#include "AnimationInfoContainer.h"
 #include "ClientData.h"
 #include "ClientTextbox.h"
 #include "Theme.h"

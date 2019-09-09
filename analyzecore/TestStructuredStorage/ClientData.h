@@ -10,9 +10,11 @@ public:
 		unsigned long typeCode,
 		unsigned int version,
 		unsigned int instance);
-	~ClientData();
+	virtual ~ClientData();
 
 public:
 	unsigned char* bytes = nullptr;
+	//  public Dictionary<AnimationInfoContainer, int> animinfos = new Dictionary<AnimationInfoContainer, int>();
+	map<int, AnimationInfoContainer> m_mapAnimInfoContainer;
 };
 
