@@ -358,7 +358,7 @@
       <Filter>Record\ShapeType</Filter>
     </ClInclude>
     <ClInclude Include="PictureFrameType.h">
-      <Filter>头文件</Filter>
+      <Filter>Record\ShapeType</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -660,7 +660,7 @@
       <Filter>Record\ShapeType</Filter>
     </ClCompile>
     <ClCompile Include="PictureFrameType.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Record\ShapeType</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
