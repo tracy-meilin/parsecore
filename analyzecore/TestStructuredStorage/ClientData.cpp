@@ -9,6 +9,7 @@
 #include "RegularContainer.h"
 #include "RecordFactory.h"
 #include "AnimationInfoContainer.h"
+#include "OEPlaceHolderAtom.h"
 #include "ClientData.h"
 
 
@@ -38,10 +39,56 @@ ClientData::ClientData(shared_ptr<BinaryReader> spBinaryReader,
 			shared_ptr<AnimationInfoContainer> spAnimInfoContainer = dynamic_pointer_cast<AnimationInfoContainer>(spRecord);
 			if (spAnimInfoContainer)
 			{
-				//m_mapAnimInfoContainer.insert(make_pair())
+				m_vecAnimInfoContainer.push_back(spAnimInfoContainer);
+
+				if (spBinaryReaderTmp->GetPosition() < spBinaryReaderTmp->GetLength())
+				{
+					spRecord = RecordFactory::GetInstance()->CreateRecord(spBinaryReaderTmp);
+					if (spRecord)
+						spRecord->SiblingIdx = 1;//TODO:
+				}
+			}
+		}
+
+		while (true && spRecord)
+		{
+			switch (spRecord->TypeCode)
+			{
+			case 3009:
+				break;
+			case 3011:
+			{
+				shared_ptr<OEPlaceHolderAtom> spPlaceholder = dynamic_pointer_cast<OEPlaceHolderAtom>(spRecord);
+				if (spPlaceholder)
+				{
+					if (!spPlaceholder->IsObjectPlaceholder())
+					{
+						spPlaceholder->PlacementId;
+					}
+				}
+			}
+				break;
+			case 4116:
+				break;
+			case 5000:
+				break;
+
+			default:
+				break;
+			}
+
+			if (spBinaryReaderTmp->GetPosition() < spBinaryReaderTmp->GetLength())
+			{
+				spRecord = RecordFactory::GetInstance()->CreateRecord(spBinaryReaderTmp);
+			}
+			else
+			{
+				break;
 			}
 		}
 	}
+
+
 }
 
 ClientData::~ClientData()

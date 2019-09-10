@@ -285,9 +285,6 @@
     <ClInclude Include="ProtectionBooleans.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="ShapeOptions.h">
       <Filter>Record\Shape</Filter>
     </ClInclude>
@@ -362,6 +359,9 @@
     </ClInclude>
     <ClInclude Include="AnimationInfoContainer.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -590,9 +590,6 @@
     <ClCompile Include="ProtectionBooleans.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ShapeOptions.cpp">
       <Filter>Record\Shape</Filter>
     </ClCompile>
@@ -667,6 +664,9 @@
     </ClCompile>
     <ClCompile Include="AnimationInfoContainer.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

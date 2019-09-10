@@ -15,6 +15,7 @@ public:
 public:
 	unsigned char* bytes = nullptr;
 	//  public Dictionary<AnimationInfoContainer, int> animinfos = new Dictionary<AnimationInfoContainer, int>();
-	map<int, AnimationInfoContainer> m_mapAnimInfoContainer;
+	// 使用vector存储单个shape的AnimationInfoContainer
+	vector<shared_ptr<AnimationInfoContainer>> m_vecAnimInfoContainer;
 };
 

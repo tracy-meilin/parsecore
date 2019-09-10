@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "GlobalDefines.h"
 #include "Utils.h"
 
 
@@ -29,4 +30,10 @@ bool Utils::BitmaskToBool(signed short value, signed short mask)
 bool Utils::BitmaskToBool(unsigned short value, unsigned short mask)
 {
 	return ((value & mask) == mask);
+}
+
+std::wstring Utils::PlaceholderIdToXMLValue(OEPlaceHolderAtomSpace::PlaceholderEnum pid)
+{
+	wstring strResult = _T("");
+	return strResult;
 }
