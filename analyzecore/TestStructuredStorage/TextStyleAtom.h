@@ -14,9 +14,11 @@ public:
 		unsigned int instance);
 	~TextStyleAtom();
 
+	virtual void AfterTextHeaderSet(){};
+
 	//get/set
 	shared_ptr<TextHeaderAtom> GetTextHeaderAtom(){ return _spTextHeaderAtom; }
-	void SetTextHeaderAtom(shared_ptr<TextHeaderAtom> spAtom){ _spTextHeaderAtom = spAtom; }
+	void SetTextHeaderAtom(shared_ptr<TextHeaderAtom> spAtom){ _spTextHeaderAtom = spAtom; AfterTextHeaderSet(); }
 
 public:
 	vector<shared_ptr<ParagraphRun>> m_vecPRuns;

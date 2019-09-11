@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "Utils.h"
 #include "GlobalDefines.h"
+#include "Utils.h"
 #include "Singleton.h"
 #include "BaseStream.h"
 #include "BinaryReader.h"

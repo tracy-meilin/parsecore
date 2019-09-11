@@ -38,10 +38,16 @@
 #include "FontEntityAtom.h"
 #include "FontCollection.h"
 
+#include "TextAtom.h"
 #include "TextCFExceptionAtom.h"
 #include "TextPFExceptionAtom.h"
 #include "TextStyleAtom.h"
 #include "TextMasterStyleAtom.h"
+#include "TextCharsAtom.h"
+#include "TextSpecialInfoAtom.h"
+#include "TextRunStyleAtom.h"
+#include "MasterTextPropAtom.h"
+#include "FooterMCAtom.h"
 #include "PPDrawingGroup.h"
 #include "PPDrawing.h"
 #include "DrawingContainer.h"
@@ -82,6 +88,7 @@
 #include "ShapeType.h"
 #include "Shape.h"
 #include "OriginalMainMasterId.h"
+#include "OEPlaceHolderAtom.h"
 
 #include "RecordFactory.h"
 
@@ -207,6 +214,31 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<ColorSchemeAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
+	case PPT_PST_OEPlaceholderAtom:
+	{
+		spRecord = make_shared<OEPlaceHolderAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_TextHeaderAtom:
+	{
+		spRecord = make_shared<TextHeaderAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_StyleTextPropAtom:
+	{
+		spRecord = make_shared<TextRunStyleAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_TextCharsAtom:
+	{
+		spRecord = make_shared<TextCharsAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_MasterTextPropAtom:
+	{
+		spRecord = make_shared<MasterTextPropAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_TxMasterStyleAtom:
 	{
 		spRecord = make_shared<TextMasterStyleAtom>(spBinaryReader, size, typeCode, version, instance);
@@ -222,6 +254,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<TextPFExceptionAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_TextSpecInfoAtom:
+	{
+		spRecord = make_shared<TextSpecialInfoAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_FontEntityAtom:
 	{
 		spRecord = make_shared<FontEntityAtom>(spBinaryReader, size, typeCode, version, instance);
@@ -230,6 +267,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case PPT_PST_CString:
 	{
 		spRecord = make_shared<CStringAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_SlideNumberMCAtom:
+	{
+		spRecord = make_shared<SlideNumberMCAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case PPT_PST_HeadersFooters:
@@ -257,6 +299,26 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 		spRecord = make_shared<CurrentUserAtom>(spBinaryReader, size, typeCode, version, instance);
 	}
 	break;
+	case PPT_PST_DateTimeMCAtom:
+	{
+		spRecord = make_shared<DateTimeMCAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+	break;
+	case PPT_PST_GenericDateMCAtom:
+	{
+		spRecord = make_shared<GenericDateMCAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_HeaderMCAtom:
+	{
+		spRecord = make_shared<HeaderMCAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_FooterMCAtom:
+	{
+		spRecord = make_shared<FooterMCAtom>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
 	case PPT_PST_ProgTags:
 	{
 		spRecord = make_shared<ProgTags>(spBinaryReader, size, typeCode, version, instance);

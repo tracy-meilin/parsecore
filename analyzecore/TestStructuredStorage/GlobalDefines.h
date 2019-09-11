@@ -1,5 +1,11 @@
 #pragma once
 
+enum Encoding
+{
+	UnicodeEncoding = 0,
+	Utf8Encoding = 1
+};
+
 namespace Common
 {
 	/// <summary>

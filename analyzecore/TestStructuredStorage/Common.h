@@ -44,6 +44,7 @@
 #define PPT_PST_TextHeaderAtom                  3999
 #define PPT_PST_TextCharsAtom                   4000
 #define PPT_PST_StyleTextPropAtom               4001
+#define PPT_PST_MasterTextPropAtom				4002
 #define PPT_PST_TxMasterStyleAtom               4003
 #define PPT_PST_TxCFStyleAtom					4004
 #define PPT_PST_TxPFStyleAtom                   4005

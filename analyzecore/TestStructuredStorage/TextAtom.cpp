@@ -21,12 +21,17 @@ TextAtom::TextAtom(shared_ptr<BinaryReader> spBinaryReader,
 	unsigned long size,
 	unsigned long typeCode,
 	unsigned int version,
-	unsigned int instance)
+	unsigned int instance,
+	Encoding encoding)
 	: Record(spBinaryReader, size, typeCode, version, instance)
 {
-	unsigned char* bytes = new unsigned char[size];
-	_spBinaryReader->Read(bytes, size);
+	/*unsigned char* bytes = new unsigned char[size];
+	_spBinaryReader->Read(bytes, size);*/
 	//TODO: зЊТы
+	if (encoding == UnicodeEncoding)
+	{
+		Text = _spBinaryReader->ReadUnicodeString(size / 2);
+	}
 }
 
 

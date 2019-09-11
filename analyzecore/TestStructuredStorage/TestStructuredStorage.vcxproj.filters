@@ -363,6 +363,21 @@
     <ClInclude Include="Utils.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="TextCharsAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRunStyleAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSpecialInfoAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterTextPropAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="FooterMCAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -667,6 +682,21 @@
     </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="TextCharsAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRunStyleAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSpecialInfoAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="MasterTextPropAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="FooterMCAtom.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

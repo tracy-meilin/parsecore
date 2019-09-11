@@ -116,6 +116,7 @@
     <ClInclude Include="FileStream.h" />
     <ClInclude Include="FontCollection.h" />
     <ClInclude Include="FontEntityAtom.h" />
+    <ClInclude Include="FooterMCAtom.h" />
     <ClInclude Include="GlobalDefines.h" />
     <ClInclude Include="GPointAtom.h" />
     <ClInclude Include="GRatioAtom.h" />
@@ -130,6 +131,7 @@
     <ClInclude Include="ITextDataRecord.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MainMaster.h" />
+    <ClInclude Include="MasterTextPropAtom.h" />
     <ClInclude Include="MemoryStream.h" />
     <ClInclude Include="MiniFat.h" />
     <ClInclude Include="Note.h" />
@@ -175,9 +177,12 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextAtom.h" />
     <ClInclude Include="TextCFExceptionAtom.h" />
+    <ClInclude Include="TextCharsAtom.h" />
     <ClInclude Include="TextHeaderAtom.h" />
     <ClInclude Include="TextMasterStyleAtom.h" />
     <ClInclude Include="TextPFExceptionAtom.h" />
+    <ClInclude Include="TextRunStyleAtom.h" />
+    <ClInclude Include="TextSpecialInfoAtom.h" />
     <ClInclude Include="TextStyleAtom.h" />
     <ClInclude Include="Theme.h" />
     <ClInclude Include="UnknownRecord.h" />
@@ -223,6 +228,7 @@
     <ClCompile Include="FileStream.cpp" />
     <ClCompile Include="FontCollection.cpp" />
     <ClCompile Include="FontEntityAtom.cpp" />
+    <ClCompile Include="FooterMCAtom.cpp" />
     <ClCompile Include="GPointAtom.cpp" />
     <ClCompile Include="GRatioAtom.cpp" />
     <ClCompile Include="GrColorAtom.cpp" />
@@ -236,6 +242,7 @@
     <ClCompile Include="ITextDataRecord.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="MainMaster.cpp" />
+    <ClCompile Include="MasterTextPropAtom.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="MiniFat.cpp" />
     <ClCompile Include="Note.cpp" />
@@ -281,9 +288,12 @@
     <ClCompile Include="TestStructuredStorage.cpp" />
     <ClCompile Include="TextAtom.cpp" />
     <ClCompile Include="TextCFExceptionAtom.cpp" />
+    <ClCompile Include="TextCharsAtom.cpp" />
     <ClCompile Include="TextHeaderAtom.cpp" />
     <ClCompile Include="TextMasterStyleAtom.cpp" />
     <ClCompile Include="TextPFExceptionAtom.cpp" />
+    <ClCompile Include="TextRunStyleAtom.cpp" />
+    <ClCompile Include="TextSpecialInfoAtom.cpp" />
     <ClCompile Include="TextStyleAtom.cpp" />
     <ClCompile Include="Theme.cpp" />
     <ClCompile Include="UnknownRecord.cpp" />

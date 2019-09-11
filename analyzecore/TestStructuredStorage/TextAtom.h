@@ -12,7 +12,8 @@ public:
 		unsigned long size,
 		unsigned long typeCode,
 		unsigned int version,
-		unsigned int instance);
+		unsigned int instance,
+		Encoding encoding);
 	~TextAtom();
 
 	virtual wstring ToString(unsigned long depth) override{ return _T(""); };

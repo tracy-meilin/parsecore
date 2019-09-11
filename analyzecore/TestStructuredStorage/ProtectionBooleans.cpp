@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "GlobalDefines.h"
 #include "Utils.h"
 #include "ProtectionBooleans.h"
 
