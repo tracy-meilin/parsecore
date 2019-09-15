@@ -267,16 +267,10 @@
     <ClInclude Include="BinaryWriter.h">
       <Filter>Stream</Filter>
     </ClInclude>
-    <ClInclude Include="PPDrawing.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="DrawingContainer.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="DrawingRecord.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="GroupContainer.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="GroupShapeRecord.h">
@@ -376,6 +370,15 @@
       <Filter>Record\Text</Filter>
     </ClInclude>
     <ClInclude Include="FooterMCAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PPDrawing.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupContainer.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTripContentMasterId12.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -587,16 +590,10 @@
     <ClCompile Include="BinaryWriter.cpp">
       <Filter>Stream</Filter>
     </ClCompile>
-    <ClCompile Include="PPDrawing.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="DrawingContainer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DrawingRecord.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GroupContainer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="GroupShapeRecord.cpp">
@@ -696,6 +693,15 @@
       <Filter>Record\Text</Filter>
     </ClCompile>
     <ClCompile Include="FooterMCAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PPDrawing.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupContainer.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTripContentMasterId12.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

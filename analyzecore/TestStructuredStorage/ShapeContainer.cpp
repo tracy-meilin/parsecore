@@ -18,6 +18,7 @@ ShapeContainer::ShapeContainer(shared_ptr<BinaryReader> spBinaryReader,
 	unsigned int instance)
 	: RegularContainer(spBinaryReader, size, typeCode, version, instance)
 {
+	//遍历子节点
 
 }
 

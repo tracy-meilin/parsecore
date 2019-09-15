@@ -155,6 +155,7 @@
     <ClInclude Include="RectangleType.h" />
     <ClInclude Include="RegularContainer.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RoundTripContentMasterId12.h" />
     <ClInclude Include="RoundTripContentMasterInfo12.h" />
     <ClInclude Include="RoundTripOArtTextStyles12.h" />
     <ClInclude Include="Shape.h" />
@@ -265,6 +266,7 @@
     <ClCompile Include="RecordFactory.cpp" />
     <ClCompile Include="RectangleType.cpp" />
     <ClCompile Include="RegularContainer.cpp" />
+    <ClCompile Include="RoundTripContentMasterId12.cpp" />
     <ClCompile Include="RoundTripContentMasterInfo12.cpp" />
     <ClCompile Include="RoundTripOArtTextStyles12.cpp" />
     <ClCompile Include="Shape.cpp" />

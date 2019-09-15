@@ -69,6 +69,7 @@
 #include "XmlStringAtom.h"
 #include "RoundTripContentMasterInfo12.h"
 #include "RoundTripOArtTextStyles12.h"
+#include "RoundTripContentMasterId12.h"
 #include "Slide.h"
 #include "MainMaster.h"
 #include "SSlideLayoutAtom.h"
@@ -192,6 +193,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	{
 		//TODO:LO内核没有解析
 		spRecord = make_shared<RoundTripContentMasterInfo12>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case PPT_PST_RoundTripContentMasterId12:
+	{
+		spRecord = make_shared<RoundTripContentMasterId12>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case PPT_PST_RoundTripOArtTextStyles12:

@@ -26,6 +26,7 @@
 #define PPT_PST_NamedShowSlides                 1042
 #define PPT_PST_OriginalMainMasterId			1052
 #define PPT_PST_RoundTripContentMasterInfo12	1054
+#define PPT_PST_RoundTripContentMasterId12		1058
 #define PPT_PST_RoundTripOArtTextStyles12		1059
 #define PPT_PST_List                            2000
 #define PPT_PST_FontCollection                  2005
