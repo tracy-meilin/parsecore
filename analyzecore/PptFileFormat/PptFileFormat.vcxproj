@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="UnicodeDebug|Win32">
+      <Configuration>UnicodeDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="UnicodeRelease|Win32">
+      <Configuration>UnicodeRelease</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F6677DE8-A3B6-44F1-86E5-712868BE3085}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>PptFileFormat</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Config.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Config.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)_ud</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)_u</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PPTFILEFORMAT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>..\Lib\$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PPTFILEFORMAT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractDirectoryEntry.h" />
+    <ClInclude Include="AbstractFat.h" />
+    <ClInclude Include="AbstractHeader.h" />
+    <ClInclude Include="AbstractIOHandler.h" />
+    <ClInclude Include="AnimationInfoContainer.h" />
+    <ClInclude Include="BaseStream.h" />
+    <ClInclude Include="BinaryReader.h" />
+    <ClInclude Include="BinaryWriter.h" />
+    <ClInclude Include="BitmapBlip.h" />
+    <ClInclude Include="BlipStoreContainer.h" />
+    <ClInclude Include="BlipStoreEntry.h" />
+    <ClInclude Include="CharacterRun.h" />
+    <ClInclude Include="ClientAnchor.h" />
+    <ClInclude Include="ClientData.h" />
+    <ClInclude Include="ClientTextbox.h" />
+    <ClInclude Include="ColorMappingAtom.h" />
+    <ClInclude Include="ColorSchemeAtom.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="CurrentUserAtom.h" />
+    <ClInclude Include="CustomOperators.h" />
+    <ClInclude Include="DirectoryEntry.h" />
+    <ClInclude Include="DirectoryTree.h" />
+    <ClInclude Include="DocumentAtom.h" />
+    <ClInclude Include="DocumentContainer.h" />
+    <ClInclude Include="DrawingContainer.h" />
+    <ClInclude Include="DrawingGroup.h" />
+    <ClInclude Include="DrawingGroupRecord.h" />
+    <ClInclude Include="DrawingRecord.h" />
+    <ClInclude Include="EndDocument.h" />
+    <ClInclude Include="Environment.h" />
+    <ClInclude Include="Fat.h" />
+    <ClInclude Include="FileIdCluster.h" />
+    <ClInclude Include="FileStream.h" />
+    <ClInclude Include="FontCollection.h" />
+    <ClInclude Include="FontEntityAtom.h" />
+    <ClInclude Include="FooterMCAtom.h" />
+    <ClInclude Include="GlobalDefines.h" />
+    <ClInclude Include="GPointAtom.h" />
+    <ClInclude Include="GRatioAtom.h" />
+    <ClInclude Include="GrColorAtom.h" />
+    <ClInclude Include="GroupContainer.h" />
+    <ClInclude Include="GroupShapeRecord.h" />
+    <ClInclude Include="Handle.h" />
+    <ClInclude Include="Handout.h" />
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="InternalBitConverter.h" />
+    <ClInclude Include="ITextDataRecord.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="MainMaster.h" />
+    <ClInclude Include="MasterTextPropAtom.h" />
+    <ClInclude Include="MemoryStream.h" />
+    <ClInclude Include="MiniFat.h" />
+    <ClInclude Include="Note.h" />
+    <ClInclude Include="OEPlaceHolderAtom.h" />
+    <ClInclude Include="OriginalMainMasterId.h" />
+    <ClInclude Include="OutlineTextRefAtom.h" />
+    <ClInclude Include="ParagraphRun.h" />
+    <ClInclude Include="PersistDirectoryAtom.h" />
+    <ClInclude Include="PersistDirectoryEntry.h" />
+    <ClInclude Include="PictureFrameType.h" />
+    <ClInclude Include="Pictures.h" />
+    <ClInclude Include="PowerPointDocument.h" />
+    <ClInclude Include="PPDrawing.h" />
+    <ClInclude Include="PPDrawingGroup.h" />
+    <ClInclude Include="PptFileFormat.h" />
+    <ClInclude Include="PptFileFormatHeaders.h" />
+    <ClInclude Include="ProgBinaryTag.h" />
+    <ClInclude Include="ProgBinaryTagDataBlob.h" />
+    <ClInclude Include="ProgTags.h" />
+    <ClInclude Include="ProtectionBooleans.h" />
+    <ClInclude Include="Record.h" />
+    <ClInclude Include="RecordFactory.h" />
+    <ClInclude Include="RectangleType.h" />
+    <ClInclude Include="RegularContainer.h" />
+    <ClInclude Include="RoundTripContentMasterId12.h" />
+    <ClInclude Include="RoundTripContentMasterInfo12.h" />
+    <ClInclude Include="RoundTripOArtTextStyles12.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="ShapeContainer.h" />
+    <ClInclude Include="ShapeOptions.h" />
+    <ClInclude Include="ShapeType.h" />
+    <ClInclude Include="ShapeTypeFactory.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Slide.h" />
+    <ClInclude Include="SlideAtom.h" />
+    <ClInclude Include="SlideHeadersFootersContainer.h" />
+    <ClInclude Include="SlideListWithText.h" />
+    <ClInclude Include="SlidePersistAtom.h" />
+    <ClInclude Include="SSlideLayoutAtom.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringAtom.h" />
+    <ClInclude Include="StructuredStorageReader.h" />
+    <ClInclude Include="TabStop.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextAtom.h" />
+    <ClInclude Include="TextCFExceptionAtom.h" />
+    <ClInclude Include="TextCharsAtom.h" />
+    <ClInclude Include="TextHeaderAtom.h" />
+    <ClInclude Include="TextMasterStyleAtom.h" />
+    <ClInclude Include="TextPFExceptionAtom.h" />
+    <ClInclude Include="TextRunStyleAtom.h" />
+    <ClInclude Include="TextSpecialInfoAtom.h" />
+    <ClInclude Include="TextStyleAtom.h" />
+    <ClInclude Include="Theme.h" />
+    <ClInclude Include="UnknownRecord.h" />
+    <ClInclude Include="UserEditAtom.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="VirtualStream.h" />
+    <ClInclude Include="XmlContainer.h" />
+    <ClInclude Include="XmlRecord.h" />
+    <ClInclude Include="XmlStringAtom.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AbstractDirectoryEntry.cpp" />
+    <ClCompile Include="AbstractFat.cpp" />
+    <ClCompile Include="AbstractHeader.cpp" />
+    <ClCompile Include="AbstractIOHandler.cpp" />
+    <ClCompile Include="AnimationInfoContainer.cpp" />
+    <ClCompile Include="BaseStream.cpp" />
+    <ClCompile Include="BinaryReader.cpp" />
+    <ClCompile Include="BinaryWriter.cpp" />
+    <ClCompile Include="BitmapBlip.cpp" />
+    <ClCompile Include="BlipStoreContainer.cpp" />
+    <ClCompile Include="BlipStoreEntry.cpp" />
+    <ClCompile Include="CharacterRun.cpp" />
+    <ClCompile Include="ClientAnchor.cpp" />
+    <ClCompile Include="ClientData.cpp" />
+    <ClCompile Include="ClientTextbox.cpp" />
+    <ClCompile Include="ColorMappingAtom.cpp" />
+    <ClCompile Include="ColorSchemeAtom.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="CurrentUserAtom.cpp" />
+    <ClCompile Include="DirectoryEntry.cpp" />
+    <ClCompile Include="DirectoryTree.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="DocumentAtom.cpp" />
+    <ClCompile Include="DocumentContainer.cpp" />
+    <ClCompile Include="DrawingContainer.cpp" />
+    <ClCompile Include="DrawingGroup.cpp" />
+    <ClCompile Include="DrawingGroupRecord.cpp" />
+    <ClCompile Include="DrawingRecord.cpp" />
+    <ClCompile Include="EndDocument.cpp" />
+    <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="Fat.cpp" />
+    <ClCompile Include="FileIdCluster.cpp" />
+    <ClCompile Include="FileStream.cpp" />
+    <ClCompile Include="FontCollection.cpp" />
+    <ClCompile Include="FontEntityAtom.cpp" />
+    <ClCompile Include="FooterMCAtom.cpp" />
+    <ClCompile Include="GPointAtom.cpp" />
+    <ClCompile Include="GRatioAtom.cpp" />
+    <ClCompile Include="GrColorAtom.cpp" />
+    <ClCompile Include="GroupContainer.cpp" />
+    <ClCompile Include="GroupShapeRecord.cpp" />
+    <ClCompile Include="Handle.cpp" />
+    <ClCompile Include="Handout.cpp" />
+    <ClCompile Include="Header.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="InternalBitConverter.cpp" />
+    <ClCompile Include="ITextDataRecord.cpp" />
+    <ClCompile Include="List.cpp" />
+    <ClCompile Include="MainMaster.cpp" />
+    <ClCompile Include="MasterTextPropAtom.cpp" />
+    <ClCompile Include="MemoryStream.cpp" />
+    <ClCompile Include="MiniFat.cpp" />
+    <ClCompile Include="Note.cpp" />
+    <ClCompile Include="OEPlaceHolderAtom.cpp" />
+    <ClCompile Include="OriginalMainMasterId.cpp" />
+    <ClCompile Include="OutlineTextRefAtom.cpp" />
+    <ClCompile Include="ParagraphRun.cpp" />
+    <ClCompile Include="PersistDirectoryAtom.cpp" />
+    <ClCompile Include="PersistDirectoryEntry.cpp" />
+    <ClCompile Include="PictureFrameType.cpp" />
+    <ClCompile Include="Pictures.cpp" />
+    <ClCompile Include="PowerPointDocument.cpp" />
+    <ClCompile Include="PPDrawing.cpp" />
+    <ClCompile Include="PPDrawingGroup.cpp" />
+    <ClCompile Include="PptFileFormat.cpp" />
+    <ClCompile Include="ProgBinaryTag.cpp" />
+    <ClCompile Include="ProgBinaryTagDataBlob.cpp" />
+    <ClCompile Include="ProgTags.cpp" />
+    <ClCompile Include="ProtectionBooleans.cpp" />
+    <ClCompile Include="Record.cpp" />
+    <ClCompile Include="RecordFactory.cpp" />
+    <ClCompile Include="RectangleType.cpp" />
+    <ClCompile Include="RegularContainer.cpp" />
+    <ClCompile Include="RoundTripContentMasterId12.cpp" />
+    <ClCompile Include="RoundTripContentMasterInfo12.cpp" />
+    <ClCompile Include="RoundTripOArtTextStyles12.cpp" />
+    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ShapeContainer.cpp" />
+    <ClCompile Include="ShapeOptions.cpp" />
+    <ClCompile Include="ShapeType.cpp" />
+    <ClCompile Include="ShapeTypeFactory.cpp" />
+    <ClCompile Include="Slide.cpp" />
+    <ClCompile Include="SlideAtom.cpp" />
+    <ClCompile Include="SlideHeadersFootersContainer.cpp" />
+    <ClCompile Include="SlideListWithText.cpp" />
+    <ClCompile Include="SlidePersistAtom.cpp" />
+    <ClCompile Include="SSlideLayoutAtom.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StringAtom.cpp" />
+    <ClCompile Include="StructuredStorageReader.cpp" />
+    <ClCompile Include="TabStop.cpp" />
+    <ClCompile Include="TextAtom.cpp" />
+    <ClCompile Include="TextCFExceptionAtom.cpp" />
+    <ClCompile Include="TextCharsAtom.cpp" />
+    <ClCompile Include="TextHeaderAtom.cpp" />
+    <ClCompile Include="TextMasterStyleAtom.cpp" />
+    <ClCompile Include="TextPFExceptionAtom.cpp" />
+    <ClCompile Include="TextRunStyleAtom.cpp" />
+    <ClCompile Include="TextSpecialInfoAtom.cpp" />
+    <ClCompile Include="TextStyleAtom.cpp" />
+    <ClCompile Include="Theme.cpp" />
+    <ClCompile Include="UnknownRecord.cpp" />
+    <ClCompile Include="UserEditAtom.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="VirtualStream.cpp" />
+    <ClCompile Include="XmlContainer.cpp" />
+    <ClCompile Include="XmlRecord.cpp" />
+    <ClCompile Include="XmlStringAtom.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="file4.bin" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

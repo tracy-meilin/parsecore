@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Record">
+      <UniqueIdentifier>{8eef1e4d-a963-475b-9d4a-783ac7d09997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stream">
+      <UniqueIdentifier>{0d0f90b1-2ba3-4f8a-8f4f-54e4071fbbcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Record\Text">
+      <UniqueIdentifier>{273bd17e-b169-4e9f-984d-917d118694e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Record\Drawing">
+      <UniqueIdentifier>{659c9ae0-9faa-44c4-978a-20fb549e2d5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{cee56e03-8493-4394-9784-44aa43c07bce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Record\Xml">
+      <UniqueIdentifier>{066836e6-1e60-4b0a-ac70-422222f134e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Record\Shape">
+      <UniqueIdentifier>{e7737f2b-11cb-40b6-9585-b83fb3e7fd50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Record\Slide">
+      <UniqueIdentifier>{d10dd8d9-e720-4e8d-ac04-a66df3798e6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Record\ShapeType">
+      <UniqueIdentifier>{713fa7a2-db65-477c-bf29-fa936f6a4d48}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomOperators.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StructuredStorageReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractIOHandler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractHeader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InternalBitConverter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Fat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectoryTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectoryEntry.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractDirectoryEntry.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniFat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerPointDocument.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Record.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordFactory.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentUserAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="Pictures.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapBlip.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryReader.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="UserEditAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistDirectoryAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistDirectoryEntry.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularContainer.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentContainer.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="GPointAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="GRatioAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="TextStyleAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextMasterStyleAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextHeaderAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextDataRecord.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="ParagraphRun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TabStop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterRun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GrColorAtom.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>Record</Filter>
+    </ClInclude>
+    <ClInclude Include="TextPFExceptionAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextCFExceptionAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="UnknownRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FontCollection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FontEntityAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PPDrawingGroup.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingGroup.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingGroupRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIdCluster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BlipStoreContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BlipStoreEntry.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalDefines.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="OutlineTextRefAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgTags.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgBinaryTag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StringAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgBinaryTagDataBlob.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EndDocument.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTripContentMasterInfo12.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRecord.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlContainer.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="OEPlaceHolderAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorSchemeAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileStream.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryWriter.h">
+      <Filter>Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupShapeRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtectionBooleans.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeOptions.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeContainer.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Record\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientAnchor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientTextbox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorMappingAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OriginalMainMasterId.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Note.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Handout.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Theme.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTripOArtTextStyles12.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlStringAtom.h">
+      <Filter>Record\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="SlidePersistAtom.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideListWithText.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SSlideLayoutAtom.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideHeadersFootersContainer.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="SlideAtom.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="Slide.h">
+      <Filter>Record\Slide</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleType.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeTypeFactory.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeType.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="Handle.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureFrameType.h">
+      <Filter>Record\ShapeType</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationInfoContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TextCharsAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRunStyleAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSpecialInfoAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterTextPropAtom.h">
+      <Filter>Record\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="FooterMCAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PPDrawing.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupContainer.h">
+      <Filter>Record\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundTripContentMasterId12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PptFileFormat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PptFileFormatHeaders.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PptFileFormat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractIOHandler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractHeader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InternalBitConverter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Header.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Fat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractFat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectoryTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectoryEntry.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractDirectoryEntry.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniFat.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerPointDocument.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentUserAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="Record.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="RecordFactory.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="Pictures.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapBlip.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryReader.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="UserEditAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistDirectoryAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistDirectoryEntry.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="List.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentContainer.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularContainer.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="GRatioAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="GPointAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="TextStyleAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextMasterStyleAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextHeaderAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="ITextDataRecord.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="ParagraphRun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TabStop.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterRun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GrColorAtom.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>Record</Filter>
+    </ClCompile>
+    <ClCompile Include="TextPFExceptionAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextCFExceptionAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="UnknownRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FontCollection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FontEntityAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingGroup.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="PPDrawingGroup.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingGroupRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIdCluster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BlipStoreContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BlipStoreEntry.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Common.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="OutlineTextRefAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgTags.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgBinaryTag.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StringAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgBinaryTagDataBlob.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EndDocument.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMaster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTripContentMasterInfo12.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlRecord.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlContainer.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="OEPlaceHolderAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorSchemeAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileStream.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryWriter.cpp">
+      <Filter>Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupShapeRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtectionBooleans.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeOptions.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeContainer.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Record\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientAnchor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientData.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientTextbox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorMappingAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OriginalMainMasterId.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Note.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Handout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Theme.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTripOArtTextStyles12.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlStringAtom.cpp">
+      <Filter>Record\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="SlidePersistAtom.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideListWithText.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SSlideLayoutAtom.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideHeadersFootersContainer.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="SlideAtom.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="Slide.cpp">
+      <Filter>Record\Slide</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleType.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeTypeFactory.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeType.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="Handle.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureFrameType.cpp">
+      <Filter>Record\ShapeType</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationInfoContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="TextCharsAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRunStyleAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSpecialInfoAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="MasterTextPropAtom.cpp">
+      <Filter>Record\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="FooterMCAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PPDrawing.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupContainer.cpp">
+      <Filter>Record\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundTripContentMasterId12.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StructuredStorageReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="file4.bin">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>
