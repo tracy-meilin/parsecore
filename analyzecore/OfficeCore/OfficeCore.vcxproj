@@ -85,9 +85,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="NDDrawingContainer.h" />
+    <ClInclude Include="NDFirstNvShape.h" />
+    <ClInclude Include="NDGroupContainer.h" />
     <ClInclude Include="NDPowerpointDoc.h" />
+    <ClInclude Include="NDPPDrawing.h" />
+    <ClInclude Include="NDShape.h" />
     <ClInclude Include="NDSlide.h" />
     <ClInclude Include="OfficeCore.h" />
+    <ClInclude Include="OfficeCoreHeaders.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -100,7 +106,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="NDDrawingContainer.cpp" />
+    <ClCompile Include="NDFirstNvShape.cpp" />
+    <ClCompile Include="NDGroupContainer.cpp" />
     <ClCompile Include="NDPowerpointDoc.cpp" />
+    <ClCompile Include="NDPPDrawing.cpp" />
+    <ClCompile Include="NDShape.cpp" />
     <ClCompile Include="NDSlide.cpp" />
     <ClCompile Include="OfficeCore.cpp" />
     <ClCompile Include="stdafx.cpp">

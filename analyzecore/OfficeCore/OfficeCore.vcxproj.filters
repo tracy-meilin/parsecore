@@ -33,6 +33,24 @@
     <ClInclude Include="OfficeCore.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="OfficeCoreHeaders.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDPPDrawing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDDrawingContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDGroupContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDShape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDFirstNvShape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +66,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="NDSlide.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDPPDrawing.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDDrawingContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDGroupContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDShape.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDFirstNvShape.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

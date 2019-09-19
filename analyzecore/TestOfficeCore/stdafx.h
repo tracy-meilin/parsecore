@@ -21,9 +21,10 @@ using namespace std;
 
 // TODO:  在此处引用程序需要的其他头文件
 
-#include "../OfficeCore/OfficeCore.h"
-#include "../OfficeCore/NDSlide.h"
-#include "../OfficeCore/NDPowerpointDoc.h"
+#include "../SimpleStream/SimpleStreamHeaders.h"
+#include "../PptFileFormat/PptFileFormat.h"
+#include "../PptFileFormat/PptFileFormatHeaders.h"
+#include "../OfficeCore/OfficeCoreHeaders.h"
 
 #ifdef _DEBUG
 #pragma comment(lib, "OfficeCore_ud.lib")

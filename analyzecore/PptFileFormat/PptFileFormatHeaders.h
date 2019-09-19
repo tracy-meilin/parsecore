@@ -48,3 +48,8 @@ using namespace std;
 #include "../PptFileFormat/Note.h"
 #include "../PptFileFormat/Handout.h"
 #include "../PptFileFormat/PowerPointDocument.h"
+
+#include "../PptFileFormat/PPDrawing.h"
+#include "../PptFileFormat/DrawingContainer.h"
+#include "../PptFileFormat/GroupContainer.h"
+#include "../PptFileFormat/ShapeContainer.h"
