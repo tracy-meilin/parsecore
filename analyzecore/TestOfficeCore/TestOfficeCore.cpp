@@ -10,6 +10,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	spDoc->OpenDoc(_T("F:\\ppttest\\1.ppt"));
 
 	std::vector<shared_ptr<CNDSlide>> vecSlides = spDoc->GetSlides();
+
+	for (auto& slide : vecSlides)
+	{
+		std::vector<shared_ptr<CNDShape>> vecShapes = slide->GetShapes();
+		for (auto& shape : vecShapes)
+		{
+
+		}
+	}
+
 	return 0;
 }
 
