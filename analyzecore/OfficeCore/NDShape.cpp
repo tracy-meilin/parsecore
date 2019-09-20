@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "NDShapeProperties.h"
 #include "NDShape.h"
 
 
@@ -15,4 +16,9 @@ CNDShape::~CNDShape()
 NDShapeType CNDShape::GetShapeType()
 {
 	return NDShapeType::InvalidShape;
+}
+
+std::shared_ptr<NDNVGrpShapeProperties> CNDShape::GetNvGrpSpPr()
+{
+	return m_spNvGrpSpPr;
 }

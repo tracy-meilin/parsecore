@@ -48,7 +48,10 @@
     <ClInclude Include="NDShape.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="NDFirstNvShape.h">
+    <ClInclude Include="NDHeaderGrpShape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDShapeProperties.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,7 +83,10 @@
     <ClCompile Include="NDShape.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="NDFirstNvShape.cpp">
+    <ClCompile Include="NDHeaderGrpShape.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDShapeProperties.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

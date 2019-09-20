@@ -15,7 +15,7 @@ private:
 
 private:
 	vector<shared_ptr<CNDShape>> m_vecNDShapes;
-	shared_ptr<CNDShape> m_spNDFirstNvShape = nullptr;
+	shared_ptr<CNDShape> m_spNDHeaderGrpShape = nullptr;
 
 	shared_ptr<GroupContainer> m_spGroupContainer = nullptr;
 

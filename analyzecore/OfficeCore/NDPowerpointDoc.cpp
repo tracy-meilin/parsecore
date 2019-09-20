@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "NDShapeProperties.h"
 #include "NDShape.h"
 #include "NDGroupContainer.h"
 #include "NDDrawingContainer.h"

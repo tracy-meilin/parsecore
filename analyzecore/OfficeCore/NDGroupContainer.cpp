@@ -1,6 +1,7 @@
 #include "stdafx.h"
+#include "NDShapeProperties.h"
 #include "NDShape.h"
-#include "NDFirstNvShape.h"
+#include "NDHeaderGrpShape.h"
 #include "NDGroupContainer.h"
 
 
@@ -18,7 +19,7 @@ std::shared_ptr<CNDShape> CNDGroupContainer::GetNDFirstNvShape()
 {
 	Init();
 
-	return m_spNDFirstNvShape;
+	return m_spNDHeaderGrpShape;
 }
 
 std::vector<std::shared_ptr<CNDShape>> CNDGroupContainer::GetNDShapes()
@@ -42,10 +43,10 @@ void CNDGroupContainer::Init()
 		shared_ptr<ShapeContainer> spShapeContainer = dynamic_pointer_cast<ShapeContainer>(*itBegin);
 		if (spShapeContainer)
 		{
-			m_spNDFirstNvShape = make_shared<CNDFirstNvShape>(spShapeContainer);
+			m_spNDHeaderGrpShape = make_shared<CNDHeaderGrpShape>(spShapeContainer);
 
-			if (m_spNDFirstNvShape)
-				m_vecNDShapes.push_back(m_spNDFirstNvShape);
+			if (m_spNDHeaderGrpShape)
+				m_vecNDShapes.push_back(m_spNDHeaderGrpShape);
 		}
 	}
 		
