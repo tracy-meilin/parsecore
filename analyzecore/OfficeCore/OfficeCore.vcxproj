@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NDDrawingContainer.h" />
+    <ClInclude Include="NDGen.h" />
     <ClInclude Include="NDHeaderGrpShape.h" />
     <ClInclude Include="NDGroupContainer.h" />
     <ClInclude Include="NDShapeProperties.h" />

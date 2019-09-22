@@ -54,6 +54,9 @@
     <ClInclude Include="NDShapeProperties.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="NDGen.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

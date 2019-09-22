@@ -22,3 +22,8 @@ std::shared_ptr<NDNVGrpShapeProperties> CNDShape::GetNvGrpSpPr()
 {
 	return m_spNvGrpSpPr;
 }
+
+std::shared_ptr<NDNVShapeProperties> CNDShape::GetNvSpPr()
+{
+	return m_spNvSpPr;
+}
