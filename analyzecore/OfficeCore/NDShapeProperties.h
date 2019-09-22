@@ -5,7 +5,7 @@
 // p:cNvPr
 struct NDNVCanvasProperties
 {
-	wstring strId;
+	signed long spId;
 	wstring strName;
 };
 

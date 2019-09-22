@@ -32,7 +32,7 @@ std::shared_ptr<NDNVGrpShapeProperties> CNDHeaderGrpShape::GetNvGrpSpPr()
 
 	m_spNvGrpSpPr = make_shared<NDNVGrpShapeProperties>();
 	m_spNvGrpSpPr->spCNvPr = make_shared<NDNVCanvasProperties>();
-	m_spNvGrpSpPr->spCNvPr->strId = m_spShapeContainer->Index;
+	m_spNvGrpSpPr->spCNvPr->spId = m_spShapeContainer->Index;
 	m_spNvGrpSpPr->spCNvPr->strName = _T("");	//TODO:
 
 	m_spGrpSpPr = make_shared<NDGrpShapeProperties>();

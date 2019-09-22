@@ -54,3 +54,5 @@ using namespace std;
 #include "../PptFileFormat/GroupContainer.h"
 #include "../PptFileFormat/ShapeContainer.h"
 #include "../PptFileFormat/GroupShapeRecord.h"
+#include "../PptFileFormat/Shape.h"
+#include "../PptFileFormat/ClientData.h"
