@@ -19,6 +19,6 @@ private:
 	shared_ptr<TextHeaderAtom> m_spTextHeaderAtom = nullptr;
 	shared_ptr<TextStyleAtom> m_spTextStyleAtom = nullptr;
 	shared_ptr<TextSpecialInfoAtom> m_spTextSia = nullptr;
-//	shared_ptr<TextRulerAtom>
+	shared_ptr<TextRulerAtom> m_spTextRulerAtom = nullptr;
 };
 

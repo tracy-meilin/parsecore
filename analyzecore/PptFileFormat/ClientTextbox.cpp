@@ -11,9 +11,11 @@
 #include "GrColorAtom.h"
 #include "ParagraphRun.h"
 #include "CharacterRun.h"
+#include "TextAtom.h"
 #include "TextHeaderAtom.h"
 #include "TextStyleAtom.h"
 #include "TextSpecialInfoAtom.h"
+#include "TextRulerAtom.h"
 #include "ClientTextbox.h"
 
 
@@ -50,8 +52,8 @@ ClientTextbox::ClientTextbox(shared_ptr<BinaryReader> spBinaryReader,
 			m_spTextHeaderAtom = dynamic_pointer_cast<TextHeaderAtom>(spRecord);
 			break;
 		case 0xfa0: //TextCharsAtom
-			//if (m_spTextHeaderAtom)
-				//m_spTextHeaderAtom->_spTextAtom = dynamic_pointer_cast<TextAtom>(spRecord);
+			if (m_spTextHeaderAtom)
+				m_spTextHeaderAtom->_spTextAtom = dynamic_pointer_cast<TextAtom>(spRecord);
 			break;
 		case 0xfa1: //StyleTextPropAtom
 			m_spTextStyleAtom = dynamic_pointer_cast<TextStyleAtom>(spRecord);
@@ -61,6 +63,7 @@ ClientTextbox::ClientTextbox(shared_ptr<BinaryReader> spBinaryReader,
 		case 0xfa2: //MasterTextPropAtom
 			break;
 		case 0xfa6: //TextRulerAtom
+			m_spTextRulerAtom = dynamic_pointer_cast<TextRulerAtom>(spRecord);
 			break;
 		case 0xfa8: //TextBytesAtom
 		case 0xfaa: //TextSpecialInfoAtom

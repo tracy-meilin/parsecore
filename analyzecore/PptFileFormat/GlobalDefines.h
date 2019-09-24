@@ -1078,3 +1078,14 @@ namespace AnimationInfoContainerSpace
 		BuildByCharacter = 0x02
 	};
 }
+
+namespace TextRulerAtomSpace
+{
+	enum TextTabTypeEnum
+	{
+		TABLeft = 0,
+		TABCenter = 1,
+		TABRight = 2,
+		TABDecimal = 3
+	};
+}
