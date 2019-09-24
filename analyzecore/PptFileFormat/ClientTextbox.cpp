@@ -1,10 +1,19 @@
 #include "stdafx.h"
 #include "Singleton.h"
+#include "Common.h"
+#include "GlobalDefines.h"
 #include "BaseStream.h"
 #include "MemoryStream.h"
 #include "BinaryReader.h"
 #include "Record.h"
 #include "RecordFactory.h"
+#include "ParagraphRunTabStop.h"
+#include "GrColorAtom.h"
+#include "ParagraphRun.h"
+#include "CharacterRun.h"
+#include "TextHeaderAtom.h"
+#include "TextStyleAtom.h"
+#include "TextSpecialInfoAtom.h"
 #include "ClientTextbox.h"
 
 
@@ -37,15 +46,27 @@ ClientTextbox::ClientTextbox(shared_ptr<BinaryReader> spBinaryReader,
 
 		switch (spRecord->TypeCode)
 		{
+		case 0xf9f:
+			m_spTextHeaderAtom = dynamic_pointer_cast<TextHeaderAtom>(spRecord);
+			break;
 		case 0xfa0: //TextCharsAtom
-		case 0xfa1: //TextRunStyleAtom
-		case 0xfa6: //TextRulerAtom
-		case 0xfa8: //TextBytesAtom
-		case 0xfaa: //TextSpecialInfoAtom
+			//if (m_spTextHeaderAtom)
+				//m_spTextHeaderAtom->_spTextAtom = dynamic_pointer_cast<TextAtom>(spRecord);
+			break;
+		case 0xfa1: //StyleTextPropAtom
+			m_spTextStyleAtom = dynamic_pointer_cast<TextStyleAtom>(spRecord);
+			if (m_spTextStyleAtom)
+				m_spTextStyleAtom->SetTextHeaderAtom(m_spTextHeaderAtom);
+			break;
 		case 0xfa2: //MasterTextPropAtom
 			break;
+		case 0xfa6: //TextRulerAtom
+			break;
+		case 0xfa8: //TextBytesAtom
+		case 0xfaa: //TextSpecialInfoAtom
+			m_spTextSia = dynamic_pointer_cast<TextSpecialInfoAtom>(spRecord);
+			break;
 		case 0xfd8: //SlideNumberMCAtom
-
 			break;
 		case 0xff7: //DateTimeMCAtom
 			/*if (!phWritten && output)

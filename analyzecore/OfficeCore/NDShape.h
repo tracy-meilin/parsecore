@@ -18,12 +18,24 @@ public:
 
 	virtual shared_ptr<NDNVShapeProperties> GetNvSpPr();
 
+	virtual shared_ptr<NDShapeProperties> GetSpPr();
+
+
+
 protected:
 	shared_ptr<ShapeContainer> m_spShapeContainer = nullptr;
 
+	shared_ptr<ShapeOptions> m_spShapeOptions = nullptr;
+
 	//  Ù–‘
 	shared_ptr<NDNVGrpShapeProperties> m_spNvGrpSpPr = nullptr;
+
 	shared_ptr<NDGrpShapeProperties> m_spGrpSpPr = nullptr;
+
 	shared_ptr<NDNVShapeProperties> m_spNvSpPr = nullptr;
+
+	shared_ptr<NDShapeProperties> m_spSpPr = nullptr;
+
+
 };
 

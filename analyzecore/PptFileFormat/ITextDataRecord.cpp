@@ -5,7 +5,7 @@
 #include "BinaryReader.h"
 #include "Record.h"
 #include "GrColorAtom.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "ParagraphRun.h"
 #include "CharacterRun.h"
 #include "TextAtom.h"

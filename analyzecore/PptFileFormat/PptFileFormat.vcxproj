@@ -96,6 +96,7 @@
     <ClInclude Include="BlipStoreContainer.h" />
     <ClInclude Include="BlipStoreEntry.h" />
     <ClInclude Include="CharacterRun.h" />
+    <ClInclude Include="ChildAnchor.h" />
     <ClInclude Include="ClientAnchor.h" />
     <ClInclude Include="ClientData.h" />
     <ClInclude Include="ClientTextbox.h" />
@@ -177,7 +178,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringAtom.h" />
     <ClInclude Include="StructuredStorageReader.h" />
-    <ClInclude Include="TabStop.h" />
+    <ClInclude Include="ParagraphRunTabStop.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextAtom.h" />
     <ClInclude Include="TextCFExceptionAtom.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="TextHeaderAtom.h" />
     <ClInclude Include="TextMasterStyleAtom.h" />
     <ClInclude Include="TextPFExceptionAtom.h" />
+    <ClInclude Include="TextRulerAtom.h" />
     <ClInclude Include="TextRunStyleAtom.h" />
     <ClInclude Include="TextSpecialInfoAtom.h" />
     <ClInclude Include="TextStyleAtom.h" />
@@ -210,6 +212,7 @@
     <ClCompile Include="BlipStoreContainer.cpp" />
     <ClCompile Include="BlipStoreEntry.cpp" />
     <ClCompile Include="CharacterRun.cpp" />
+    <ClCompile Include="ChildAnchor.cpp" />
     <ClCompile Include="ClientAnchor.cpp" />
     <ClCompile Include="ClientData.cpp" />
     <ClCompile Include="ClientTextbox.cpp" />
@@ -298,13 +301,14 @@
     </ClCompile>
     <ClCompile Include="StringAtom.cpp" />
     <ClCompile Include="StructuredStorageReader.cpp" />
-    <ClCompile Include="TabStop.cpp" />
+    <ClCompile Include="ParagraphRunTabStop.cpp" />
     <ClCompile Include="TextAtom.cpp" />
     <ClCompile Include="TextCFExceptionAtom.cpp" />
     <ClCompile Include="TextCharsAtom.cpp" />
     <ClCompile Include="TextHeaderAtom.cpp" />
     <ClCompile Include="TextMasterStyleAtom.cpp" />
     <ClCompile Include="TextPFExceptionAtom.cpp" />
+    <ClCompile Include="TextRulerAtom.cpp" />
     <ClCompile Include="TextRunStyleAtom.cpp" />
     <ClCompile Include="TextSpecialInfoAtom.cpp" />
     <ClCompile Include="TextStyleAtom.cpp" />

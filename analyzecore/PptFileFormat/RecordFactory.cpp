@@ -19,7 +19,7 @@
 #include "PersistDirectoryAtom.h"
 #include "RegularContainer.h"
 #include "SlidePersistAtom.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "GrColorAtom.h"
 #include "CharacterRun.h"
 #include "ParagraphRun.h"
@@ -78,7 +78,9 @@
 #include "ShapeContainer.h"
 #include "GroupShapeRecord.h"
 #include "ClientAnchor.h"
+#include "ChildAnchor.h"
 #include "AnimationInfoContainer.h"
+#include "OEPlaceHolderAtom.h"
 #include "ClientData.h"
 #include "ClientTextbox.h"
 #include "Theme.h"
@@ -88,7 +90,6 @@
 #include "ShapeType.h"
 #include "Shape.h"
 #include "OriginalMainMasterId.h"
-#include "OEPlaceHolderAtom.h"
 
 #include "RecordFactory.h"
 
@@ -397,6 +398,11 @@ std::shared_ptr<Record> RecordFactory::CreateRecord(shared_ptr<BinaryReader> spB
 	case DFF_msofbtClientTextbox:
 	{
 		spRecord = make_shared<ClientTextbox>(spBinaryReader, size, typeCode, version, instance);
+	}
+		break;
+	case DFF_msofbtChildAnchor:
+	{
+		spRecord = make_shared<ChildAnchor>(spBinaryReader, size, typeCode, version, instance);
 	}
 		break;
 	case DFF_msofbtClientAnchor:

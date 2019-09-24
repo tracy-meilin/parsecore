@@ -5,7 +5,7 @@
 #include "Record.h"
 #include "RegularContainer.h"
 #include "TextAtom.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "GrColorAtom.h"
 #include "ParagraphRun.h"
 #include "CharacterRun.h"

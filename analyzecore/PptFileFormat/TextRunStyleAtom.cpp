@@ -3,7 +3,7 @@
 #include "BaseStream.h"
 #include "BinaryReader.h"
 #include "Record.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "Record.h"
 #include "GrColorAtom.h"
 #include "CharacterRun.h"

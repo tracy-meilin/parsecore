@@ -14,6 +14,8 @@ public:
 
 	bool IsObjectPlaceholder();
 
+	wstring GetPlaceholderIdToXMLValue();
+
 public:
 	/// <summary>
 	/// A signed integer that specifies an ID for the placeholder shape.

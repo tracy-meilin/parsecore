@@ -165,9 +165,6 @@
     <ClInclude Include="ParagraphRun.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TabStop.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CharacterRun.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -381,6 +378,15 @@
     <ClInclude Include="PptFileFormatHeaders.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ChildAnchor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRulerAtom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ParagraphRunTabStop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -498,9 +504,6 @@
       <Filter>Record\Text</Filter>
     </ClCompile>
     <ClCompile Include="ParagraphRun.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="TabStop.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CharacterRun.cpp">
@@ -705,6 +708,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="StructuredStorageReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildAnchor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRulerAtom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ParagraphRunTabStop.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

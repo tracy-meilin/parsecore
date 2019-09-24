@@ -3,7 +3,7 @@
 #include "GlobalDefines.h"
 #include "BaseStream.h"
 #include "BinaryReader.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "GrColorAtom.h"
 #include "ParagraphRun.h"
 #include "CharacterRun.h"

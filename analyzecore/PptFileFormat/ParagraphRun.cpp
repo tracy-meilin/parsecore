@@ -3,7 +3,7 @@
 
 #include "BaseStream.h"
 #include "BinaryReader.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "Record.h"
 #include "GrColorAtom.h"
 #include "ParagraphRun.h"
@@ -66,7 +66,7 @@ ParagraphRun::ParagraphRun(shared_ptr<BinaryReader> spBinaryReader, bool noInden
 
 		for (int i = 0; i < tabStopsCount; i++)
 		{
-			m_vecTabStop.push_back(make_shared<TabStop>(spBinaryReader));
+			m_vecTabStop.push_back(make_shared<ParagraphRunTabStop>(spBinaryReader));
 			//this.TabStops[i] = new TabStop(reader);
 		}
 	}

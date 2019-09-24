@@ -57,14 +57,14 @@ ClientData::ClientData(shared_ptr<BinaryReader> spBinaryReader,
 				break;
 			case 3011:
 			{
-				shared_ptr<OEPlaceHolderAtom> spPlaceholder = dynamic_pointer_cast<OEPlaceHolderAtom>(spRecord);
-				if (spPlaceholder)
+				m_spPlaceholder = dynamic_pointer_cast<OEPlaceHolderAtom>(spRecord);
+				/*if (m_spPlaceholder)
 				{
-					if (!spPlaceholder->IsObjectPlaceholder())
+					if (!m_spPlaceholder->IsObjectPlaceholder())
 					{
-						spPlaceholder->PlacementId;
+						m_spPlaceholder->PlacementId;
 					}
-				}
+				}*/
 			}
 				break;
 			case 4116:

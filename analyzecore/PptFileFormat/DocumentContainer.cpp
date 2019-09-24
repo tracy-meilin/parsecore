@@ -9,7 +9,7 @@
 #include "RegularContainer.h"
 #include "SlidePersistAtom.h"
 #include "GrColorAtom.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "CharacterRun.h"
 #include "ParagraphRun.h"
 #include "OutlineTextRefAtom.h"

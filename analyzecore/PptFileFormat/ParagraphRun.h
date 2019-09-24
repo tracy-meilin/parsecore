@@ -104,7 +104,7 @@ public:
 	}
 
 public:
-	vector<shared_ptr<TabStop>> m_vecTabStop;
+	vector<shared_ptr<ParagraphRunTabStop>> m_vecTabStop;
 
 	unsigned long Length;
 	unsigned short IndentLevel;

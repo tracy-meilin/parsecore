@@ -27,7 +27,7 @@
 #include "Pictures.h"
 #include "RegularContainer.h"
 #include "List.h"
-#include "TabStop.h"
+#include "ParagraphRunTabStop.h"
 #include "GPointAtom.h"
 #include "GRatioAtom.h"
 #include "GrColorAtom.h"

@@ -94,6 +94,7 @@
     <ClInclude Include="NDPPDrawing.h" />
     <ClInclude Include="NDShape.h" />
     <ClInclude Include="NDSlide.h" />
+    <ClInclude Include="NDTextBody.h" />
     <ClInclude Include="OfficeCore.h" />
     <ClInclude Include="OfficeCoreHeaders.h" />
     <ClInclude Include="stdafx.h" />
@@ -116,6 +117,7 @@
     <ClCompile Include="NDPPDrawing.cpp" />
     <ClCompile Include="NDShape.cpp" />
     <ClCompile Include="NDSlide.cpp" />
+    <ClCompile Include="NDTextBody.cpp" />
     <ClCompile Include="OfficeCore.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
