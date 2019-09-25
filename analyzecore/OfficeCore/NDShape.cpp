@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "NDShapeProperties.h"
+#include "NDTextBody.h"
 #include "NDShape.h"
 
 
@@ -96,4 +97,22 @@ std::shared_ptr<NDShapeProperties> CNDShape::GetSpPr()
 	{
 		// this means a custom shape
 	}
+
+	return m_spSpPr;
+}
+
+std::shared_ptr<CNDTextBody> CNDShape::GetTxBody()
+{
+	if (m_spTxBody != nullptr)
+		return m_spTxBody;
+
+	shared_ptr<ClientTextbox> spClientTextbox = m_spShapeContainer->FirstChildWithType<ClientTextbox>();
+	if (spClientTextbox == nullptr)
+		return m_spTxBody;
+
+	m_spTxBody = make_shared<CNDTextBody>(m_spShapeContainer, spClientTextbox);
+	if (m_spTxBody == nullptr)
+		return nullptr;
+
+	m_spTxBody->GetPs();
 }

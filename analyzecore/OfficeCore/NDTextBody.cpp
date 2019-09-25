@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "StringUtil.h"
 #include "NDShapeProperties.h"
 #include "NDTextBody.h"
 
@@ -88,6 +89,8 @@ std::shared_ptr<NDBodyProperties> CNDTextBody::GetBodyPr()
 			break;
 		}
 	}
+
+	return m_spBodyPr;
 }
 
 std::shared_ptr<NDLstStyle> CNDTextBody::GetLstStyle()
@@ -97,9 +100,106 @@ std::shared_ptr<NDLstStyle> CNDTextBody::GetLstStyle()
 
 std::vector<std::shared_ptr<NDParagraph>> CNDTextBody::GetPs()
 {
-	if (m_spShapeOptions == nullptr
+	if (m_spShapeOptions == nullptr 
+		|| m_spClientTextbox == nullptr
 		|| m_vecPs.size() > 0)
 		return m_vecPs;
 
+	wstring strText = _T("");
 
+	shared_ptr<TextHeaderAtom> spTxtHeaderAtom = m_spClientTextbox->GetTextHeaderAtom();
+	if (spTxtHeaderAtom)
+	{
+		shared_ptr<TextCharsAtom> spTextCharsAtom = dynamic_pointer_cast<TextCharsAtom>(spTxtHeaderAtom->_spTextAtom);
+		if (spTxtHeaderAtom)
+		{
+			strText = spTextCharsAtom->Text;
+		}
+	}
+
+	if (strText.empty())
+		return m_vecPs;
+
+	
+
+	shared_ptr<TextStyleAtom> spTextStyleAtom = m_spClientTextbox->GetTextStyleAtom();
+	shared_ptr<MasterTextPropAtom> spMasterTextPropAtom = m_spClientTextbox->GetMasterTextPropAtom();
+	unsigned long idx = 0;
+
+	vector<wstring> vecParLines = CStringUtil::ws_split(strText, _T("\r"));
+	for (auto& ele : vecParLines)
+	{
+		shared_ptr<NDParagraph> spNDParagraph = make_shared<NDParagraph>();
+
+		vector<wstring> vecRunLines = CStringUtil::ws_split(ele, _T("\v"));
+
+		shared_ptr<ParagraphRun> spP = this->GetParagraphRun(spTextStyleAtom, idx);
+
+		if (spP->GetAlignmentPresent())
+		{
+			switch (spP->Alignment)
+			{
+			case 0x0000: //Left
+				spNDParagraph->spPPr->strAlgn = _T("l");
+				break;
+			case 0x0001: //Center
+				spNDParagraph->spPPr->strAlgn = _T("ctr");
+				break;
+			case 0x0002: //Right
+				spNDParagraph->spPPr->strAlgn = _T("r");
+				break;
+			case 0x0003: //Justify
+				spNDParagraph->spPPr->strAlgn = _T("just");
+				break;
+			case 0x0004: //Distributed
+				spNDParagraph->spPPr->strAlgn = _T("dist");
+				break;
+			case 0x0005: //ThaiDistributed
+				spNDParagraph->spPPr->strAlgn = _T("thaiDist");
+				break;
+			case 0x0006: //JustifyLow
+				spNDParagraph->spPPr->strAlgn = _T("justLow");
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	return m_vecPs;
+}
+
+std::shared_ptr<ParagraphRun> CNDTextBody::GetParagraphRun(shared_ptr<TextStyleAtom>& spTextStyleAtom, 
+	unsigned long forIdex)
+{
+	if (spTextStyleAtom == nullptr)
+		return nullptr;
+
+	unsigned long idx = 0;
+	for (auto& ele : spTextStyleAtom->m_vecPRuns)
+	{
+		if (forIdex < idx + ele->Length)
+			return ele;
+
+		idx += ele->Length;
+	}
+
+	return nullptr;
+}
+
+std::shared_ptr<MasterTextPropRun> CNDTextBody::GetMasterTextPropRun(shared_ptr<MasterTextPropAtom>& spMasterTextPropAtom, unsigned long forIdex)
+{
+	if (spMasterTextPropAtom == nullptr)
+		return make_shared<MasterTextPropRun>();
+
+	unsigned long idx = 0;
+	for (auto& ele : spMasterTextPropAtom->m_vecMasterTextPropRuns)
+	{
+		if (forIdex < idx + ele->count)
+			return ele;
+
+		idx += ele->count;
+	}
+
+	return nullptr;
 }

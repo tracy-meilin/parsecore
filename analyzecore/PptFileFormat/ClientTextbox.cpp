@@ -2,10 +2,12 @@
 #include "Singleton.h"
 #include "Common.h"
 #include "GlobalDefines.h"
+#include "Utils.h"
 #include "BaseStream.h"
 #include "MemoryStream.h"
 #include "BinaryReader.h"
 #include "Record.h"
+#include "RegularContainer.h"
 #include "RecordFactory.h"
 #include "ParagraphRunTabStop.h"
 #include "GrColorAtom.h"
@@ -16,7 +18,13 @@
 #include "TextStyleAtom.h"
 #include "TextSpecialInfoAtom.h"
 #include "TextRulerAtom.h"
+#include "MasterTextPropAtom.h"
+#include "TextMasterStyleAtom.h"
 #include "ClientTextbox.h"
+#include "SlidePersistAtom.h"
+#include "SSlideLayoutAtom.h"
+#include "SlideAtom.h"
+#include "Slide.h"
 
 
 ClientTextbox::ClientTextbox()
@@ -61,6 +69,7 @@ ClientTextbox::ClientTextbox(shared_ptr<BinaryReader> spBinaryReader,
 				m_spTextStyleAtom->SetTextHeaderAtom(m_spTextHeaderAtom);
 			break;
 		case 0xfa2: //MasterTextPropAtom
+			m_spMasterTextPropAtom = dynamic_pointer_cast<MasterTextPropAtom>(spRecord);
 			break;
 		case 0xfa6: //TextRulerAtom
 			m_spTextRulerAtom = dynamic_pointer_cast<TextRulerAtom>(spRecord);
@@ -96,5 +105,24 @@ ClientTextbox::~ClientTextbox()
 	if (this->bytes != nullptr)
 	{
 		delete[] this->bytes;
+	}
+}
+
+const std::shared_ptr<TextMasterStyleAtom>& ClientTextbox::GetDefaultMasterStyle()
+{
+	if (m_spDefaultStyle != nullptr)
+		return m_spDefaultStyle;
+
+	shared_ptr<Slide> spSlide = this->FirstAncestorWithType<Slide>();
+	if (spSlide == nullptr)
+		return m_spDefaultStyle;
+
+	shared_ptr<SlideAtom> spSlideAtom = spSlide->FirstChildWithType<SlideAtom>();
+	if (spSlideAtom == nullptr)
+		return m_spDefaultStyle;
+
+	if (Utils::BitmaskToBool(spSlideAtom->Flags, 0x01 << 1) && spSlideAtom->MasterId > 0)
+	{
+
 	}
 }

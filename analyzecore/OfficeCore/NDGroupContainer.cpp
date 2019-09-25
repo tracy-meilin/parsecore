@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "NDShapeProperties.h"
+#include "NDTextBody.h"
 #include "NDShape.h"
 #include "NDHeaderGrpShape.h"
 #include "NDGroupContainer.h"

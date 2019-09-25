@@ -16,7 +16,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::vector<shared_ptr<CNDShape>> vecShapes = slide->GetShapes();
 		for (auto& shape : vecShapes)
 		{
-
+			shape->GetTxBody();
 		}
 	}
 

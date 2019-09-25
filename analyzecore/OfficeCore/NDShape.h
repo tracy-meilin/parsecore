@@ -20,7 +20,7 @@ public:
 
 	virtual shared_ptr<NDShapeProperties> GetSpPr();
 
-
+	virtual shared_ptr<CNDTextBody> GetTxBody();
 
 protected:
 	shared_ptr<ShapeContainer> m_spShapeContainer = nullptr;
@@ -36,6 +36,6 @@ protected:
 
 	shared_ptr<NDShapeProperties> m_spSpPr = nullptr;
 
-
+	shared_ptr<CNDTextBody> m_spTxBody = nullptr;
 };
 

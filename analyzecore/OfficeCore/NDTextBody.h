@@ -15,6 +15,11 @@ public:
 	vector<shared_ptr<NDParagraph>> GetPs();
 
 private:
+	shared_ptr<ParagraphRun> GetParagraphRun(shared_ptr<TextStyleAtom>& spTextStyleAtom, unsigned long forIdex);
+
+	shared_ptr<MasterTextPropRun> GetMasterTextPropRun(shared_ptr<MasterTextPropAtom>& spMasterTextPropAtom, unsigned long forIdex);
+
+private:
 	shared_ptr<ClientTextbox> m_spClientTextbox = nullptr;
 
 	shared_ptr<ShapeContainer> m_spShapeContainer = nullptr;

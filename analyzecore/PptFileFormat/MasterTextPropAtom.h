@@ -19,6 +19,6 @@ public:
  	virtual ~MasterTextPropAtom();
 
 public:
-	vector<MasterTextPropRun> m_vecMasterTextPropRuns;
+	vector<shared_ptr<MasterTextPropRun>> m_vecMasterTextPropRuns;
 };
 

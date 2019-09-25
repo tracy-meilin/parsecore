@@ -59,6 +59,7 @@ using namespace std;
 #include "../PptFileFormat/OEPlaceHolderAtom.h"
 #include "../PptFileFormat/AnimationInfoContainer.h"
 #include "../PptFileFormat/TextSpecialInfoAtom.h"
+#include "../PptFileFormat/MasterTextPropAtom.h"
 #include "../PptFileFormat/Handle.h"
 #include "../PptFileFormat/ShapeType.h"
 #include "../PptFileFormat/Shape.h"
@@ -67,4 +68,9 @@ using namespace std;
 #include "../PptFileFormat/ClientAnchor.h"
 #include "../PptFileFormat/ChildAnchor.h"
 #include "../PptFileFormat/ShapeOptions.h"
+#include "../PptFileFormat/TextRulerAtom.h"
+#include "../PptFileFormat/TextMasterStyleAtom.h"
 #include "../PptFileFormat/ClientTextbox.h"
+#include "../PptFileFormat/TextAtom.h"
+#include "../PptFileFormat/TextCharsAtom.h"
+

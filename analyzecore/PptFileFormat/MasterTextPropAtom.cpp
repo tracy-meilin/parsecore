@@ -19,10 +19,10 @@ MasterTextPropAtom::MasterTextPropAtom(shared_ptr<BinaryReader> spBinaryReader,
 {
 	while (_spBinaryReader->GetPosition() < _spBinaryReader->GetLength())
 	{
-		MasterTextPropRun run;
-		run.count = _spBinaryReader->ReadUInt32();
-		run.indentLevel = _spBinaryReader->ReadUInt16();
-		m_vecMasterTextPropRuns.push_back(run);
+		shared_ptr<MasterTextPropRun> spRun = make_shared<MasterTextPropRun>();
+		spRun->count = _spBinaryReader->ReadUInt32();
+		spRun->indentLevel = _spBinaryReader->ReadUInt16();
+		m_vecMasterTextPropRuns.push_back(spRun);
 	}
 }
 

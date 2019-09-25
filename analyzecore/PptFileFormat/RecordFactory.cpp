@@ -45,6 +45,7 @@
 #include "TextCharsAtom.h"
 #include "TextSpecialInfoAtom.h"
 #include "TextRunStyleAtom.h"
+#include "TextRulerAtom.h"
 #include "MasterTextPropAtom.h"
 #include "FooterMCAtom.h"
 #include "PPDrawingGroup.h"
