@@ -20,6 +20,8 @@ public:
 
 	const shared_ptr<TextMasterStyleAtom>& GetDefaultMasterStyle();
 
+	const shared_ptr<TextSpecialInfoAtom>& GetTextSpecialInfoAtom(){ return m_spTextSia; }
+
 public:
 	unsigned char* bytes = nullptr;
 

@@ -1,5 +1,6 @@
 #pragma once
 
+class PowerPointDocument;
 class PptFileFormat_API Slide
 	: public RegularContainer
 {
@@ -14,7 +15,14 @@ public:
 
 	virtual wstring ToString(unsigned long depth) override{ return _T(""); };
 
+	void SetPowerPointDoc(PowerPointDocument* pPPT);
+
+	PowerPointDocument* GetPowerPointDoc(){ return m_pPPT; }
+
 public:
 	shared_ptr<SlidePersistAtom> spPersistAtom = nullptr;
+
+private:
+	PowerPointDocument* m_pPPT = nullptr;
 };
 

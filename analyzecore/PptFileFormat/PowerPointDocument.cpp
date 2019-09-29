@@ -106,6 +106,19 @@ PowerPointDocument::~PowerPointDocument()
 {
 }
 
+/*!
+	根据母版页id，查找母版页对象
+*/
+std::shared_ptr < Slide > PowerPointDocument::FindMasterRecordById(unsigned long masterId)
+{
+	auto& ele = m_mapMasterRecordsById.find(masterId);
+
+	if (ele != m_mapMasterRecordsById.end())
+		return ele->second;
+
+	return nullptr;
+}
+
 void PowerPointDocument::ScanDocumentSummaryInformation()
 {
 	shared_ptr<BinaryReader> spBinaryReader = make_shared<BinaryReader>(this->_spDocumentSummaryInformationStream);

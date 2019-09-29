@@ -7,6 +7,9 @@ public:
 	PowerPointDocument(shared_ptr<StructuredStorageReader> spReader);
 	~PowerPointDocument();
 
+public:
+	shared_ptr < Slide > FindMasterRecordById(unsigned long masterId);
+
 private:
 	void ScanDocumentSummaryInformation();
 
@@ -22,6 +25,7 @@ private:
 	void IdentifyMasterPersistObjects();
 
 	void IdentifySlidePersistObjects();
+
 	
 public:
 	shared_ptr<VirtualStream> _spCurrentUserStream = nullptr;

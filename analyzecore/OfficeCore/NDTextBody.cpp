@@ -120,13 +120,15 @@ std::vector<std::shared_ptr<NDParagraph>> CNDTextBody::GetPs()
 	if (strText.empty())
 		return m_vecPs;
 
-	
-
 	shared_ptr<TextStyleAtom> spTextStyleAtom = m_spClientTextbox->GetTextStyleAtom();
 	shared_ptr<MasterTextPropAtom> spMasterTextPropAtom = m_spClientTextbox->GetMasterTextPropAtom();
+
+	signed long lvl = 0;
 	unsigned long idx = 0;
 
 	vector<wstring> vecParLines = CStringUtil::ws_split(strText, _T("\r"));
+	signed long internalOffset = 0;
+
 	for (auto& ele : vecParLines)
 	{
 		shared_ptr<NDParagraph> spNDParagraph = make_shared<NDParagraph>();
@@ -134,6 +136,15 @@ std::vector<std::shared_ptr<NDParagraph>> CNDTextBody::GetPs()
 		vector<wstring> vecRunLines = CStringUtil::ws_split(ele, _T("\v"));
 
 		shared_ptr<ParagraphRun> spP = this->GetParagraphRun(spTextStyleAtom, idx);
+		shared_ptr<MasterTextPropRun> spTp = GetMasterTextPropRun(spMasterTextPropAtom, idx);
+
+		if (spP)
+			lvl = spP->IndentLevel;
+
+		wstring strRunText = _T("");
+
+		//获取默认母版页样式
+		shared_ptr<TextMasterStyleAtom> spDefaultStyle = m_spClientTextbox->GetDefaultMasterStyle();
 
 		if (spP->GetAlignmentPresent())
 		{
@@ -164,9 +175,124 @@ std::vector<std::shared_ptr<NDParagraph>> CNDTextBody::GetPs()
 				break;
 			}
 		}
+		else if (spDefaultStyle && spDefaultStyle->m_vecPRuns.size() > spP->IndentLevel)
+		{
+			if (spDefaultStyle->m_vecPRuns[spP->IndentLevel]->Alignment)
+			{
+				switch (spDefaultStyle->m_vecPRuns[spP->IndentLevel]->Alignment)
+				{
+					switch (spP->Alignment)
+					{
+					case 0x0000: //Left
+						spNDParagraph->spPPr->strAlgn = _T("l");
+						break;
+					case 0x0001: //Center
+						spNDParagraph->spPPr->strAlgn = _T("ctr");
+						break;
+					case 0x0002: //Right
+						spNDParagraph->spPPr->strAlgn = _T("r");
+						break;
+					case 0x0003: //Justify
+						spNDParagraph->spPPr->strAlgn = _T("just");
+						break;
+					case 0x0004: //Distributed
+						spNDParagraph->spPPr->strAlgn = _T("dist");
+						break;
+					case 0x0005: //ThaiDistributed
+						spNDParagraph->spPPr->strAlgn = _T("thaiDist");
+						break;
+					case 0x0006: //JustifyLow
+						spNDParagraph->spPPr->strAlgn = _T("justLow");
+						break;
+					default:
+						break;
+					}
+				}
+			}
+		}
+
+
+		//get a:r
+
+		bool first = true;
+		bool textwritten = false;
+		signed long len;
+		unsigned long nCharacterRunStart;
+		for (auto& runLine : vecRunLines)
+		{
+			unsigned long offset = idx;
+
+			if (!first)
+			{
+				shared_ptr<CharacterRun> spCharacterRun = GetCharacterRun(spTextStyleAtom, idx + (unsigned long)internalOffset + 1);
+				if (spCharacterRun != nullptr)
+				{
+					//TODO:
+				}
+
+				if (runLine.length() == 0)
+				{
+					idx++;
+					internalOffset -= 1;
+				}
+
+				internalOffset += 1;
+			}
+
+			while (idx < offset + runLine.length())
+			{
+				textwritten = true;
+				len = runLine.length();
+
+				shared_ptr<CharacterRun> spCharacterRun = nullptr;
+				if (idx + (unsigned long)internalOffset == 0)
+				{
+					spCharacterRun = GetCharacterRun(spTextStyleAtom, 0);
+					nCharacterRunStart = GetCharacterRunStart(spTextStyleAtom, 0);
+				}
+				else
+				{
+					spCharacterRun = GetCharacterRun(spTextStyleAtom, idx + (unsigned long)internalOffset);
+					nCharacterRunStart = GetCharacterRunStart(spTextStyleAtom, idx + (unsigned long)internalOffset);
+				}
+
+				if (spCharacterRun)
+				{
+					len = (signed long)(nCharacterRunStart + spCharacterRun->Length - idx - internalOffset);
+					if (len > runLine.size() - idx + offset) len = (signed long)(runLine.size() - idx + offset);
+					if (len < 0) len = (signed long)(runLine.size() - idx + offset);
+					strRunText = runLine.substr((signed long)(idx - offset), len);
+				}
+				else
+				{
+					strRunText = runLine.substr((signed long)(idx - offset));
+				}
+			}
+		}
 	}
 
 	return m_vecPs;
+}
+
+
+std::shared_ptr<NDRun> CNDTextBody::GetR(shared_ptr<CharacterRun> spCharacterRun, 
+	shared_ptr<TextMasterStyleAtom> spDefaultStyle, 
+	signed long lvl, 
+	wstring strRunText)
+{
+	if (m_spClientTextbox == nullptr)
+		return nullptr;
+
+	shared_ptr<NDRun> spRun = nullptr;
+
+	shared_ptr<RegularContainer> spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Slide>();
+	if (spRegularContainer == nullptr)
+		spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Note>();
+
+	if (spRegularContainer == nullptr)
+		spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Handout>();
+
+
 }
 
 std::shared_ptr<ParagraphRun> CNDTextBody::GetParagraphRun(shared_ptr<TextStyleAtom>& spTextStyleAtom, 
@@ -202,4 +328,65 @@ std::shared_ptr<MasterTextPropRun> CNDTextBody::GetMasterTextPropRun(shared_ptr<
 	}
 
 	return nullptr;
+}
+
+std::shared_ptr<CharacterRun> CNDTextBody::GetCharacterRun(shared_ptr<TextStyleAtom>& spTextStyleAtom, unsigned long forIdx)
+{
+	if (spTextStyleAtom == nullptr)
+		return nullptr;
+
+	unsigned long idx = 0;
+	for (auto& ele : spTextStyleAtom->m_vecCRuns)
+	{
+		if (forIdx < idx + ele->Length)
+			return ele;
+
+		idx += ele->Length;
+	}
+
+	return nullptr;
+}
+
+unsigned long CNDTextBody::GetCharacterRunStart(shared_ptr<TextStyleAtom>& spTextStyleAtom, unsigned long forIdx)
+{
+	if (spTextStyleAtom == nullptr)
+		return 0;
+
+	unsigned long idx = 0;
+	for (auto& ele : spTextStyleAtom->m_vecCRuns)
+	{
+		if (forIdx < idx + ele->Length)
+			return idx;
+
+		idx += ele->Length;
+	}
+
+	return 0;
+}
+
+std::wstring CNDTextBody::GetLanguage()
+{
+	shared_ptr<TextSpecialInfoAtom> spTextSia = m_spClientTextbox->GetTextSpecialInfoAtom();
+	if (spTextSia == nullptr)
+		return m_strLanguage;
+
+	if (spTextSia->m_vecTextSIRuns.size() <= 0)
+		return m_strLanguage;
+
+	if (spTextSia->m_vecTextSIRuns[0]->spSI == nullptr
+		|| !spTextSia->m_vecTextSIRuns[0]->spSI->lang)
+		return m_strLanguage;
+
+	switch (spTextSia->m_vecTextSIRuns[0]->spSI->lid)
+	{
+	case 0x0: // no language
+		break;
+	case 0x13: //Any Dutch language is preferred over non-Dutch languages when proofing the text
+		break;
+	case 0x400: //no proofing
+		break;
+	default:
+			//m_strLanguage = System.Globalization.CultureInfo.GetCultureInfo(sia.Runs[0].si.lid).IetfLanguageTag;
+		break;
+	}
 }

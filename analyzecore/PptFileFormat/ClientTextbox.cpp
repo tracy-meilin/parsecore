@@ -2,12 +2,33 @@
 #include "Singleton.h"
 #include "Common.h"
 #include "GlobalDefines.h"
+#include "InternalBitConverter.h"
+#include "AbstractIOHandler.h"
+#include "InputHandler.h"
+#include "AbstractHeader.h"
+#include "Header.h"
+#include "AbstractFat.h"
+#include "Fat.h"
+#include "MiniFat.h"
+#include "AbstractDirectoryEntry.h"
+#include "DirectoryEntry.h"
+#include "DirectoryTree.h"
 #include "Utils.h"
 #include "BaseStream.h"
+#include "VirtualStream.h"
 #include "MemoryStream.h"
 #include "BinaryReader.h"
 #include "Record.h"
 #include "RegularContainer.h"
+#include "StructuredStorageReader.h"
+#include "CurrentUserAtom.h"
+#include "UserEditAtom.h"
+#include "PersistDirectoryEntry.h"
+#include "PersistDirectoryAtom.h"
+#include "SlidePersistAtom.h"
+#include "Pictures.h"
+#include "List.h"
+
 #include "RecordFactory.h"
 #include "ParagraphRunTabStop.h"
 #include "GrColorAtom.h"
@@ -20,11 +41,19 @@
 #include "TextRulerAtom.h"
 #include "MasterTextPropAtom.h"
 #include "TextMasterStyleAtom.h"
+#include "OutlineTextRefAtom.h"
+#include "SlideListWithText.h"
+#include "DocumentContainer.h"
 #include "ClientTextbox.h"
 #include "SlidePersistAtom.h"
 #include "SSlideLayoutAtom.h"
 #include "SlideAtom.h"
 #include "Slide.h"
+
+#include "MainMaster.h"
+#include "Note.h"
+#include "Handout.h"
+#include "PowerPointDocument.h"
 
 
 ClientTextbox::ClientTextbox()
@@ -108,6 +137,9 @@ ClientTextbox::~ClientTextbox()
 	}
 }
 
+/*!
+	获取默认的母版页样式
+*/
 const std::shared_ptr<TextMasterStyleAtom>& ClientTextbox::GetDefaultMasterStyle()
 {
 	if (m_spDefaultStyle != nullptr)
@@ -123,6 +155,22 @@ const std::shared_ptr<TextMasterStyleAtom>& ClientTextbox::GetDefaultMasterStyle
 
 	if (Utils::BitmaskToBool(spSlideAtom->Flags, 0x01 << 1) && spSlideAtom->MasterId > 0)
 	{
+		PowerPointDocument* pPPT = spSlide->GetPowerPointDoc();
+		if (pPPT == nullptr)
+			return m_spDefaultStyle;
 
+		shared_ptr<Slide> spMasterSlide = pPPT->FindMasterRecordById(spSlideAtom->MasterId);
+
+		for (auto& ele : spMasterSlide->AllChildrenWithType<TextMasterStyleAtom>())
+		{
+			if (ele->Instance == (int)m_spTextHeaderAtom->TextType)
+			{
+				m_spDefaultStyle = ele;
+
+				return m_spDefaultStyle;
+			}
+		}
 	}
+
+	return m_spDefaultStyle;
 }
