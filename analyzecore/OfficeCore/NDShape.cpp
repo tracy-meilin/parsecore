@@ -20,12 +20,18 @@ CNDShape::~CNDShape()
 
 NDShapeType CNDShape::GetShapeType()
 {
-	return NDShapeType::InvalidShape;
+	return NDShapeType::NormalShape;
 }
 
 std::shared_ptr<NDNVGrpShapeProperties> CNDShape::GetNvGrpSpPr()
 {
 	return m_spNvGrpSpPr;
+}
+
+std::shared_ptr<NDGrpShapeProperties> CNDShape::GetGrpSpPr()
+{
+	// TODO:
+	return m_spGrpSpPr;
 }
 
 std::shared_ptr<NDNVShapeProperties> CNDShape::GetNvSpPr()
@@ -72,6 +78,7 @@ std::shared_ptr<NDShapeProperties> CNDShape::GetSpPr()
 	if (spShape == nullptr)
 		return m_spSpPr;
 
+	m_spSpPr = make_shared<NDShapeProperties>();
 	shared_ptr<ClientAnchor> spClientAnchor = m_spShapeContainer->FirstChildWithType<ClientAnchor>();
 	if (spClientAnchor
 		&& spClientAnchor->Right >= spClientAnchor->Left
@@ -88,7 +95,7 @@ std::shared_ptr<NDShapeProperties> CNDShape::GetSpPr()
 	}
 
 	if (spShape->Instance != 0
-		&& m_spShapeOptions->m_mapOptionsByID.find(ShapeOptionsSpace::pSegmentInfo) != m_spShapeOptions->m_mapOptionsByID.end())
+		&& m_spShapeOptions->m_mapOptionsByID.find(ShapeOptionsSpace::pSegmentInfo) == m_spShapeOptions->m_mapOptionsByID.end())
 	{
 		// this means a predefined shape
 		m_spSpPr->spPrstGeom->strPrst = Utils::GetPrstForShape(spShape->Instance);
@@ -114,5 +121,11 @@ std::shared_ptr<CNDTextBody> CNDShape::GetTxBody()
 	if (m_spTxBody == nullptr)
 		return nullptr;
 
-	m_spTxBody->GetPs();
+	shared_ptr<NDBodyProperties> spNDBodyPr = m_spTxBody->GetBodyPr();
+
+	shared_ptr<NDLstStyle> spNDLstStyle = m_spTxBody->GetLstStyle();
+
+	/*std::vector<std::shared_ptr<NDParagraph>> vecNDParagraph = */m_spTxBody->GetPs();
+
+	return m_spTxBody;
 }

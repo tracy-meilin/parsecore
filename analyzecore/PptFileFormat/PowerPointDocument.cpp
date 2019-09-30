@@ -398,6 +398,7 @@ void PowerPointDocument::IdentifySlidePersistObjects()
 		if (spSlide)
 		{
 			spSlide->spPersistAtom = ele;
+			spSlide->SetPowerPointDoc(this);
 			this->m_vecSlideRecords.push_back(spSlide);
 		}
 	}

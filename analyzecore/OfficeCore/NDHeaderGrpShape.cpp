@@ -35,12 +35,21 @@ std::shared_ptr<NDNVGrpShapeProperties> CNDHeaderGrpShape::GetNvGrpSpPr()
 	m_spNvGrpSpPr->spCNvPr->spId = m_spShapeContainer->Index;
 	m_spNvGrpSpPr->spCNvPr->strName = _T("");	//TODO:
 
+	return m_spNvGrpSpPr;
+}
+
+std::shared_ptr<NDGrpShapeProperties> CNDHeaderGrpShape::GetGrpSpPr()
+{
+	if (m_spShapeContainer == nullptr
+		|| m_spGrpSpPr != nullptr)
+		return m_spGrpSpPr;
+
 	m_spGrpSpPr = make_shared<NDGrpShapeProperties>();
 	m_spGrpSpPr->spXfrm->ptOff = Point(0, 0);
 	m_spGrpSpPr->spXfrm->sizeExt = Size(0, 0);
 	m_spGrpSpPr->spXfrm->ptChOff = Point(0, 0);
 	m_spGrpSpPr->spXfrm->sizeChExt = Size(0, 0);
 
-	return m_spNvGrpSpPr;
+	return m_spGrpSpPr;
 }
 

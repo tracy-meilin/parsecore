@@ -10,5 +10,7 @@ public:
 	virtual NDShapeType GetShapeType() override;
 
 	virtual shared_ptr<NDNVGrpShapeProperties> GetNvGrpSpPr() override;
+
+	virtual shared_ptr<NDGrpShapeProperties> GetGrpSpPr() override;
 };
 

@@ -145,17 +145,17 @@ const std::shared_ptr<TextMasterStyleAtom>& ClientTextbox::GetDefaultMasterStyle
 	if (m_spDefaultStyle != nullptr)
 		return m_spDefaultStyle;
 
-	shared_ptr<Slide> spSlide = this->FirstAncestorWithType<Slide>();
-	if (spSlide == nullptr)
+	Slide* pSlide = this->FirstAncestorWithType<Slide>();
+	if (pSlide == nullptr)
 		return m_spDefaultStyle;
 
-	shared_ptr<SlideAtom> spSlideAtom = spSlide->FirstChildWithType<SlideAtom>();
+	shared_ptr<SlideAtom> spSlideAtom = pSlide->FirstChildWithType<SlideAtom>();
 	if (spSlideAtom == nullptr)
 		return m_spDefaultStyle;
 
 	if (Utils::BitmaskToBool(spSlideAtom->Flags, 0x01 << 1) && spSlideAtom->MasterId > 0)
 	{
-		PowerPointDocument* pPPT = spSlide->GetPowerPointDoc();
+		PowerPointDocument* pPPT = pSlide->GetPowerPointDoc();
 		if (pPPT == nullptr)
 			return m_spDefaultStyle;
 

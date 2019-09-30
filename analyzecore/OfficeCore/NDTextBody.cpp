@@ -98,7 +98,7 @@ std::shared_ptr<NDLstStyle> CNDTextBody::GetLstStyle()
 	return m_spLstStyle;
 }
 
-std::vector<std::shared_ptr<NDParagraph>> CNDTextBody::GetPs()
+std::vector<std::shared_ptr<NDParagraph>>& CNDTextBody::GetPs()
 {
 	if (m_spShapeOptions == nullptr 
 		|| m_spClientTextbox == nullptr
@@ -177,40 +177,74 @@ std::vector<std::shared_ptr<NDParagraph>> CNDTextBody::GetPs()
 		}
 		else if (spDefaultStyle && spDefaultStyle->m_vecPRuns.size() > spP->IndentLevel)
 		{
-			if (spDefaultStyle->m_vecPRuns[spP->IndentLevel]->Alignment)
+			if (spDefaultStyle->m_vecPRuns[spP->IndentLevel]->GetAlignmentPresent())
 			{
 				switch (spDefaultStyle->m_vecPRuns[spP->IndentLevel]->Alignment)
 				{
-					switch (spP->Alignment)
-					{
-					case 0x0000: //Left
-						spNDParagraph->spPPr->strAlgn = _T("l");
-						break;
-					case 0x0001: //Center
-						spNDParagraph->spPPr->strAlgn = _T("ctr");
-						break;
-					case 0x0002: //Right
-						spNDParagraph->spPPr->strAlgn = _T("r");
-						break;
-					case 0x0003: //Justify
-						spNDParagraph->spPPr->strAlgn = _T("just");
-						break;
-					case 0x0004: //Distributed
-						spNDParagraph->spPPr->strAlgn = _T("dist");
-						break;
-					case 0x0005: //ThaiDistributed
-						spNDParagraph->spPPr->strAlgn = _T("thaiDist");
-						break;
-					case 0x0006: //JustifyLow
-						spNDParagraph->spPPr->strAlgn = _T("justLow");
-						break;
-					default:
-						break;
-					}
+				case 0x0000: //Left
+					spNDParagraph->spPPr->strAlgn = _T("l");
+					break;
+				case 0x0001: //Center
+					spNDParagraph->spPPr->strAlgn = _T("ctr");
+					break;
+				case 0x0002: //Right
+					spNDParagraph->spPPr->strAlgn = _T("r");
+					break;
+				case 0x0003: //Justify
+					spNDParagraph->spPPr->strAlgn = _T("just");
+					break;
+				case 0x0004: //Distributed
+					spNDParagraph->spPPr->strAlgn = _T("dist");
+					break;
+				case 0x0005: //ThaiDistributed
+					spNDParagraph->spPPr->strAlgn = _T("thaiDist");
+					break;
+				case 0x0006: //JustifyLow
+					spNDParagraph->spPPr->strAlgn = _T("justLow");
+					break;
+				default:
+					break;
 				}
 			}
 		}
 
+		// bullet
+		if (spP->GetBulletCharPresent())
+		{
+			if ((spP->BulletFlags& (unsigned short)Common::HasBullet) == 0)
+			{
+
+			}
+			else
+			{
+				if (spP->GetBulletColorPresent())
+				{
+
+				}
+				else if (spP->GetBulletSizePresent())
+				{
+
+				}
+				else if (spP->GetBulletFlagsFieldPresent() && (spP->BulletFlags & 0x1 << 3) > 0)
+				{
+
+				}
+
+				if (spP->GetBulletFontPresent())
+				{
+
+				}
+			}
+
+			if (spP->GetBulletCharPresent())
+			{
+				spNDParagraph->spPPr->spBuChar->strChar = spP->BulletChar;
+			}
+			else if (!spP->GetBulletCharPresent())
+			{
+				spNDParagraph->spPPr->spBuChar->strChar = _T("?");
+			}
+		}
 
 		//get a:r
 
@@ -267,9 +301,30 @@ std::vector<std::shared_ptr<NDParagraph>> CNDTextBody::GetPs()
 				{
 					strRunText = runLine.substr((signed long)(idx - offset));
 				}
+
+				spNDParagraph->spRun = GetR(spCharacterRun, spDefaultStyle, lvl, strRunText);
+
+				idx += strRunText.size();
 			}
+
+			first = false;
+
+		}		//vecRunLines
+
+		if (!textwritten)
+		{
+
 		}
-	}
+		else
+		{
+			// end
+			//spNDParagraph->spEndParaRPr
+		}
+
+		idx += 1;
+
+		m_vecPs.push_back(spNDParagraph);
+	}			//vecParLines
 
 	return m_vecPs;
 }
@@ -285,14 +340,79 @@ std::shared_ptr<NDRun> CNDTextBody::GetR(shared_ptr<CharacterRun> spCharacterRun
 
 	shared_ptr<NDRun> spRun = nullptr;
 
-	shared_ptr<RegularContainer> spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Slide>();
+	/*shared_ptr<RegularContainer spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Slide>();
 	if (spRegularContainer == nullptr)
 		spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Note>();
 
 	if (spRegularContainer == nullptr)
-		spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Handout>();
+		spRegularContainer = m_spClientTextbox->FirstAncestorWithType<Handout>();*/
 
+	spRun = make_shared<NDRun>();
+	if (spCharacterRun || spDefaultStyle)
+	{
+		spRun->spRPr->strLang = GetLanguage();
 
+		bool bRunExists = spCharacterRun != nullptr;
+
+		if (bRunExists && spCharacterRun->GetSizePresent())
+		{
+			if (spCharacterRun->Size > 0)
+			{
+				spRun->spRPr->sz = spCharacterRun->Size * 100;
+			}
+		}
+		else if (spDefaultStyle)
+		{
+			if (spDefaultStyle->m_vecCRuns[lvl]->GetSizePresent())
+			{
+				spRun->spRPr->sz = spDefaultStyle->m_vecCRuns[lvl]->Size * 100;
+			}
+		}
+
+		if (bRunExists && spCharacterRun->GetStyleFlagsFieldPresent())
+		{
+
+		}
+		else if (spDefaultStyle && spDefaultStyle->m_vecCRuns[lvl]->GetStyleFlagsFieldPresent())
+		{
+
+		}
+
+		if (bRunExists && spCharacterRun->GetColorPresent())
+		{
+
+		}
+		else if (spDefaultStyle)
+		{
+			if (spDefaultStyle->m_vecCRuns[lvl]->GetColorPresent())
+			{
+
+			}
+		}
+
+		if ((spCharacterRun->Style & Character::IsEmbossed) == Character::IsEmbossed)
+		{
+
+		}
+
+		if (bRunExists && spCharacterRun->GetTypefacePresent())
+		{
+
+		}
+		else if (spDefaultStyle && spDefaultStyle->m_vecCRuns[lvl]->GetTypefacePresent())
+		{
+
+		}
+	}
+	else
+	{
+		spRun->spRPr->strLang = GetLanguage();
+	}
+
+	// write a:t
+	spRun->spT->strText = strRunText;
+
+	return spRun;
 }
 
 std::shared_ptr<ParagraphRun> CNDTextBody::GetParagraphRun(shared_ptr<TextStyleAtom>& spTextStyleAtom, 
@@ -386,7 +506,10 @@ std::wstring CNDTextBody::GetLanguage()
 	case 0x400: //no proofing
 		break;
 	default:
+		m_strLanguage = CLanguageUtil::GetLanguageByLCID(spTextSia->m_vecTextSIRuns[0]->spSI->lid);
 			//m_strLanguage = System.Globalization.CultureInfo.GetCultureInfo(sia.Runs[0].si.lid).IetfLanguageTag;
 		break;
 	}
+
+	return m_strLanguage;
 }

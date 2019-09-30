@@ -16,7 +16,32 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::vector<shared_ptr<CNDShape>> vecShapes = slide->GetShapes();
 		for (auto& shape : vecShapes)
 		{
-			shape->GetTxBody();
+			switch (shape->GetShapeType())
+			{
+			case NDShapeType::HeaderGroupShape:
+				shape->GetNvGrpSpPr();
+				shape->GetGrpSpPr();
+				break;
+			case NDShapeType::NormalShape:
+			{
+				shape->GetNvSpPr();
+				shape->GetSpPr();
+				shared_ptr<CNDTextBody> spNDTxtBody = shape->GetTxBody();
+				if (spNDTxtBody)
+				{
+					vector<shared_ptr<NDParagraph>> vec = spNDTxtBody->GetPs();
+					for (auto& p : vec)
+					{
+						if (p->spRun && p->spRun->spT)
+							wstring str = p->spRun->spT->strText;
+					}
+				}
+			}
+				
+				break;
+			default:
+				break;
+			}
 		}
 	}
 

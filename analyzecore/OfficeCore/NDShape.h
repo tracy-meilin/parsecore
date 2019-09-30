@@ -4,6 +4,7 @@ enum class NDShapeType
 {
 	InvalidShape = 0,
 	HeaderGroupShape = 1,
+	NormalShape = 2,
 };
 
 class OfficeCore_API CNDShape
@@ -15,6 +16,8 @@ public:
 	virtual NDShapeType GetShapeType();
 
 	virtual shared_ptr<NDNVGrpShapeProperties> GetNvGrpSpPr();
+
+	virtual shared_ptr<NDGrpShapeProperties> GetGrpSpPr();
 
 	virtual shared_ptr<NDNVShapeProperties> GetNvSpPr();
 

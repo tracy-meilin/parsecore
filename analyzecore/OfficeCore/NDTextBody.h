@@ -1,7 +1,7 @@
 #pragma once
 
 // p:txBody
-class CNDTextBody
+class OfficeCore_API CNDTextBody
 {
 public:
 	CNDTextBody(shared_ptr<ShapeContainer>& spShapeContainer, 
@@ -12,12 +12,7 @@ public:
 
 	shared_ptr<NDLstStyle> GetLstStyle();
 
-	vector<shared_ptr<NDParagraph>> GetPs();
-
-	shared_ptr<NDRun> GetR(shared_ptr<CharacterRun> spCharacterRun, 
-		shared_ptr<TextMasterStyleAtom> spDefaultStyle, 
-		signed long lvl, 
-		wstring strRunText);
+	vector<shared_ptr<NDParagraph>>& GetPs();
 
 private:
 	shared_ptr<ParagraphRun> GetParagraphRun(shared_ptr<TextStyleAtom>& spTextStyleAtom, unsigned long forIdex);
@@ -27,6 +22,11 @@ private:
 	shared_ptr<CharacterRun> GetCharacterRun(shared_ptr<TextStyleAtom>& spTextStyleAtom, unsigned long forIdx);
 
 	unsigned long GetCharacterRunStart(shared_ptr<TextStyleAtom>& spTextStyleAtom, unsigned long forIdx);
+
+	shared_ptr<NDRun> GetR(shared_ptr<CharacterRun> spCharacterRun,
+		shared_ptr<TextMasterStyleAtom> spDefaultStyle,
+		signed long lvl,
+		wstring strRunText);
 
 	wstring GetLanguage();
 

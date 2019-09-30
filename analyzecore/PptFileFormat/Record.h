@@ -21,7 +21,7 @@ public:
 	unsigned long GetTotalSize(){ return HeaderSize + BodySize; }
 
 	template<typename T>
-	shared_ptr<T> FirstAncestorWithType();
+	T* FirstAncestorWithType();
 
 	//get/set
 	Record* GetParentRecord(){ return _pParentRecord; }
@@ -47,16 +47,16 @@ protected:
 };
 
 template<typename T>
-shared_ptr<T> Record::FirstAncestorWithType()
+T* Record::FirstAncestorWithType()
 {
-	shared_ptr<Record> spCurAncestor = make_shared<Record>(*(this->_pParentRecord));
-	while (spCurAncestor)
+	Record* pCurAncetor = this->_pParentRecord;
+	while (pCurAncetor)
 	{
-		shared_ptr<T> t = dynamic_pointer_cast<T>(spCurAncestor);
+		T* t = dynamic_cast<T*>(pCurAncetor);
 		if (t)
 			return t;
 
-		spCurAncestor = make_shared<Record>(*(spCurAncestor->GetParentRecord()));
+		pCurAncetor = pCurAncetor->GetParentRecord();
 	}
 
 	return nullptr;

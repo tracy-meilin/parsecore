@@ -63,7 +63,7 @@ SlideListWithText::~SlideListWithText()
 
 std::shared_ptr<TextHeaderAtom> SlideListWithText::FindTextHeaderForOutlineTextRef(shared_ptr<OutlineTextRefAtom> spAtom)
 {
-	shared_ptr<Slide> pSlide = spAtom->FirstAncestorWithType<Slide>();
+	Slide* pSlide = spAtom->FirstAncestorWithType<Slide>();
 	if (pSlide == nullptr)
 	{
 		//TODO£º

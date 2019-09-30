@@ -156,10 +156,22 @@ struct NDLstStyle
 
 };
 
+// a:buChar
+struct NDBuChar
+{
+	wstring strChar;
+};
+
 // a:pPr
 struct NDParagraphProperties
 {
+	NDParagraphProperties()
+	{
+		spBuChar = make_shared<NDBuChar>();
+	}
+
 	wstring strAlgn;
+	shared_ptr<NDBuChar> spBuChar = nullptr;
 };
 
 // a:rPr
