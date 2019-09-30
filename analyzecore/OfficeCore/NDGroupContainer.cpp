@@ -3,6 +3,7 @@
 #include "NDTextBody.h"
 #include "NDShape.h"
 #include "NDHeaderGrpShape.h"
+#include "NDPicShape.h"
 #include "NDGroupContainer.h"
 
 
@@ -59,7 +60,37 @@ void CNDGroupContainer::Init()
 		if (spShapeContainer == nullptr)
 			continue;
 
-		shared_ptr<CNDShape> spNDShape = make_shared<CNDShape>(spShapeContainer);
+		shared_ptr<Shape> spShape = spShapeContainer->FirstChildWithType<Shape>();
+		// ªÒ»°ShapeOptions
+		shared_ptr<ShapeOptions> spShapeOptions = spShapeContainer->FirstChildWithType<ShapeOptions>();
+
+		shared_ptr<CNDShape> spNDShape = nullptr;
+
+		do 
+		{
+			bool continueShape = true;
+
+			if (spShapeContainer == nullptr)
+				break;
+
+			if (spShapeOptions->m_mapOptionsByID.find(ShapeOptionsSpace::PropertyId::Pib) != spShapeOptions->m_mapOptionsByID.end())
+			{
+				if (spShape && spShape->fOleShape)
+				{
+					// TODO: OLE Shape
+				}
+
+				if (continueShape)
+				{
+					spNDShape = make_shared<CNDPicShape>(spShapeContainer);
+					continueShape = false;
+				}
+			}
+		} while (false);
+
+		if (spNDShape == nullptr)
+			spNDShape = make_shared<CNDShape>(spShapeContainer);
+
 		if (spNDShape == nullptr)
 			continue;
 		

@@ -89,6 +89,7 @@
     <ClInclude Include="NDGen.h" />
     <ClInclude Include="NDHeaderGrpShape.h" />
     <ClInclude Include="NDGroupContainer.h" />
+    <ClInclude Include="NDPicShape.h" />
     <ClInclude Include="NDShapeProperties.h" />
     <ClInclude Include="NDPowerpointDoc.h" />
     <ClInclude Include="NDPPDrawing.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="NDDrawingContainer.cpp" />
     <ClCompile Include="NDHeaderGrpShape.cpp" />
     <ClCompile Include="NDGroupContainer.cpp" />
+    <ClCompile Include="NDPicShape.cpp" />
     <ClCompile Include="NDShapeProperties.cpp" />
     <ClCompile Include="NDPowerpointDoc.cpp" />
     <ClCompile Include="NDPPDrawing.cpp" />

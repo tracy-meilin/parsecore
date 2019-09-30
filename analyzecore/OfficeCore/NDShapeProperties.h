@@ -105,6 +105,11 @@ struct NDLn
 
 };
 
+struct NDNoFill
+{
+	bool bNoFill = false;
+};
+
 // a:avLst
 struct NDAvLst
 {
@@ -125,12 +130,14 @@ struct NDShapeProperties
 		spXfrm = make_shared<NDXfrm>();
 		spPrstGeom = make_shared<NDPrstGeom>();
 		spAvLst = make_shared<NDAvLst>();
+		spNoFill = make_shared<NDNoFill>();
 		spLn = make_shared<NDLn>();
 	}
 
 	shared_ptr<NDXfrm> spXfrm = nullptr;
 	shared_ptr<NDPrstGeom> spPrstGeom = nullptr;
 	shared_ptr<NDAvLst> spAvLst = nullptr;
+	shared_ptr<NDNoFill> spNoFill = nullptr;
 	shared_ptr<NDLn> spLn = nullptr;
 };
 
@@ -220,3 +227,86 @@ struct NDParagraph
 	shared_ptr<NDRun> spRun = nullptr;
 	shared_ptr<NDEndParaRProperties> spEndParaRPr = nullptr;
 };
+
+//////////////////////////////////////////////////////////////////////////
+
+// a:picLocks
+struct NDPicLocks
+{
+	bool bNoChangeArrowheads = false;
+	bool bNoChangeAspect = false;
+};
+
+// p:cNvPicPr
+struct NDNVCanvasPicProperties
+{
+	NDNVCanvasPicProperties()
+	{
+		spPicLocks = make_shared<NDPicLocks>();
+	}
+
+	shared_ptr<NDPicLocks> spPicLocks = nullptr;
+};
+
+// p:nvPicPr
+struct NDNVPicProperties
+{
+	NDNVPicProperties()
+	{
+		spNvPr = make_shared<NDNVProperties>();
+		spNvPr = make_shared<NDNVProperties>();
+	}
+
+	shared_ptr<NDNVCanvasProperties> spCNvPr = nullptr;
+	shared_ptr<NDNVProperties> spNvPr = nullptr;
+};
+
+
+//////////////////////////////////////////////////////////////////////////
+
+// a:blip
+struct NDBlip
+{
+	wstring strEmbed;
+};
+
+// a:srcRect
+struct NDSrcRect
+{
+
+};
+
+// a:fillRect
+struct NDFillRect
+{
+
+};
+
+// a:stretch
+struct NDStretch
+{
+	NDStretch()
+	{
+		spFillRect = make_shared<NDFillRect>();
+	}
+
+	shared_ptr<NDFillRect> spFillRect = nullptr;
+};
+
+// p:blipFill
+struct NDBlipFill
+{
+	NDBlipFill()
+	{
+		spBlipFill = make_shared<NDBlipFill>();
+		spSrcRect = make_shared<NDSrcRect>();
+		spStretch = make_shared<NDStretch>();
+	}
+
+	shared_ptr<NDBlipFill> spBlipFill = nullptr;
+	shared_ptr<NDSrcRect> spSrcRect = nullptr;
+	shared_ptr<NDStretch> spStretch = nullptr;
+};
+
+
+//////////////////////////////////////////////////////////////////////////

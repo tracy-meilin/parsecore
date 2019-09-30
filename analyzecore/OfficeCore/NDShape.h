@@ -5,6 +5,7 @@ enum class NDShapeType
 	InvalidShape = 0,
 	HeaderGroupShape = 1,
 	NormalShape = 2,
+	PicShape = 3,
 };
 
 class OfficeCore_API CNDShape

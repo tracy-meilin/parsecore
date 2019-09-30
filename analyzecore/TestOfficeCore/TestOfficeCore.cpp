@@ -37,7 +37,10 @@ int _tmain(int argc, _TCHAR* argv[])
 					}
 				}
 			}
-				
+			case NDShapeType::PicShape:
+			{
+
+			}
 				break;
 			default:
 				break;

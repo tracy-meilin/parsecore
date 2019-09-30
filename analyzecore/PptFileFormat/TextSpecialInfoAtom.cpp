@@ -66,7 +66,7 @@ TextSpecialInfoAtom::TextSpecialInfoAtom(shared_ptr<BinaryReader> spBinaryReader
 	unsigned int instance)
 	: Record(spBinaryReader, size, typeCode, version, instance)
 {
-	shared_ptr<TextSIRun> spRun = make_shared<TextSIRun>(spBinaryReader);
+	shared_ptr<TextSIRun> spRun = make_shared<TextSIRun>(_spBinaryReader);
 	if (spRun)
 	{
 		m_vecTextSIRuns.push_back(spRun);

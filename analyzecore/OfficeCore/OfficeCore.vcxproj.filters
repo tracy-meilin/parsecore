@@ -63,6 +63,9 @@
     <ClInclude Include="StringUtil.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="NDPicShape.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -102,6 +105,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="StringUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDPicShape.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
