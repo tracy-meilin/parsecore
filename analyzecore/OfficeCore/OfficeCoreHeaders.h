@@ -11,6 +11,7 @@ using namespace std;
 #include "../OfficeCore/NDShapeProperties.h"
 #include "../OfficeCore/NDTextBody.h"
 #include "../OfficeCore/NDShape.h"
+#include "../OfficeCore/NDPicShape.h"
 #include "../OfficeCore/NDGroupContainer.h"
 #include "../OfficeCore/NDDrawingContainer.h"
 #include "../OfficeCore/NDPPDrawing.h"

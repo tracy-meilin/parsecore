@@ -23,7 +23,9 @@ using namespace std;
 #include "../PptFileFormat/MiniFat.h"
 #include "../PptFileFormat/BaseStream.h"
 #include "../PptFileFormat/VirtualStream.h"
+#include "../PptFileFormat/FileStream.h"
 #include "../PptFileFormat/StructuredStorageReader.h"
+#include "../PptFileFormat/BinaryWriter.h"
 
 #include "../PptFileFormat/BinaryReader.h"
 #include "../PptFileFormat/Record.h"
@@ -51,6 +53,8 @@ using namespace std;
 #include "../PptFileFormat/PowerPointDocument.h"
 
 #include "../PptFileFormat/PPDrawing.h"
+#include "../PptFileFormat/PPDrawingGroup.h"
+#include "../PptFileFormat/DrawingGroup.h"
 #include "../PptFileFormat/DrawingContainer.h"
 #include "../PptFileFormat/GroupContainer.h"
 #include "../PptFileFormat/ShapeContainer.h"
@@ -73,4 +77,7 @@ using namespace std;
 #include "../PptFileFormat/ClientTextbox.h"
 #include "../PptFileFormat/TextAtom.h"
 #include "../PptFileFormat/TextCharsAtom.h"
+#include "../PptFileFormat/BlipStoreContainer.h"
+#include "../PptFileFormat/BlipStoreEntry.h"
+#include "../PptFileFormat/BitmapBlip.h"
 

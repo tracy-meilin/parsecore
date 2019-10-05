@@ -1089,3 +1089,19 @@ namespace TextRulerAtomSpace
 		TABDecimal = 3
 	};
 }
+
+namespace ImagePartSpace
+{
+	enum ImageType
+	{
+		Bmp,
+		Emf,
+		Gif,
+		Icon,
+		Jpeg,
+		//Pcx,
+		Png,
+		Tiff,
+		Wmf
+	};
+}

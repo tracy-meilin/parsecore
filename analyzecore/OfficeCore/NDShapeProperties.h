@@ -7,6 +7,7 @@ struct NDNVCanvasProperties
 {
 	signed long spId;
 	wstring strName;
+	wstring strDescr;
 };
 
 // p:cNvGrpSpPr
@@ -253,11 +254,13 @@ struct NDNVPicProperties
 {
 	NDNVPicProperties()
 	{
-		spNvPr = make_shared<NDNVProperties>();
+		spCNvPr = make_shared<NDNVCanvasProperties>();
+		spCNvPicPr = make_shared<NDNVCanvasPicProperties>();
 		spNvPr = make_shared<NDNVProperties>();
 	}
 
 	shared_ptr<NDNVCanvasProperties> spCNvPr = nullptr;
+	shared_ptr<NDNVCanvasPicProperties> spCNvPicPr = nullptr;
 	shared_ptr<NDNVProperties> spNvPr = nullptr;
 };
 

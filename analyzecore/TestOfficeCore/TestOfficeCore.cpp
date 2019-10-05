@@ -36,10 +36,17 @@ int _tmain(int argc, _TCHAR* argv[])
 							wstring str = p->spRun->spT->strText;
 					}
 				}
+				break;
 			}
 			case NDShapeType::PicShape:
 			{
-
+				shared_ptr<CNDPicShape> spNDPicShape = dynamic_pointer_cast<CNDPicShape>(shape);
+				if (spNDPicShape)
+				{
+					spNDPicShape->GetNvPicPr();
+					spNDPicShape->GetBlipFill();
+					spNDPicShape->GetSpPr();
+				}
 			}
 				break;
 			default:

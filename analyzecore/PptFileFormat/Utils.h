@@ -20,5 +20,7 @@ public:
 	static wstring PlaceholderIdToXMLValue(OEPlaceHolderAtomSpace::PlaceholderEnum pid);
 
 	static wstring GetPrstForShape(unsigned long shapeInstance);
+
+	static ImagePartSpace::ImageType GetImageType(unsigned long TypeCode);
 };
 

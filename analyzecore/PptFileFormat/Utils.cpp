@@ -416,3 +416,24 @@ std::wstring Utils::GetPrstForShape(unsigned long shapeInstance)
 		return _T("");
 	}
 }
+
+ImagePartSpace::ImageType Utils::GetImageType(unsigned long TypeCode)
+{
+	switch (TypeCode)
+	{
+	case 0xF01A:
+		return ImagePartSpace::Emf;
+	case 0xF01B:
+		return ImagePartSpace::Wmf;
+	case 0xF01D:
+		return ImagePartSpace::Jpeg;
+	case 0xF01E:
+		return ImagePartSpace::Png;
+	case 0xF01F: //DIP
+		return ImagePartSpace::Bmp;
+	case 0xF020:
+		return ImagePartSpace::Tiff;
+	default:
+		return ImagePartSpace::Png;
+	}
+}
