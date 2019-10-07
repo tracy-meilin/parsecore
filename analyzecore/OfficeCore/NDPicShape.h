@@ -17,5 +17,10 @@ private:
 	shared_ptr<NDNVPicProperties> m_spNvPicPr = nullptr;
 
 	shared_ptr<NDBlipFill> m_spBlipFill = nullptr;
+
+	ImagePartSpace::ImageType m_imageType;
+
+	unsigned char* m_pvBits = nullptr;
+	unsigned long m_nBitsLength;
 };
 

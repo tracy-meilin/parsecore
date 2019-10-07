@@ -28,10 +28,14 @@ std::shared_ptr<NDBodyProperties> CNDTextBody::GetBodyPr()
 
 	m_spBodyPr = make_shared<NDBodyProperties>();
 
-	m_spBodyPr->lIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op;
-	m_spBodyPr->tIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dyTextTop]->op;
-	m_spBodyPr->rIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextRight]->op;
-	m_spBodyPr->bIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dyTextBottom]->op;
+	m_spBodyPr->lIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft] == nullptr 
+		? 0 : m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op;
+	m_spBodyPr->tIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dyTextTop] == nullptr 
+		? 0 : m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dyTextTop]->op;
+	m_spBodyPr->rIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextRight] == nullptr 
+		? 0 : m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextRight]->op;
+	m_spBodyPr->bIns = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dyTextBottom] == nullptr 
+		? 0 : m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dyTextBottom]->op;
 
 	if (m_spShapeOptions->m_mapOptionsByID.find(ShapeOptionsSpace::WrapText)
 		!= m_spShapeOptions->m_mapOptionsByID.end())

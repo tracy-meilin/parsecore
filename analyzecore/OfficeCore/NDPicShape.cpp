@@ -13,6 +13,10 @@ CNDPicShape::CNDPicShape(shared_ptr<ShapeContainer>& spShapeContainer)
 
 CNDPicShape::~CNDPicShape()
 {
+	if (m_pvBits)
+	{
+		delete[] m_pvBits;
+	}
 }
 
 NDShapeType CNDPicShape::GetShapeType()
@@ -94,6 +98,13 @@ std::shared_ptr<NDBlipFill> CNDPicShape::GetBlipFill()
 	if (spBitmapBlip == nullptr)
 		return m_spBlipFill;
 
+	m_imageType = Utils::GetImageType(spBitmapBlip->TypeCode);
+	m_nBitsLength = spBitmapBlip->m_nBitsLength;
+
+	m_pvBits = new unsigned char[m_nBitsLength];
+
+	std::memcpy(reinterpret_cast<void*>(m_pvBits), spBitmapBlip->m_pvBits, m_nBitsLength);
+
 #ifdef _DEBUG
 	//TODO: Test code
 	TCHAR lpTempPathBuffer[MAX_PATH];
@@ -113,7 +124,7 @@ std::shared_ptr<NDBlipFill> CNDPicShape::GetBlipFill()
 		shared_ptr<BinaryWriter> spBinaryWriter = make_shared<BinaryWriter>(spFileStream);
 		if (spBinaryWriter)
 		{
-			spBinaryWriter->Write(spBitmapBlip->m_pvBits, spBitmapBlip->m_nBitsLength);
+			spBinaryWriter->Write(m_pvBits, m_nBitsLength);
 			spBinaryWriter->Close();
 			spFileStream->Close();
 		}
