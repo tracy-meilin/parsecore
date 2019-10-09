@@ -179,6 +179,8 @@ struct NDParagraphProperties
 	}
 
 	wstring strAlgn;
+	long indent;
+	unsigned long marL;
 	shared_ptr<NDBuChar> spBuChar = nullptr;
 };
 

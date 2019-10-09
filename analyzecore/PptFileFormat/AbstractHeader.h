@@ -12,6 +12,9 @@ public:
 	void SetSectorShift(unsigned short value);
 	unsigned short GetSectorShift(){ return _sectorShift; }
 
+	void SetMiniSectorShit(unsigned short value);
+	unsigned short GetMiniSectorShit(){ return _miniSectorShift; }
+
 protected:
 	unsigned __int64 MAGIC_NUMBER = 0xE11AB1A1E011CFD0;
 
@@ -20,8 +23,6 @@ protected:
 public:
 	//
 	unsigned short _sectorSize;
-	// Minisector shift and Minisector size
-	unsigned short _miniSectorShift;
 	//
 	unsigned short _miniSectorSize;
 	// CSectDir
@@ -44,5 +45,7 @@ public:
 private:
 	// Sector shift and sector size
 	unsigned short _sectorShift;
+	// Minisector shift and Minisector size
+	unsigned short _miniSectorShift;
 };
 

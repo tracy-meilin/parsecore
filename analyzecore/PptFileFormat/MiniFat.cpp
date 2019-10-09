@@ -59,7 +59,7 @@ unsigned long MiniFat::GetNextSectorInChain(unsigned long currentSector)
 long MiniFat::SeekToPositionInSector(__int64 sector, __int64 position)
 {
 	int sectorInMiniStreamChain = (int)((sector * _spHeader->_miniSectorSize) / _spFat->GetSectorSize());
-	int offsetInSector = (int)((sector *  _spHeader->_miniSectorSize) / _spFat->GetSectorSize());
+	int offsetInSector = (int)((sector *  _spHeader->_miniSectorSize) % _spFat->GetSectorSize());
 
 	if (position < 0)
 	{

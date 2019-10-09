@@ -22,6 +22,8 @@ public:
 
 	const shared_ptr<TextSpecialInfoAtom>& GetTextSpecialInfoAtom(){ return m_spTextSia; }
 
+	const shared_ptr<TextRulerAtom>& GetTextRulerAtom() { return m_spTextRulerAtom; }
+
 public:
 	unsigned char* bytes = nullptr;
 

@@ -47,7 +47,7 @@ void Header::ReadHeader()
 	}
 
 	this->SetSectorShift(spInputHandler->ReadUInt16(0x1E));
-	_miniSectorShift = spInputHandler->ReadUInt16();
+	this->SetMiniSectorShit(spInputHandler->ReadUInt16());
 
 	_noSectorsInDirectoryChain4KB = spInputHandler->ReadUInt32(0x28);
 	_noSectorsInFatChain = spInputHandler->ReadUInt32();

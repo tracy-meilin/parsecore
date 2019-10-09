@@ -110,6 +110,7 @@ std::vector<std::shared_ptr<NDParagraph>>& CNDTextBody::GetPs()
 		return m_vecPs;
 
 	wstring strText = _T("");
+	int writtenLeftMargin = -1;
 
 	shared_ptr<TextHeaderAtom> spTxtHeaderAtom = m_spClientTextbox->GetTextHeaderAtom();
 	if (spTxtHeaderAtom)
@@ -126,6 +127,7 @@ std::vector<std::shared_ptr<NDParagraph>>& CNDTextBody::GetPs()
 
 	shared_ptr<TextStyleAtom> spTextStyleAtom = m_spClientTextbox->GetTextStyleAtom();
 	shared_ptr<MasterTextPropAtom> spMasterTextPropAtom = m_spClientTextbox->GetMasterTextPropAtom();
+	shared_ptr<TextRulerAtom> spTextRulerAtom = m_spClientTextbox->GetTextRulerAtom();
 
 	signed long lvl = 0;
 	unsigned long idx = 0;
@@ -142,13 +144,79 @@ std::vector<std::shared_ptr<NDParagraph>>& CNDTextBody::GetPs()
 		shared_ptr<ParagraphRun> spP = this->GetParagraphRun(spTextStyleAtom, idx);
 		shared_ptr<MasterTextPropRun> spTp = GetMasterTextPropRun(spMasterTextPropAtom, idx);
 
+		wstring strRunText = _T("");
 		if (spP)
 			lvl = spP->IndentLevel;
 
-		wstring strRunText = _T("");
-
 		//获取默认母版页样式
 		shared_ptr<TextMasterStyleAtom> spDefaultStyle = m_spClientTextbox->GetDefaultMasterStyle();
+
+		if (spP == nullptr)
+		{
+
+		}
+		else
+		{
+			if (spP->IndentLevel > 0)
+			{
+				//TODO:
+			}
+
+			if (spP->GetLeftMarginPresent())
+			{
+				spNDParagraph->spPPr->marL = Utils::MasterCoordToEMU(spP->LeftMargin);
+				writtenLeftMargin = spP->LeftMargin;
+			}
+			else if (spTextRulerAtom 
+				&& spTextRulerAtom->fLeftMargin1 
+				&& spP->IndentLevel == 0)
+			{
+				writtenLeftMargin = spTextRulerAtom->leftMargin1;
+				spNDParagraph->spPPr->marL = Utils::MasterCoordToEMU(spTextRulerAtom->leftMargin1);
+
+				bool bFlag = (spP->GetIndentPresent()
+					|| (spDefaultStyle && spDefaultStyle->m_vecPRuns.size() > spP->IndentLevel && spDefaultStyle->m_vecPRuns[spP->IndentLevel]->GetIndentPresent())
+					|| (spTextRulerAtom && spTextRulerAtom->fIndent1 && spP->IndentLevel == 0));
+
+				if (!bFlag)
+				{
+					spNDParagraph->spPPr->indent = Utils::MasterCoordToEMU(-1 * spTextRulerAtom->leftMargin1);
+				}
+			}
+			else if (spTextRulerAtom
+				&& spTextRulerAtom->leftMargin2
+				&& spP->IndentLevel == 1)
+			{
+
+			}
+			else if (spTextRulerAtom 
+				&& spTextRulerAtom->leftMargin3 
+				&& spP->IndentLevel == 2)
+			{
+
+			}
+			else if (spTextRulerAtom 
+				&& spTextRulerAtom->fLeftMargin4 
+				&& spP->IndentLevel == 3)
+			{
+
+			}
+			else if (spTextRulerAtom
+				&& spTextRulerAtom->fLeftMargin5
+				&& spP->IndentLevel == 4)
+			{
+
+			}
+			else if (m_spShapeOptions->m_mapOptionsByID.find(ShapeOptionsSpace::dxTextLeft) != m_spShapeOptions->m_mapOptionsByID.end()
+				&& m_spShapeOptions->m_mapOptionsByID.find(ShapeOptionsSpace::TextBooleanProperties) != m_spShapeOptions->m_mapOptionsByID.end())
+			{
+				/*var props = new TextBooleanProperties(so.OptionsByID[ShapeOptions.PropertyId.TextBooleanProperties].op);
+				if (props.fUsefAutoTextMargin && (props.fAutoTextMargin == false))*/
+
+				if (m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op > 0)
+					spNDParagraph->spPPr->marL = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op;
+			}
+		}
 
 		if (spP->GetAlignmentPresent())
 		{
@@ -213,7 +281,7 @@ std::vector<std::shared_ptr<NDParagraph>>& CNDTextBody::GetPs()
 		}
 
 		// bullet
-		if (spP->GetBulletCharPresent())
+		if (spP->GetBulletFlagsFieldPresent())
 		{
 			if ((spP->BulletFlags& (unsigned short)Common::HasBullet) == 0)
 			{

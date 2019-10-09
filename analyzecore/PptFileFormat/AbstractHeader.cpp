@@ -24,3 +24,15 @@ void AbstractHeader::SetSectorShift(unsigned short value)
 		// TODO: error
 	}
 }
+
+void AbstractHeader::SetMiniSectorShit(unsigned short value)
+{
+	_miniSectorShift = value;
+
+	// Calculate mini sector size
+	_miniSectorSize = (unsigned short)pow((double)2, (double)_miniSectorShift);
+	if (_miniSectorShift != 6)
+	{
+		// TODO: error
+	}
+}
