@@ -213,8 +213,12 @@ std::vector<std::shared_ptr<NDParagraph>>& CNDTextBody::GetPs()
 				/*var props = new TextBooleanProperties(so.OptionsByID[ShapeOptions.PropertyId.TextBooleanProperties].op);
 				if (props.fUsefAutoTextMargin && (props.fAutoTextMargin == false))*/
 
-				if (m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op > 0)
-					spNDParagraph->spPPr->marL = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op;
+				auto optionEntry = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft];
+				if (optionEntry != nullptr)
+				{
+					if (m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op > 0)
+						spNDParagraph->spPPr->marL = m_spShapeOptions->m_mapOptionsByID[ShapeOptionsSpace::dxTextLeft]->op;
+				}
 			}
 		}
 
