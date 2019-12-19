@@ -12,7 +12,8 @@
 #include <memory>
 #include <vector>
 #include <string>
-
+#include <Windows.h>
+#include "NDHttp/curl/curl.h"
 
 using namespace std;
 
@@ -28,6 +29,8 @@ using namespace std;
 
 #ifdef _DEBUG
 #pragma comment(lib, "OfficeCore_ud.lib")
+#pragma comment(lib, "NDHttp_ud.lib")
 #else
 #pragma comment(lib, "OfficeCore_u.lib")
+#pragma comment(lib, "NDHttp_u.lib")
 #endif

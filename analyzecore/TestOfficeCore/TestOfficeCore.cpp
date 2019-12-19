@@ -2,10 +2,22 @@
 //
 
 #include "stdafx.h"
-
+#include "NDHttp/NDHttp.h"
+#include "NDHttp/NDHttpBiz.h"
+#include "NDHttp_Wrapper.hpp"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	CHttpRequestDataModel Model;
+	Model.strHost = "127.0.0.1";
+	Model.strUrl = "/";
+	Model.strMethod = "GET";
+	Model.strHeader = "Content-Type: application/json;charset=UTF-8";
+	Model.nPort = 3001;
+
+	string strData;
+	DWORD code = NDhttp_Wrapper::Excute(&Model, strData);
+
 	shared_ptr<CNDPowerpointDoc> spDoc = make_shared<CNDPowerpointDoc>();
 	spDoc->OpenDoc(_T("F:\\ppttest\\1.ppt"));
 
