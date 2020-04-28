@@ -50,9 +50,28 @@ PowerPointDocument::PowerPointDocument()
 {
 }
 
+void TestEncryptionInfo(shared_ptr<BinaryReader> spBinaryReader)
+{
+	unsigned long size = spBinaryReader->ReadUInt32();
+
+	unsigned long tmp = spBinaryReader->ReadUInt32();
+
+	int nSize = spBinaryReader->GetLength() - 8;
+
+
+	string str = spBinaryReader->ReadString(nSize);
+
+	OutputDebugStringA(str.c_str());
+}
 
 PowerPointDocument::PowerPointDocument(shared_ptr<StructuredStorageReader> spReader)
 {
+	this->_spEncryptionInfoStream = spReader->GetStream(_T("EncryptionInfo"));
+	if (this->_spEncryptionInfoStream)
+	{
+		TestEncryptionInfo(make_shared<BinaryReader>(_spEncryptionInfoStream));
+	}
+
 	this->_spCurrentUserStream = spReader->GetStream(_T("Current User"));
 	shared_ptr<Record> spRecord = RecordFactory::GetInstance()->CreateRecord(_spCurrentUserStream);
 

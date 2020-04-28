@@ -2,22 +2,33 @@
 //
 
 #include "stdafx.h"
-#include "NDHttp/NDHttp.h"
-#include "NDHttp/NDHttpBiz.h"
-#include "NDHttp_Wrapper.hpp"
+#include "libxml/SAX2.h"
+#include "libxml/xmlstring.h"
+#include "libzippp/libzippp.h"
+using namespace libzippp;
 
-int _tmain(int argc, _TCHAR* argv[])
+void TestLibXMLSax()
 {
-	CHttpRequestDataModel Model;
-	Model.strHost = "127.0.0.1";
-	Model.strUrl = "/";
-	Model.strMethod = "GET";
-	Model.strHeader = "Content-Type: application/json;charset=UTF-8";
-	Model.nPort = 3001;
+	xmlInitParser();
+}
 
-	string strData;
-	DWORD code = NDhttp_Wrapper::Excute(&Model, strData);
+void TestLibZippp()
+{
+	/*const char* txtFile = "this is some data";
+	int len = strlen(txtFile);
 
+	ZipArchive z1("test.zip");
+	z1.open(ZipArchive::WRITE);
+	z1.addData("somedata/in/subfolder/data.txt", txtFile, len);
+	z1.addEntry("somedata/");
+	z1.addEntry("in/");
+	z1.addEntry("in/subfolder/");
+	z1.close();*/
+}
+
+//PPT格式的读取
+void TestOfficeCore()
+{
 	shared_ptr<CNDPowerpointDoc> spDoc = make_shared<CNDPowerpointDoc>();
 	spDoc->OpenDoc(_T("F:\\ppttest\\1.ppt"));
 
@@ -60,13 +71,27 @@ int _tmain(int argc, _TCHAR* argv[])
 					spNDPicShape->GetSpPr();
 				}
 			}
-				break;
+			break;
 			default:
 				break;
 			}
 		}
 	}
+}
 
+//PPTX格式的读取
+void TestPPTXOfficeCore()
+{
+	shared_ptr<CNDPPTXPowerpointDoc> spDoc = make_shared<CNDPPTXPowerpointDoc>();
+	if (!spDoc->OpenDoc(_T("F:\\ppttest\\文本.pptx")))
+		return;
+
+
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	TestOfficeCore();
 	return 0;
 }
 

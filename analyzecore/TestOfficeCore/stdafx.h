@@ -13,7 +13,6 @@
 #include <vector>
 #include <string>
 #include <Windows.h>
-#include "NDHttp/curl/curl.h"
 
 using namespace std;
 
@@ -26,11 +25,14 @@ using namespace std;
 #include "../PptFileFormat/PptFileFormat.h"
 #include "../PptFileFormat/PptFileFormatHeaders.h"
 #include "../OfficeCore/OfficeCoreHeaders.h"
+#include "../PPTXOfficeCore/PPTXOfficeCoreHeaders.h"
 
 #ifdef _DEBUG
 #pragma comment(lib, "OfficeCore_ud.lib")
-#pragma comment(lib, "NDHttp_ud.lib")
+#pragma comment(lib, "PPTXOfficeCore_ud.lib")
+#pragma comment(lib, "libxml2.lib")
 #else
 #pragma comment(lib, "OfficeCore_u.lib")
-#pragma comment(lib, "NDHttp_u.lib")
+#pragma comment(lib, "PPTXOfficeCore_u.lib")
+#pragma comment(lib, "libxml2.lib")
 #endif

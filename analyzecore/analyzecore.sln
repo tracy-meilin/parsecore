@@ -8,19 +8,24 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestStructuredStorage", "TestStructuredStorage\TestStructuredStorage.vcxproj", "{C810141D-9B66-49E8-8332-12C7C8BEBCF3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OfficeCore", "OfficeCore\OfficeCore.vcxproj", "{8A31B8CE-A8B5-45F0-A236-7F8DF16FB250}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F6677DE8-A3B6-44F1-86E5-712868BE3085} = {F6677DE8-A3B6-44F1-86E5-712868BE3085}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PptFileFormat", "PptFileFormat\PptFileFormat.vcxproj", "{F6677DE8-A3B6-44F1-86E5-712868BE3085}"
+	ProjectSection(ProjectDependencies) = postProject
+		{13A088A1-414A-48C2-AF97-AD81F4F4E4E8} = {13A088A1-414A-48C2-AF97-AD81F4F4E4E8}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestOfficeCore", "TestOfficeCore\TestOfficeCore.vcxproj", "{9245B334-9F7E-483F-9BFD-C46C8608E460}"
 	ProjectSection(ProjectDependencies) = postProject
-		{13A088A1-414A-48C2-AF97-AD81F4F4E4E8} = {13A088A1-414A-48C2-AF97-AD81F4F4E4E8}
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98} = {3F73FA4A-E896-4D98-A894-51DD0C646F98}
 		{8A31B8CE-A8B5-45F0-A236-7F8DF16FB250} = {8A31B8CE-A8B5-45F0-A236-7F8DF16FB250}
-		{F6677DE8-A3B6-44F1-86E5-712868BE3085} = {F6677DE8-A3B6-44F1-86E5-712868BE3085}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleStream", "SimpleStream\SimpleStream.vcxproj", "{13A088A1-414A-48C2-AF97-AD81F4F4E4E8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NDHttp", "NDHttp\NDHttp.vcxproj", "{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PPTXOfficeCore", "PPTXOfficeCore\PPTXOfficeCore.vcxproj", "{3F73FA4A-E896-4D98-A894-51DD0C646F98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,16 +96,16 @@ Global
 		{13A088A1-414A-48C2-AF97-AD81F4F4E4E8}.UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
 		{13A088A1-414A-48C2-AF97-AD81F4F4E4E8}.正式版UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
 		{13A088A1-414A-48C2-AF97-AD81F4F4E4E8}.正式版UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.MTDebug|Win32.ActiveCfg = MTDebug|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.MTDebug|Win32.Build.0 = MTDebug|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.MTRelease|Win32.ActiveCfg = MTRelease|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.MTRelease|Win32.Build.0 = MTRelease|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.UnicodeDebug|Win32.ActiveCfg = UnicodeDebug|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.UnicodeDebug|Win32.Build.0 = UnicodeDebug|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.正式版UnicodeRelease|Win32.ActiveCfg = 正式版UnicodeRelease|Win32
-		{B30ED134-C9A4-4093-95A7-BFF8701DD4B2}.正式版UnicodeRelease|Win32.Build.0 = 正式版UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.MTDebug|Win32.ActiveCfg = UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.MTDebug|Win32.Build.0 = UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.MTRelease|Win32.ActiveCfg = UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.MTRelease|Win32.Build.0 = UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.UnicodeDebug|Win32.ActiveCfg = UnicodeDebug|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.UnicodeDebug|Win32.Build.0 = UnicodeDebug|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.正式版UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
+		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.正式版UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

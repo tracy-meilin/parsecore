@@ -36,6 +36,8 @@ public:
 
 	shared_ptr<VirtualStream> _spDocumentSummaryInformationStream = nullptr;
 
+	shared_ptr<VirtualStream> _spEncryptionInfoStream = nullptr;
+
 	shared_ptr<CurrentUserAtom> _spCurrentUserAtom = nullptr;
 
 	shared_ptr<UserEditAtom> _spLastUserEdit = nullptr;
