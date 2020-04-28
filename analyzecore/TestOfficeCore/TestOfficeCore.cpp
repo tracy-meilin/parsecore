@@ -30,7 +30,7 @@ void TestLibZippp()
 void TestOfficeCore()
 {
 	shared_ptr<CNDPowerpointDoc> spDoc = make_shared<CNDPowerpointDoc>();
-	spDoc->OpenDoc(_T("F:\\ppttest\\1.ppt"));
+	spDoc->OpenDoc(_T("..\\..\\analyzecore\\testCase\\1.ppt"));
 
 	std::vector<shared_ptr<CNDSlide>> vecSlides = spDoc->GetSlides();
 
@@ -83,7 +83,7 @@ void TestOfficeCore()
 void TestPPTXOfficeCore()
 {
 	shared_ptr<CNDPPTXPowerpointDoc> spDoc = make_shared<CNDPPTXPowerpointDoc>();
-	if (!spDoc->OpenDoc(_T("F:\\ppttest\\ÎÄ±¾.pptx")))
+	if (!spDoc->OpenDoc(_T("..\\..\\analyzecore\\testCase\\1.pptx")))
 		return;
 
 
@@ -91,7 +91,7 @@ void TestPPTXOfficeCore()
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	TestOfficeCore();
+	TestPPTXOfficeCore();
 	return 0;
 }
 
