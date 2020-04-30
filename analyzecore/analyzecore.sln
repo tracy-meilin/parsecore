@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleStream", "SimpleStrea
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PPTXOfficeCore", "PPTXOfficeCore\PPTXOfficeCore.vcxproj", "{3F73FA4A-E896-4D98-A894-51DD0C646F98}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OdfOfficeCore", "OdfOfficeCore\OdfOfficeCore.vcxproj", "{BFE3EDFA-2402-46F9-92AA-A72041656AD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		UnicodeDebug|Win32 = UnicodeDebug|Win32
@@ -61,6 +63,10 @@ Global
 		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.UnicodeDebug|Win32.Build.0 = UnicodeDebug|Win32
 		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
 		{3F73FA4A-E896-4D98-A894-51DD0C646F98}.UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
+		{BFE3EDFA-2402-46F9-92AA-A72041656AD4}.UnicodeDebug|Win32.ActiveCfg = UnicodeDebug|Win32
+		{BFE3EDFA-2402-46F9-92AA-A72041656AD4}.UnicodeDebug|Win32.Build.0 = UnicodeDebug|Win32
+		{BFE3EDFA-2402-46F9-92AA-A72041656AD4}.UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
+		{BFE3EDFA-2402-46F9-92AA-A72041656AD4}.UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
