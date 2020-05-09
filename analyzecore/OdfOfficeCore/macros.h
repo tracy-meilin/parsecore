@@ -41,3 +41,5 @@ template <typename T, size_t S> char(&sal_n_array_size(T(&)[S]))[S];
 #   define SAL_STRINGIFY_ARG(x) #x
 #   define SAL_STRINGIFY(x) SAL_STRINGIFY_ARG(x)
 #endif
+
+#define XML_CAST( str ) reinterpret_cast< const sal_Char* >( str )

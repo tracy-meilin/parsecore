@@ -5,7 +5,7 @@
 
 
 SvXMLImportContext::SvXMLImportContext(SvXMLImport& rImport,
-	sal_uInt16 nPrfx,
+	const wstring& strPrefix,
 	const wstring& rLName)
 	: mrImport(rImport)
 {
@@ -16,14 +16,14 @@ SvXMLImportContext::~SvXMLImportContext()
 {
 }
 
-std::shared_ptr<SvXMLImportContext> SvXMLImportContext::CreateChildContext(sal_uInt16 nPrefix,
+std::shared_ptr<SvXMLImportContext> SvXMLImportContext::CreateChildContext(const wstring& strPrefix,
 	const wstring& rLocalName, 
-	const AttributeList& rAttributeList)
+	const shared_ptr<AttributeList>& rAttributeList)
 {
-	return mrImport.CreateContext(nPrefix, rLocalName, rAttributeList);
+	return mrImport.CreateContext(strPrefix, rLocalName, rAttributeList);
 }
 
-void SvXMLImportContext::StartElement()
+void SvXMLImportContext::StartElement(const shared_ptr<AttributeList>& rAttributeList)
 {
 
 }

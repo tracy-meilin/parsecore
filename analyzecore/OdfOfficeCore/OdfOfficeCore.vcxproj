@@ -54,8 +54,9 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ODFOFFICECORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ODFOFFICECORE_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)third-party/libxml2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -86,7 +87,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attributelist.h" />
+    <ClInclude Include="DebugPrintf.h" />
+    <ClInclude Include="fastparser.h" />
     <ClInclude Include="macros.h" />
+    <ClInclude Include="NDOdfApplication.h" />
+    <ClInclude Include="NDOdfPowerPointDoc.h" />
+    <ClInclude Include="OdfOfficeCore.h" />
+    <ClInclude Include="OdfOfficeCoreHeaders.h" />
     <ClInclude Include="SdXMLBodyContext_Impl.h" />
     <ClInclude Include="SdXMLDocContext_Impl.h" />
     <ClInclude Include="sdxmlimp_impl.h" />
@@ -102,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="attributelist.cpp" />
+    <ClCompile Include="DebugPrintf.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">
@@ -110,6 +118,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="fastparser.cpp" />
+    <ClCompile Include="NDOdfApplication.cpp" />
+    <ClCompile Include="NDOdfPowerPointDoc.cpp" />
     <ClCompile Include="OdfOfficeCore.cpp" />
     <ClCompile Include="SdXMLBodyContext_Impl.cpp" />
     <ClCompile Include="SdXMLDocContext_Impl.cpp" />

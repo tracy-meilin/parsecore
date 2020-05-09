@@ -10,10 +10,10 @@
 
 
 SdXMLDocContext_Impl::SdXMLDocContext_Impl(SvXMLImport& rImport, 
-	sal_uInt16 nPrfx,
+	const wstring& strPrfx,
 	const wstring& rLName,
-	const AttributeList& rAttrList)
-	: SvXMLImportContext(rImport, nPrfx, rLName)
+	const shared_ptr<AttributeList>& rAttributeList)
+	: SvXMLImportContext(rImport, strPrfx, rLName)
 {
 
 }
@@ -22,27 +22,27 @@ SdXMLDocContext_Impl::~SdXMLDocContext_Impl()
 {
 }
 
-std::shared_ptr<SvXMLImportContext> SdXMLDocContext_Impl::CreateChildContext(sal_uInt16 nPrefix, 
+std::shared_ptr<SvXMLImportContext> SdXMLDocContext_Impl::CreateChildContext(const wstring& strPrefix,
 	const wstring& rLocalName, 
-	const AttributeList& rAttributeList)
+	const shared_ptr<AttributeList>& rAttributeList)
 {
 	shared_ptr<SvXMLImportContext> spContext = nullptr;
 
-	const SvXMLTokenMap& rTokenMap = GetSdImport().GetDocElemTokenMap();
-	switch (rTokenMap.Get(nPrefix, rLocalName))
-	{
-		case XML_TOK_DOC_BODY:
-		{
-			int n = static_cast<int>(GetImport().getImportFlags());
-			if (GetImport().getImportFlags() & SvXMLImportFlags::CONTENT)
-			{
-				// office:body inside office:document
-				spContext = make_shared<SdXMLBodyContext_Impl>(GetSdImport(), nPrefix,
-					rLocalName, rAttributeList);
-			}
-			break;
-		}
-	}
+	//const SvXMLTokenMap& rTokenMap = GetSdImport().GetDocElemTokenMap();
+	//switch (rTokenMap.Get(nPrefix, rLocalName))
+	//{
+	//	case XML_TOK_DOC_BODY:
+	//	{
+	//		int n = static_cast<int>(GetImport().getImportFlags());
+	//		if (GetImport().getImportFlags() & SvXMLImportFlags::CONTENT)
+	//		{
+	//			// office:body inside office:document
+	//			spContext = make_shared<SdXMLBodyContext_Impl>(GetSdImport(), nPrefix,
+	//				rLocalName, rAttributeList);
+	//		}
+	//		break;
+	//	}
+	//}
 
 	return nullptr;
 }

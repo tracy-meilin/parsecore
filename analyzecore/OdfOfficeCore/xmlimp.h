@@ -23,6 +23,8 @@ namespace o3tl
 
 class SvXMLImportContext;
 
+typedef std::vector<shared_ptr<SvXMLImportContext>> SvXMLImportContexts_Impl;
+
 class SvXMLImport
 {
 public:
@@ -31,11 +33,14 @@ public:
 
 	SvXMLImportFlags  getImportFlags() const { return mnImportFlags; }
 
-	shared_ptr<SvXMLImportContext> CreateContext(sal_uInt16 nPrefix,
+	shared_ptr<SvXMLImportContext> CreateContext(const wstring& strPrefix,
 		const wstring& rLocalName,
-		const AttributeList& rAttrList);
+		const shared_ptr<AttributeList>& rAttrList);
+
+	void startElement(const wstring& strPrefix, const wstring& strLocalName, const shared_ptr<AttributeList>& spAttributeList);
 
 private:
 	SvXMLImportFlags  mnImportFlags;
+	SvXMLImportContexts_Impl mpContexts;
 };
 

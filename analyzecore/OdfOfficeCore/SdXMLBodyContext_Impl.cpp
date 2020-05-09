@@ -6,10 +6,10 @@
 
 
 SdXMLBodyContext_Impl::SdXMLBodyContext_Impl(SvXMLImport& rImport, 
-	sal_uInt16 nPrfx,
+	const wstring& strPrfx,
 	const wstring& rLName,
-	const AttributeList& rAttrList)
-	: SvXMLImportContext(rImport, nPrfx, rLName)
+	const shared_ptr<AttributeList>& rAttrList)
+	: SvXMLImportContext(rImport, strPrfx, rLName)
 {
 }
 
@@ -18,9 +18,9 @@ SdXMLBodyContext_Impl::~SdXMLBodyContext_Impl()
 {
 }
 
-std::shared_ptr<SvXMLImportContext> SdXMLBodyContext_Impl::CreateChildContext(sal_uInt16 nPrefix, 
+std::shared_ptr<SvXMLImportContext> SdXMLBodyContext_Impl::CreateChildContext(const wstring& strPrefix,
 	const wstring& rLocalName, 
-	const AttributeList& rAttributeList)
+	const shared_ptr<AttributeList>& rAttributeList)
 {
 	return nullptr;
 }

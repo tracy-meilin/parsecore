@@ -27,12 +27,16 @@ using namespace std;
 #include "../OfficeCore/OfficeCoreHeaders.h"
 #include "../PPTXOfficeCore/PPTXOfficeCoreHeaders.h"
 
+#include "../OdfOfficeCore/OdfOfficeCoreHeaders.h"
+
 #ifdef _DEBUG
 #pragma comment(lib, "OfficeCore_ud.lib")
 #pragma comment(lib, "PPTXOfficeCore_ud.lib")
+#pragma comment(lib, "OdfOfficeCore_ud.lib")
 #pragma comment(lib, "libxml2.lib")
 #else
 #pragma comment(lib, "OfficeCore_u.lib")
 #pragma comment(lib, "PPTXOfficeCore_u.lib")
+#pragma comment(lib, "OdfOfficeCore_u.lib")
 #pragma comment(lib, "libxml2.lib")
 #endif

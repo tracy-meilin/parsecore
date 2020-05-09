@@ -60,6 +60,24 @@
     <ClInclude Include="xmlictxt.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="fastparser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDOdfPowerPointDoc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OdfOfficeCoreHeaders.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OdfOfficeCore.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugPrintf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDOdfApplication.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -93,6 +111,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="xmlictxt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fastparser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDOdfPowerPointDoc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugPrintf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDOdfApplication.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

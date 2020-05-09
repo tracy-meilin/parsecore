@@ -4,13 +4,13 @@ class SdXMLBodyContext_Impl
 {
 public:
 	SdXMLBodyContext_Impl(SvXMLImport& rImport, 
-		sal_uInt16 nPrfx,
+		const wstring& nPrfx,
 		const wstring& rLName,
-		const AttributeList& rAttrList);
+		const shared_ptr<AttributeList>& rAttrList);
 	virtual ~SdXMLBodyContext_Impl();
 
-	virtual shared_ptr<SvXMLImportContext> CreateChildContext(sal_uInt16 nPrefix,
+	virtual shared_ptr<SvXMLImportContext> CreateChildContext(const wstring& strPrefix,
 		const wstring& rLocalName, 
-		const AttributeList& rAttributeList) override;
+		const shared_ptr<AttributeList>& rAttributeList) override;
 };
 

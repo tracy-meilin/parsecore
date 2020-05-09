@@ -6,15 +6,15 @@ class SvXMLImportContext
 {
 public:
 	SvXMLImportContext(SvXMLImport& rImport, 
-		sal_uInt16 nPrfx,
+		const wstring& strPrefix,
 		const wstring& rLName);
 	virtual ~SvXMLImportContext();
 
-	virtual shared_ptr<SvXMLImportContext> CreateChildContext(sal_uInt16 nPrefix, 
+	virtual shared_ptr<SvXMLImportContext> CreateChildContext(const wstring& strPrefix,
 		const wstring& rLocalName, 
-		const AttributeList& rAttributeList);
+		const shared_ptr<AttributeList>& rAttributeList);
 
-	virtual void StartElement();
+	virtual void StartElement(const shared_ptr<AttributeList>& rAttributeList);
 
 	virtual void EndElement();
 

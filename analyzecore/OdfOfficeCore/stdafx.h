@@ -17,10 +17,20 @@
 #include <codecvt>
 #include <set>
 #include <vector>
+#include <stack>
 
 
 // TODO:  在此处引用程序需要的其他头文件
 #include "types.h"
 #include "macros.h"
+
+#include "libxml/xmlstring.h"
+#include "libxml/parser.h"
+
+#ifdef _DEBUG
+#pragma comment(lib, "libxml2.lib")
+#else
+#endif // DEBUG
+
 
 using namespace std;
