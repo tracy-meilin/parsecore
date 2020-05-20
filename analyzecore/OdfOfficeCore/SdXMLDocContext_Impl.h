@@ -1,5 +1,6 @@
 #pragma once
 
+
 class SdXMLDocContext_Impl 
 	: public virtual SvXMLImportContext
 {
@@ -18,3 +19,20 @@ protected:
 	SdXMLImport& GetSdImport(){ return static_cast<SdXMLImport&>(GetImport()); }
 };
 
+class SdXMLFlatDocContext_Impl
+	: public SdXMLDocContext_Impl
+	, public SvXMLMetaDocumentContext
+{
+public:
+	SdXMLFlatDocContext_Impl(SvXMLImport& rImport,
+		const wstring& strPrfx,
+		const wstring& rLName,
+		const shared_ptr<AttributeList>& rAttrList
+		);
+
+	virtual ~SdXMLFlatDocContext_Impl();
+
+	virtual shared_ptr<SvXMLImportContext> CreateChildContext(const wstring& strPrefix,
+		const wstring& rLocalName,
+		const shared_ptr<AttributeList>& rAttributeList) override;
+};

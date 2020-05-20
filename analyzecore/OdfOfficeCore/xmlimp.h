@@ -33,7 +33,7 @@ public:
 
 	SvXMLImportFlags  getImportFlags() const { return mnImportFlags; }
 
-	shared_ptr<SvXMLImportContext> CreateContext(const wstring& strPrefix,
+	virtual shared_ptr<SvXMLImportContext> CreateContext(const wstring& strPrefix,
 		const wstring& rLocalName,
 		const shared_ptr<AttributeList>& rAttrList);
 

@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include "OdfOfficeCore.h"
 #include "DebugPrintf.h"
+#include "xmltoken.h"
+#include "xmltkmap.h"
 #include "attributelist.h"
 #include "NDOdfPowerPointDoc.h"
 #include "xmlimp.h"
+#include "sdxmlimp_impl.h"
 #include "fastparser.h"
 
 
@@ -59,7 +62,7 @@ extern "C" {
 
 FastSaxParserImpl::FastSaxParserImpl(FastSaxParser*)
 {
-	m_spSvxXMLImport = make_shared<SvXMLImport>();
+	m_spSvxXMLImport = make_shared<SdXMLImport>();
 	m_spAttributeList = make_shared<AttributeList>();
 	m_spOdfPowerPointDoc = make_shared<CNDOdfPowerPointDoc>();
 }

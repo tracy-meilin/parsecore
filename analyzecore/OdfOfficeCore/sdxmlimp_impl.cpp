@@ -4,6 +4,11 @@
 #include "xmltkmap.h"
 #include "attributelist.h"
 #include "xmlimp.h"
+#include "xmlictxt.h"
+#include "sdxmlimp_impl.h"
+#include "xmlmetai.h"
+#include "SdXMLBodyContext_Impl.h"
+#include "SdXMLDocContext_Impl.h"
 #include "sdxmlimp_impl.h"
 
 using namespace ::xmloff::token;
@@ -15,6 +20,21 @@ SdXMLImport::SdXMLImport()
 
 SdXMLImport::~SdXMLImport()
 {
+}
+
+std::shared_ptr<SvXMLImportContext> SdXMLImport::CreateContext(const wstring& strPrefix, 
+	const wstring& rLocalName, 
+	const shared_ptr<AttributeList>& rAttrList)
+{
+	shared_ptr<SvXMLImportContext> spContext = nullptr;
+	//
+	if ((strPrefix == L"office")
+		&& (rLocalName == L"document"))
+	{
+		spContext = make_shared<SdXMLFlatDocContext_Impl>(*this, strPrefix, rLocalName, rAttrList);
+	}
+
+	return nullptr;
 }
 
 const SvXMLTokenMap& SdXMLImport::GetDocElemTokenMap()

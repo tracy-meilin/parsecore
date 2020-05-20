@@ -5,6 +5,7 @@
 #include "xmlimp.h"
 #include "sdxmlimp_impl.h"
 #include "xmlictxt.h"
+#include "xmlmetai.h"
 #include "SdXMLBodyContext_Impl.h"
 #include "SdXMLDocContext_Impl.h"
 
@@ -45,4 +46,35 @@ std::shared_ptr<SvXMLImportContext> SdXMLDocContext_Impl::CreateChildContext(con
 	//}
 
 	return nullptr;
+}
+
+SdXMLFlatDocContext_Impl::SdXMLFlatDocContext_Impl(SvXMLImport& rImport, 
+	const wstring& strPrfx, 
+	const wstring& rLName, 
+	const shared_ptr<AttributeList>& rAttrList)
+	: SvXMLImportContext(rImport, strPrfx, rLName)
+	, SdXMLDocContext_Impl(rImport, strPrfx, rLName, rAttrList)
+	, SvXMLMetaDocumentContext(rImport, strPrfx, rLName, rAttrList)
+{
+
+}
+
+SdXMLFlatDocContext_Impl::~SdXMLFlatDocContext_Impl()
+{
+
+}
+
+std::shared_ptr<SvXMLImportContext> SdXMLFlatDocContext_Impl::CreateChildContext(const wstring& strPrefix, 
+	const wstring& rLocalName, 
+	const shared_ptr<AttributeList>& rAttributeList)
+{
+	if ((strPrefix == L"office")
+		&& (rLocalName == L"meta"))
+	{
+		return SvXMLMetaDocumentContext::CreateChildContext(strPrefix, rLocalName, rAttributeList);
+	}
+	else
+	{
+		return SdXMLDocContext_Impl::CreateChildContext(strPrefix, rLocalName, rAttributeList);
+	}
 }

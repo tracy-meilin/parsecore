@@ -17,14 +17,7 @@ std::shared_ptr<SvXMLImportContext> SvXMLImport::CreateContext(const wstring& st
 	const wstring& rLocalName, 
 	const shared_ptr<AttributeList>& rAttrList)
 {
-	//return make_shared<SvXMLImportContext>(*this, strPrefix, rLocalName);
-	if ((strPrefix == L"office")
-		&& (rLocalName == L"document"))
-	{
-
-	}
-
-	return nullptr;
+	return make_shared<SvXMLImportContext>(*this, strPrefix, rLocalName);
 }
 
 void SvXMLImport::startElement(const wstring& strPrefix, 

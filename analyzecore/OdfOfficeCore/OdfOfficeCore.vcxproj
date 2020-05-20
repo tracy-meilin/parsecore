@@ -103,6 +103,7 @@
     <ClInclude Include="types.h" />
     <ClInclude Include="xmlictxt.h" />
     <ClInclude Include="xmlimp.h" />
+    <ClInclude Include="xmlmetai.h" />
     <ClInclude Include="xmlnmspe.h" />
     <ClInclude Include="xmltkmap.h" />
     <ClInclude Include="xmltoken.h" />
@@ -131,6 +132,7 @@
     </ClCompile>
     <ClCompile Include="xmlictxt.cpp" />
     <ClCompile Include="xmlimp.cpp" />
+    <ClCompile Include="xmlmetai.cpp" />
     <ClCompile Include="xmltkmap.cpp" />
     <ClCompile Include="xmltoken.cpp" />
   </ItemGroup>
