@@ -23,5 +23,12 @@ public:
 		const wstring& rLocalName,
 		const shared_ptr<AttributeList>& rAttributeList, 
 		const shared_ptr<CNDOdfSlide>& rSpSlide);
+
+	shared_ptr<SvXMLShapeContext> CreateFrameChildContext(SvXMLImport& rImport,
+		const wstring& strPrefix,
+		const wstring& rLocalName,
+		const shared_ptr<AttributeList>& rAttributeList,
+		const shared_ptr<CNDOdfSlide>& rSpSlide, 
+		const shared_ptr<AttributeList>& rFrameAttrList);
 };
 

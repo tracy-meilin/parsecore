@@ -39,6 +39,12 @@ AttributeList::AttributeList(const AttributeList& r)
 	*m_pImpl = *(r.m_pImpl);
 }
 
+AttributeList::AttributeList(const shared_ptr<AttributeList>& r)
+	: m_pImpl(new AttributeList_Impl)
+{
+	*m_pImpl = *(r->m_pImpl);
+}
+
 AttributeList::~AttributeList()
 {
 
@@ -49,17 +55,30 @@ void AttributeList::AddAttribute(const wstring& sName, const wstring& sType, con
 	m_pImpl->vecAttribute.push_back(TagAttribute_Impl(sName, sType, sValue));
 }
 
+void AttributeList::AppendAttributeList(const shared_ptr<AttributeList>& r)
+{
+	int nMax = r->getLength();
+
+	int nTotalSize = m_pImpl->vecAttribute.size() + nMax;
+	m_pImpl->vecAttribute.reserve(nTotalSize);
+
+	for (int i = 0; i < nMax; ++i)
+	{
+		m_pImpl->vecAttribute.push_back(TagAttribute_Impl(r->getNameByIndex(i), L"", r->getValueByIndex(i)));
+	}
+}
+
 void AttributeList::Clear()
 {
 	m_pImpl->vecAttribute.clear();
 }
 
-sal_Int16 AttributeList::getLength()
+sal_Int16 AttributeList::getLength() const
 {
 	return (sal_Int16)(m_pImpl->vecAttribute.size());
 }
 
-std::wstring AttributeList::getNameByIndex(sal_Int16 i)
+std::wstring AttributeList::getNameByIndex(sal_Int16 i) const
 {
 	return (i < static_cast < sal_Int16 > (m_pImpl->vecAttribute.size())) ? m_pImpl->vecAttribute[i].sName : wstring();
 }
@@ -84,7 +103,7 @@ std::wstring AttributeList::getTypeByName(const wstring& aName)
 	return wstring();
 }
 
-std::wstring AttributeList::getValueByIndex(sal_Int16 i)
+std::wstring AttributeList::getValueByIndex(sal_Int16 i) const
 {
 	return (i < static_cast < sal_Int16 > (m_pImpl->vecAttribute.size())) ? m_pImpl->vecAttribute[i].sValue : wstring();
 }

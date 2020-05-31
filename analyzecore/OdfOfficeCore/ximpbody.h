@@ -1,9 +1,23 @@
 #pragma once
 
 // draw:page
-class SdXMLDrawPageContext
+class SdXMLGenericPageContext;
+class SdXMLDrawPageContext 
+	: public SdXMLGenericPageContext
 {
+public:
+	SdXMLDrawPageContext(SvXMLImport& rImport,
+		const wstring& nPrfx,
+		const wstring& rLName,
+		const shared_ptr<AttributeList>& rAttrList,
+		const shared_ptr<CNDOdfSlide>& rSpSlide);
+	virtual ~SdXMLDrawPageContext();
 
+	virtual shared_ptr<SvXMLImportContext> CreateChildContext(const wstring& strPrefix,
+		const wstring& rLocalName,
+		const shared_ptr<AttributeList>& rAttributeList) override;
+
+	virtual void EndElement() override;
 };
 
 // office:presentation

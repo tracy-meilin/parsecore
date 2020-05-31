@@ -9,6 +9,8 @@
 #include "xmlmetai.h"
 #include "SdXMLBodyContext_Impl.h"
 #include "SdXMLDocContext_Impl.h"
+#include "NDOdfSlide.h"
+#include "ximppage.h"
 #include "ximpbody.h"
 #include "sdxmlimp_impl.h"
 

@@ -96,6 +96,15 @@
     <ClInclude Include="ximpshap.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="converter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Size.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -159,6 +168,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ximpshap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="converter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

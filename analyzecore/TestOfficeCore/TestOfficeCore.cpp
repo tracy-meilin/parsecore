@@ -92,9 +92,11 @@ void TestPPTXOfficeCore()
 //fodp格式的读取
 void TestOdfOfficeCore()
 {
-	shared_ptr<CNDOdfPowerPointDoc> spDoc = make_shared<CNDOdfPowerPointDoc>();
+	shared_ptr<CNDOdfApplication> spApplication = make_shared<CNDOdfApplication>();
+	spApplication->OpenDoc(_T("..\\..\\analyzecore\\testCase\\1.fodp"));
+	/*shared_ptr<CNDOdfPowerPointDoc> spDoc = make_shared<CNDOdfPowerPointDoc>();
 	if (spDoc->OpenDoc(_T("..\\..\\analyzecore\\testCase\\1.fodp")))
-		return;
+		return;*/
 }
 
 int _tmain(int argc, _TCHAR* argv[])

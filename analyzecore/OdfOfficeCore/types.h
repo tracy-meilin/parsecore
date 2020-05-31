@@ -38,3 +38,6 @@ typedef wchar_t sal_Unicode;
 
 
 #define SAL_CONSTEXPR
+
+#define SAL_MIN_INT32         ((sal_Int32)  (-0x7FFFFFFF - 1))
+#define SAL_MAX_INT32         ((sal_Int32)  0x7FFFFFFF)

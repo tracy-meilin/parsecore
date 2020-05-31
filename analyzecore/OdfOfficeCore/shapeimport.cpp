@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "Size.h"
+#include "Point.h"
 #include "attributelist.h"
 #include "xmlimp.h"
 #include "xmlictxt.h"
@@ -55,6 +57,42 @@ std::shared_ptr<SvXMLShapeContext> XMLShapeImportHelper::CreateGroupChildContext
 
 		if (spContext)
 			spContext->processAttribute(strPrefix, rAttrName, rValue);
+	}
+
+	return spContext;
+}
+
+std::shared_ptr<SvXMLShapeContext> XMLShapeImportHelper::CreateFrameChildContext(SvXMLImport& rImport,
+	const wstring& strPrefix, 
+	const wstring& rLocalName, 
+	const shared_ptr<AttributeList>& rAttributeList, 
+	const shared_ptr<CNDOdfSlide>& rSpSlide, 
+	const shared_ptr<AttributeList>& rFrameAttrList)
+{
+	shared_ptr<SdXMLShapeContext> spContext = nullptr;
+
+	shared_ptr<AttributeList> spAttrList = make_shared<AttributeList>(rAttributeList);
+	if (rFrameAttrList)
+	{
+		spAttrList->AppendAttributeList(rFrameAttrList);
+	}
+
+	if ((strPrefix == L"draw")
+		&& (rLocalName == L"text-box"))
+	{
+		spContext = make_shared<SdXMLTextBoxShapeContext>(rImport, strPrefix, rLocalName, spAttrList, rSpSlide);
+	}
+
+	if (spContext)
+	{
+		int nAttrCount = spAttrList ? spAttrList->getLength() : 0;
+		for (int i = 0; i < nAttrCount; ++i)
+		{
+			const wstring rAttrName = spAttrList->getNameByIndex(i);
+			const wstring rValue = spAttrList->getValueByIndex(i);
+
+			spContext->processAttribute(strPrefix, rAttrName, rValue);
+		}
 	}
 
 	return spContext;
