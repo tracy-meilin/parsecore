@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "OdfOfficeCore.h"
 #include "attributelist.h"
 #include "xmlimp.h"
 #include "fastparser.h"

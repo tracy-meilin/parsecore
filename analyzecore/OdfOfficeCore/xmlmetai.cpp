@@ -15,6 +15,35 @@ XMLDocumentBuilderContext::XMLDocumentBuilderContext(SvXMLImport& rImport,
 
 
 
+XMLDocumentBuilderContext::~XMLDocumentBuilderContext()
+{
+
+}
+
+std::shared_ptr<SvXMLImportContext> XMLDocumentBuilderContext::CreateChildContext(const wstring& strPrefix, 
+	const wstring& rLocalName, 
+	const shared_ptr<AttributeList>& rAttributeList)
+{
+	return make_shared<XMLDocumentBuilderContext>(GetImport(), strPrefix, rLocalName, rAttributeList);
+}
+
+void XMLDocumentBuilderContext::StartElement(const shared_ptr<AttributeList>& rAttributeList)
+{
+
+}
+
+void XMLDocumentBuilderContext::EndElement()
+{
+
+}
+
+void XMLDocumentBuilderContext::Characters()
+{
+
+}
+
+//////////////////////////////////////////////////////////////////////////
+
 SvXMLMetaDocumentContext::SvXMLMetaDocumentContext(SvXMLImport& rImport,
 	const wstring& strPrfx,
 	const wstring& rLName,

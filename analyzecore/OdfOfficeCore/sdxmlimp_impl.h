@@ -24,6 +24,10 @@ public:
 		const wstring& rLocalName,
 		const shared_ptr<AttributeList>& rAttrList);
 
+	shared_ptr<SvXMLImportContext> CreateBodyContext(const wstring& strPrefix,
+		const wstring& rLocalName,
+		const shared_ptr<AttributeList>& rAttrList);
+
 	const SvXMLTokenMap& GetDocElemTokenMap();
 
 private:

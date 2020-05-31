@@ -2,6 +2,8 @@
 class SdXMLBodyContext_Impl 
 	: public SvXMLImportContext
 {
+	SdXMLImport& GetSdImport() { return static_cast<SdXMLImport&>(GetImport()); }
+
 public:
 	SdXMLBodyContext_Impl(SvXMLImport& rImport, 
 		const wstring& nPrfx,

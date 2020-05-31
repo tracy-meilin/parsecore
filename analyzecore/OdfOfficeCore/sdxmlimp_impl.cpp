@@ -9,6 +9,7 @@
 #include "xmlmetai.h"
 #include "SdXMLBodyContext_Impl.h"
 #include "SdXMLDocContext_Impl.h"
+#include "ximpbody.h"
 #include "sdxmlimp_impl.h"
 
 using namespace ::xmloff::token;
@@ -33,8 +34,28 @@ std::shared_ptr<SvXMLImportContext> SdXMLImport::CreateContext(const wstring& st
 	{
 		spContext = make_shared<SdXMLFlatDocContext_Impl>(*this, strPrefix, rLocalName, rAttrList);
 	}
+	else
+	{
+		spContext = SvXMLImport::CreateContext(strPrefix, rLocalName, rAttrList);
+	}
+	/*else if ((strPrefix == L"office") 
+		&& ((rLocalName == L"") || (rLocalName == L"") || (rLocalName == L"")))
+	{
 
-	return nullptr;
+	}*/
+
+	return spContext;
+}
+
+std::shared_ptr<SvXMLImportContext> SdXMLImport::CreateBodyContext(const wstring& strPrefix, 
+	const wstring& rLocalName,
+	const shared_ptr<AttributeList>& rAttrList)
+{
+	shared_ptr<SvXMLImportContext> spContext = nullptr;
+
+	spContext = make_shared<SdXMLBodyContext>(*this, strPrefix, rLocalName);
+
+	return spContext;
 }
 
 const SvXMLTokenMap& SdXMLImport::GetDocElemTokenMap()

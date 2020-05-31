@@ -81,6 +81,21 @@
     <ClInclude Include="xmlmetai.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ximpbody.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NDOdfSlide.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ximppage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="shapeimport.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ximpshap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -129,6 +144,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="xmlmetai.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ximpbody.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NDOdfSlide.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ximppage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="shapeimport.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ximpshap.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

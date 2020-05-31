@@ -92,15 +92,20 @@
     <ClInclude Include="macros.h" />
     <ClInclude Include="NDOdfApplication.h" />
     <ClInclude Include="NDOdfPowerPointDoc.h" />
+    <ClInclude Include="NDOdfSlide.h" />
     <ClInclude Include="OdfOfficeCore.h" />
     <ClInclude Include="OdfOfficeCoreHeaders.h" />
     <ClInclude Include="SdXMLBodyContext_Impl.h" />
     <ClInclude Include="SdXMLDocContext_Impl.h" />
     <ClInclude Include="sdxmlimp_impl.h" />
+    <ClInclude Include="shapeimport.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="typed_flags_set.h" />
     <ClInclude Include="types.h" />
+    <ClInclude Include="ximpbody.h" />
+    <ClInclude Include="ximppage.h" />
+    <ClInclude Include="ximpshap.h" />
     <ClInclude Include="xmlictxt.h" />
     <ClInclude Include="xmlimp.h" />
     <ClInclude Include="xmlmetai.h" />
@@ -122,14 +127,19 @@
     <ClCompile Include="fastparser.cpp" />
     <ClCompile Include="NDOdfApplication.cpp" />
     <ClCompile Include="NDOdfPowerPointDoc.cpp" />
+    <ClCompile Include="NDOdfSlide.cpp" />
     <ClCompile Include="OdfOfficeCore.cpp" />
     <ClCompile Include="SdXMLBodyContext_Impl.cpp" />
     <ClCompile Include="SdXMLDocContext_Impl.cpp" />
     <ClCompile Include="sdxmlimp_impl.cpp" />
+    <ClCompile Include="shapeimport.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='UnicodeRelease|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ximpbody.cpp" />
+    <ClCompile Include="ximppage.cpp" />
+    <ClCompile Include="ximpshap.cpp" />
     <ClCompile Include="xmlictxt.cpp" />
     <ClCompile Include="xmlimp.cpp" />
     <ClCompile Include="xmlmetai.cpp" />

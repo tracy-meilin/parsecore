@@ -1,6 +1,8 @@
 #include "stdafx.h"
-#include "OdfOfficeCore.h"
+#include "attributelist.h"
+#include "xmlimp.h"
 #include "NDOdfPowerPointDoc.h"
+#include "fastparser.h"
 #include "NDOdfApplication.h"
 
 
@@ -15,5 +17,9 @@ CNDOdfApplication::~CNDOdfApplication()
 
 std::shared_ptr<CNDOdfPowerPointDoc> CNDOdfApplication::OpenDoc(const wstring& strDocPath)
 {
-	return nullptr;
+	shared_ptr<FastSaxParser> spFastSaxParser = make_shared<FastSaxParser>();
+	if (spFastSaxParser == nullptr)
+		return nullptr;
+
+	return spFastSaxParser->parseFodp(strDocPath);
 }

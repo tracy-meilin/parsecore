@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "attributelist.h"
 #include "xmlimp.h"
+#include "NDOdfSlide.h"
 #include "xmlictxt.h"
+#include "shapeimport.h"
 
 
 SvXMLImportContext::SvXMLImportContext(SvXMLImport& rImport,

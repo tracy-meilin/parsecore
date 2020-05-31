@@ -1,7 +1,7 @@
 #pragma once
 
 
-class CNDOdfApplication
+class ODFOfficeCore_API CNDOdfApplication
 {
 public:
 	CNDOdfApplication();

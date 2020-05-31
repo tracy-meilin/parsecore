@@ -22,6 +22,7 @@ namespace o3tl
 }
 
 class SvXMLImportContext;
+class XMLShapeImportHelper;
 
 typedef std::vector<shared_ptr<SvXMLImportContext>> SvXMLImportContexts_Impl;
 
@@ -37,9 +38,17 @@ public:
 		const wstring& rLocalName,
 		const shared_ptr<AttributeList>& rAttrList);
 
+	shared_ptr<XMLShapeImportHelper> GetShapeImport();
+
 	void startElement(const wstring& strPrefix, const wstring& strLocalName, const shared_ptr<AttributeList>& spAttributeList);
 
+	void endElement(const wstring& strPrefix, const wstring& strLocalName);
+
+	void characters(const wstring& rChars);
+
 private:
+	shared_ptr<XMLShapeImportHelper> mShapeImport = nullptr;
+
 	SvXMLImportFlags  mnImportFlags;
 	SvXMLImportContexts_Impl mpContexts;
 };

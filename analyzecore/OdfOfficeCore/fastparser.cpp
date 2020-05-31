@@ -130,7 +130,7 @@ void FastSaxParserImpl::callbackStartElement(const xmlChar *localName,
 	if (m_spAttributeList)
 		m_spAttributeList->Clear();
 
-	std::wstring_convert< std::codecvt_utf8<wchar_t> > strCnv;
+	static std::wstring_convert< std::codecvt_utf8<wchar_t> > strCnv;
 
 	wstring strPrefix = strCnv.from_bytes(XML_CAST(prefix));
 	wstring strLocalName = strCnv.from_bytes(XML_CAST(localName));
@@ -172,6 +172,16 @@ void FastSaxParserImpl::callbackEndElement(const xmlChar* localName, const xmlCh
 	if (!mStrPendingCharacters.empty())
 		sendPendingCharacters();
 
+	static std::wstring_convert< std::codecvt_utf8<wchar_t> > strCnv;
+
+	wstring strPrefix = strCnv.from_bytes(XML_CAST(prefix));
+	wstring strLocalName = strCnv.from_bytes(XML_CAST(localName));
+
+	if (m_spSvxXMLImport)
+	{
+		m_spSvxXMLImport->endElement(strPrefix, strLocalName);
+	}
+
 	/*Entity& rEntity = getEntity();
 	rEntity.endElement();*/
 }
@@ -205,6 +215,11 @@ void FastSaxParserImpl::sendPendingCharacters()
 	//rEntity.characters(mStrPendingCharacters);
 
 	REPORT_DEBUG(L"characters: %s \n", mStrPendingCharacters.c_str());
+
+	if (m_spSvxXMLImport)
+	{
+		m_spSvxXMLImport->characters(mStrPendingCharacters);
+	}
 
 	mStrPendingCharacters.clear();
 }

@@ -27,6 +27,8 @@
 #include "libxml/xmlstring.h"
 #include "libxml/parser.h"
 
+#include "OdfOfficeCore.h"
+
 #ifdef _DEBUG
 #pragma comment(lib, "libxml2.lib")
 #else

@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "attributelist.h"
+#include "xmltoken.h"
+#include "xmltkmap.h"
 #include "xmlimp.h"
 #include "xmlictxt.h"
+#include "sdxmlimp_impl.h"
 #include "SdXMLBodyContext_Impl.h"
 
 
@@ -22,5 +25,5 @@ std::shared_ptr<SvXMLImportContext> SdXMLBodyContext_Impl::CreateChildContext(co
 	const wstring& rLocalName, 
 	const shared_ptr<AttributeList>& rAttributeList)
 {
-	return nullptr;
+	return GetSdImport().CreateBodyContext(strPrefix, rLocalName, rAttributeList);
 }

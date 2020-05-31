@@ -29,6 +29,52 @@ std::shared_ptr<SvXMLImportContext> SdXMLDocContext_Impl::CreateChildContext(con
 {
 	shared_ptr<SvXMLImportContext> spContext = nullptr;
 
+	if ((strPrefix == L"office")
+		&& (rLocalName == L"body"))
+	{
+		spContext = make_shared<SdXMLBodyContext_Impl>(GetSdImport(), strPrefix, rLocalName, rAttributeList);
+	}
+	else if ((strPrefix == L"office")
+		&& (rLocalName == L"meta"))
+	{
+
+	}
+	else if ((strPrefix == L"office")
+		&& (rLocalName == L"settings"))
+	{
+
+	}
+	else if ((strPrefix == L"office")
+		&& (rLocalName == L"scripts"))
+	{
+
+	}
+	else if ((strPrefix == L"office")
+		&& (rLocalName == L"font-face-decls"))
+	{
+
+	}
+	else if ((strPrefix == L"office")
+		&& (rLocalName == L"styles"))
+	{
+
+	}
+	else if ((strPrefix == L"office")
+		&& (rLocalName == L"automatic-styles"))
+	{
+
+	}
+	else if ((strPrefix == L"office")
+		&& (rLocalName == L"master-styles"))
+	{
+
+	}
+	
+
+	// call parent when no own context was created
+	if (!spContext)
+		spContext = SvXMLImportContext::CreateChildContext(strPrefix, rLocalName, rAttributeList);
+
 	//const SvXMLTokenMap& rTokenMap = GetSdImport().GetDocElemTokenMap();
 	//switch (rTokenMap.Get(nPrefix, rLocalName))
 	//{
@@ -45,7 +91,7 @@ std::shared_ptr<SvXMLImportContext> SdXMLDocContext_Impl::CreateChildContext(con
 	//	}
 	//}
 
-	return nullptr;
+	return spContext;
 }
 
 SdXMLFlatDocContext_Impl::SdXMLFlatDocContext_Impl(SvXMLImport& rImport, 
